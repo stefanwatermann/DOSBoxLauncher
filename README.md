@@ -7,3 +7,5 @@ DOSBoxLauncher ist unter der MIT Lizenz veröffentlich.
 
 ## Entwicklung
 Das Projekt erfordert die Entwicklungsumgebung XOJO (2021r2.1). Die aktuelle Version ist für den "Dark-Mode" optimiert, die Verwendung im hellen Bildschirmmodus ist nicht getestet und daher nicht unterstützt. 
+
+![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher.png)
