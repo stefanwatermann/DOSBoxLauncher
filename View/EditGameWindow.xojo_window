@@ -45,7 +45,7 @@ Begin Window EditGameWindow
       Scope           =   2
       SmallTabs       =   False
       TabDefinition   =   "Einfach\rExperte"
-      TabIndex        =   27
+      TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -77,7 +77,7 @@ Begin Window EditGameWindow
          Multiline       =   False
          Scope           =   2
          Selectable      =   False
-         TabIndex        =   0
+         TabIndex        =   10
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   "Start Datei *"
@@ -112,7 +112,7 @@ Begin Window EditGameWindow
          LockTop         =   True
          Scope           =   2
          SelectedRowIndex=   0
-         TabIndex        =   3
+         TabIndex        =   18
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
@@ -144,7 +144,7 @@ Begin Window EditGameWindow
          Multiline       =   False
          Scope           =   2
          Selectable      =   False
-         TabIndex        =   4
+         TabIndex        =   14
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   "Scaler"
@@ -179,7 +179,7 @@ Begin Window EditGameWindow
          LockTop         =   True
          Scope           =   2
          SelectedRowIndex=   0
-         TabIndex        =   5
+         TabIndex        =   17
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
@@ -211,7 +211,7 @@ Begin Window EditGameWindow
          Multiline       =   False
          Scope           =   2
          Selectable      =   False
-         TabIndex        =   6
+         TabIndex        =   13
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   "Auflösung"
@@ -243,7 +243,7 @@ Begin Window EditGameWindow
          LockRight       =   False
          LockTop         =   True
          Scope           =   2
-         TabIndex        =   7
+         TabIndex        =   21
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
@@ -284,7 +284,7 @@ Begin Window EditGameWindow
          Password        =   False
          ReadOnly        =   False
          Scope           =   2
-         TabIndex        =   8
+         TabIndex        =   2
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   ""
@@ -317,7 +317,7 @@ Begin Window EditGameWindow
          LockRight       =   False
          LockTop         =   True
          Scope           =   2
-         TabIndex        =   9
+         TabIndex        =   22
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
@@ -350,7 +350,7 @@ Begin Window EditGameWindow
          Multiline       =   False
          Scope           =   2
          Selectable      =   False
-         TabIndex        =   10
+         TabIndex        =   0
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   "Name des Spiels *"
@@ -385,7 +385,7 @@ Begin Window EditGameWindow
          LockTop         =   True
          Scope           =   2
          SelectedRowIndex=   0
-         TabIndex        =   12
+         TabIndex        =   20
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
@@ -417,7 +417,7 @@ Begin Window EditGameWindow
          Multiline       =   False
          Scope           =   2
          Selectable      =   False
-         TabIndex        =   13
+         TabIndex        =   16
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   "CPU Cycles"
@@ -452,7 +452,7 @@ Begin Window EditGameWindow
          Multiline       =   False
          Scope           =   2
          Selectable      =   False
-         TabIndex        =   14
+         TabIndex        =   1
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   "* Pflichtfeld"
@@ -487,7 +487,7 @@ Begin Window EditGameWindow
          LockTop         =   True
          MacButtonStyle  =   0
          Scope           =   2
-         TabIndex        =   15
+         TabIndex        =   12
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
@@ -527,7 +527,7 @@ Begin Window EditGameWindow
          Password        =   False
          ReadOnly        =   False
          Scope           =   2
-         TabIndex        =   16
+         TabIndex        =   11
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   ""
@@ -563,7 +563,7 @@ Begin Window EditGameWindow
          LockTop         =   True
          MacButtonStyle  =   0
          Scope           =   2
-         TabIndex        =   17
+         TabIndex        =   9
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
@@ -595,7 +595,7 @@ Begin Window EditGameWindow
          LockTop         =   True
          MacButtonStyle  =   0
          Scope           =   2
-         TabIndex        =   18
+         TabIndex        =   5
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
@@ -626,7 +626,7 @@ Begin Window EditGameWindow
          LockRight       =   False
          LockTop         =   True
          Scope           =   2
-         TabIndex        =   19
+         TabIndex        =   7
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
@@ -668,7 +668,7 @@ Begin Window EditGameWindow
          Password        =   False
          ReadOnly        =   False
          Scope           =   2
-         TabIndex        =   20
+         TabIndex        =   8
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   ""
@@ -704,7 +704,7 @@ Begin Window EditGameWindow
          Multiline       =   False
          Scope           =   2
          Selectable      =   False
-         TabIndex        =   21
+         TabIndex        =   6
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   "Verzeichnis als D: mounten"
@@ -747,7 +747,7 @@ Begin Window EditGameWindow
          Password        =   False
          ReadOnly        =   False
          Scope           =   2
-         TabIndex        =   22
+         TabIndex        =   4
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   ""
@@ -783,7 +783,7 @@ Begin Window EditGameWindow
          Multiline       =   False
          Scope           =   2
          Selectable      =   False
-         TabIndex        =   23
+         TabIndex        =   3
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   "Verzeichnis als C: mounten *"
@@ -818,7 +818,7 @@ Begin Window EditGameWindow
          LockTop         =   True
          Scope           =   2
          SelectedRowIndex=   0
-         TabIndex        =   24
+         TabIndex        =   19
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
@@ -850,7 +850,7 @@ Begin Window EditGameWindow
          Multiline       =   False
          Scope           =   2
          Selectable      =   False
-         TabIndex        =   25
+         TabIndex        =   15
          TabPanelIndex   =   1
          TabStop         =   True
          Text            =   "Maschine"
@@ -875,7 +875,7 @@ Begin Window EditGameWindow
          DataSource      =   ""
          Enabled         =   True
          FontName        =   "Courier New"
-         FontSize        =   0.0
+         FontSize        =   13.0
          FontUnit        =   0
          Format          =   ""
          HasBorder       =   False
@@ -898,7 +898,7 @@ Begin Window EditGameWindow
          Multiline       =   True
          ReadOnly        =   False
          Scope           =   2
-         TabIndex        =   0
+         TabIndex        =   3
          TabPanelIndex   =   2
          TabStop         =   True
          Text            =   ""
@@ -978,7 +978,7 @@ Begin Window EditGameWindow
          Password        =   False
          ReadOnly        =   False
          Scope           =   2
-         TabIndex        =   2
+         TabIndex        =   0
          TabPanelIndex   =   2
          TabStop         =   True
          Text            =   ""
@@ -1007,7 +1007,7 @@ Begin Window EditGameWindow
          Scope           =   0
          Segments        =   "?\n\nFalse"
          SelectionStyle  =   2
-         TabIndex        =   3
+         TabIndex        =   2
          TabPanelIndex   =   2
          TabStop         =   False
          Tooltip         =   "DOSBox Wiki im Internet aufrufen"
@@ -1037,7 +1037,7 @@ Begin Window EditGameWindow
          LockRight       =   False
          LockTop         =   True
          Scope           =   2
-         TabIndex        =   26
+         TabIndex        =   23
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
@@ -1072,7 +1072,7 @@ Begin Window EditGameWindow
       LockTop         =   False
       MacButtonStyle  =   0
       Scope           =   2
-      TabIndex        =   28
+      TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -1104,7 +1104,7 @@ Begin Window EditGameWindow
       LockTop         =   False
       MacButtonStyle  =   0
       Scope           =   2
-      TabIndex        =   29
+      TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
@@ -1187,6 +1187,7 @@ End
 		Private Sub StyleText()
 		  tbExpertText.StyledText.Bold(0, tbExpertText.Text.Length) = False
 		  tbExpertText.StyledText.TextColor(0, tbExpertText.Text.Length) = Color.TextColor
+		  tbExpertText.StyledText.Italic(0, tbExpertText.Text.Length) = false
 		  
 		  Var i As Integer = 0
 		  Var headerOpen As Integer = -1
@@ -1230,6 +1231,16 @@ End
 		    End
 		    
 		    i = i + 1
+		  Next
+		  
+		  Var eol As String = EndOfLine
+		  i = 0
+		  For Each line As String In tbExpertText.Text.Split(EndOfLine)
+		    If line.Trim.BeginsWith("#") Then
+		      tbExpertText.StyledText.TextColor(i, line.Length) = &c008E0000
+		      tbExpertText.StyledText.Italic(i, line.Length) = True
+		    End
+		    i = i + line.Length + eol.Length
 		  Next
 		  
 		End Sub

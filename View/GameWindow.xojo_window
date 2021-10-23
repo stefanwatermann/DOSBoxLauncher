@@ -302,6 +302,16 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
+		Private Sub ConfigureToolbatButtons()
+		  Self.GameWindowToolbar.tbAddGame.SetIcons(icoNew_black, icoNew_white)
+		  Self.GameWindowToolbar.tbEditGame.SetIcons(icoEdit_black, icoEdit_white)
+		  Self.GameWindowToolbar.tbDeleteGame.SetIcons(icoDelete_black, icoDelete_white)
+		  Self.GameWindowToolbar.tbOptions.SetIcons(icoOptions_black, icoOptions_white)
+		  Self.GameWindowToolbar.tbRunGame.SetIcons(icoPlay_black, icoPlay_white)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
 		Private Sub DeleteGame(game as DOSGame)
 		  Var d As New MessageDialog 
 		  d.IconType = MessageDialog.IconTypes.Question
@@ -384,6 +394,7 @@ End
 	#tag Method, Flags = &h21
 		Private Sub Init()
 		  Self.Title = Self.Title + " (v" + app.LongVersion + ")"
+		  Self.BackgroundColor = Colors.ControlBackground
 		  
 		  OutputPanelVisible(false)
 		  ReadGameFiles
@@ -536,7 +547,8 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Open()
-		  LinuxHelper.FixLargeToolbarButtons(me)
+		  LinuxHelper.FixLargeToolbarButtons(Me)
+		  ConfigureToolbatButtons
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -580,7 +592,11 @@ End
 		  If column = 0 Then
 		    Var game As dosgame = GameList.RowTagAt(row)
 		    
-		    g.DrawingColor = colors.TextForeground
+		    If Me.Selected(row) Then
+		      g.DrawingColor = colors.TextForegroundSelected
+		    Else
+		      g.DrawingColor = colors.TextForeground
+		    End
 		    
 		    g.FontSize = 16
 		    g.DrawText(game.Name, 10, 22)

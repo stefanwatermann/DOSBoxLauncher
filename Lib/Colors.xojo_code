@@ -200,6 +200,19 @@
 		#tag Getter
 			Get
 			  If DarkMode Then
+			    Return &cE6E6E600
+			  Else
+			    Return Color.White
+			  End
+			End Get
+		#tag EndGetter
+		TextForegroundSelected As Color
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  If DarkMode Then
 			    Return &c99999900
 			  Else
 			    Return &c4C4C4C00
