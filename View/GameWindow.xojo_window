@@ -500,7 +500,7 @@ End
 		  Var data As String
 		  
 		  If game.ExpertMode Then
-		    data = game.DOSBoxSettingsTextExpert
+		    data = game.DOSBoxSettingsTextExpert.ReplaceLineEndings(EndOfLine.Native)
 		  Else
 		    data = game.DOSBoxSettingsText
 		  End
