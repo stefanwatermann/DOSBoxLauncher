@@ -204,6 +204,7 @@ Begin Window GameWindow
       Width           =   405
    End
    Begin Timer Timer250ms
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Period          =   250
@@ -434,10 +435,10 @@ End
 		  
 		  If visible Then
 		    GameList.Height = Self.Height - 100
-		    //ResultText.Top = 305
+		    ResultText.Visible = True
 		  Else
 		    GameList.Height = Self.Height - 20
-		    //ResultText.top = Self.Height
+		    ResultText.Visible = false
 		  End
 		End Sub
 	#tag EndMethod
