@@ -3,7 +3,7 @@
 Konfiguriert und startet DOS Anwendungen (Spiele) mittels einer vorhandenen/installierten DOSBox App.
 DOSBox selbst ist **kein** Bestandteil dieser App und muss separat installiert werden (siehe https://www.dosbox.com).
 
-DOSBoxLauncher läuft aktuell auf MacOS. Linux Support ist in Vorbereitung, Windows soll irgendwann auch unterstützt werden.
+DOSBoxLauncher läuft aktuell auf MacOS und Windows. Linux Support ist in Vorbereitung.
 
 Eine aktuelle ausführbare App Datei befindet sich im "Builds" Ordner des Repositories. 
 
