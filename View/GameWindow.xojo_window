@@ -20,7 +20,7 @@ Begin Window GameWindow
    MinimumHeight   =   400
    MinimumWidth    =   420
    Resizeable      =   True
-   Title           =   "DOSBox Game Launcher"
+   Title           =   "DOSBox [Game] Launcher"
    Type            =   0
    Visible         =   True
    Width           =   420
@@ -82,7 +82,7 @@ Begin Window GameWindow
       TabPanelIndex   =   0
       Visible         =   True
    End
-   Begin Label lbDOSBoxKeys
+   Begin Label lbDOSBoxManual
       AllowAutoDeactivate=   True
       Bold            =   False
       DataField       =   ""
@@ -107,7 +107,7 @@ Begin Window GameWindow
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "DOSBox Tastatur Shortcuts"
+      Text            =   "DOSBox Dokumentation"
       TextAlignment   =   0
       TextColor       =   &c9437FF00
       Tooltip         =   ""
@@ -115,7 +115,7 @@ Begin Window GameWindow
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   159
+      Width           =   144
    End
    Begin ControlsLib.Switch cbSortByDate
       AllowAutoDeactivate=   True
@@ -327,18 +327,18 @@ End
 		  If b = d.ActionButton Or b = d.AlternateActionButton Then
 		    
 		    If b = d.AlternateActionButton Then
-		      Var f As New FolderItem(game.FolderMountAsC)
+		      Var f As New FolderItem(game.FolderMountAsC, FolderItem.PathModes.Native)
 		      If f.Exists And f.IsFolder Then
 		        f.MoveTo(SpecialFolder.Trash)
 		      End
 		    End
 		    
 		    If Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).Exists Then
-		      Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).Remove
+		      Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).MoveTo(SpecialFolder.Trash)
 		    End
 		    
 		    If Self.GameFilesPath.Child(game.SettingsFilename).Exists Then
-		      Self.GameFilesPath.Child(game.SettingsFilename).Remove
+		      Self.GameFilesPath.Child(game.SettingsFilename).MoveTo(SpecialFolder.Trash)
 		    End
 		    
 		    ReadGameFiles
@@ -399,7 +399,34 @@ End
 		  OutputPanelVisible(false)
 		  ReadGameFiles
 		  GameList.SelectedRowIndex = 0
+		  
+		  If Not ISDOSBoxAvailable Then
+		    Call MsgBox("DOSBox Executable konnte nicht gefunden werden. Bitte installieren (www.dosbox.com) und den Pfad unter Optionen eintragen.", 16)
+		    ShowOptions
+		  End
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function ISDOSBoxAvailable() As Boolean
+		  App.Log("App.AppConfig.DOSBoxExecutable = " + App.AppConfig.DOSBoxExecutable)
+		  
+		  If App.AppConfig.DOSBoxExecutable.Length > 0 Then
+		    Var f As New FolderItem(App.AppConfig.DOSBoxExecutable, FolderItem.PathModes.Native)
+		    Var b As Boolean = (f <> Nil And f.Exists)
+		    
+		    If b Then
+		      App.Log("DOSBox executable found:  " + f.NativePath)
+		    Else
+		      App.Log("DOSBox executable NOT found! ")
+		    End
+		    
+		    Return b
+		  Else
+		    Return False
+		  End
+		  
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
@@ -421,7 +448,7 @@ End
 		  
 		  For Each f As FolderItem In Self.GameFilesPath.Children
 		    If f.name.EndsWith(dosgame.kFileSettingsFileExtension) Then
-		      System.DebugLog("ReadGameFiles: " + f.Name)
+		      App.Log("ReadGameFiles: " + f.Name)
 		      
 		      Var data As String = File.ReadAllText(f)
 		      Var game As dosgame = DOSGame.ParseText(data)
@@ -552,10 +579,10 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events lbDOSBoxKeys
+#tag Events lbDOSBoxManual
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
-		  ShowURL("https://www.dosbox.com/wiki/Special_Keys")
+		  ShowURL(Dosbox.kDOSBoxManualUrl)
 		End Function
 	#tag EndEvent
 	#tag Event
@@ -630,6 +657,58 @@ End
 		Sub DoubleClick()
 		  RunGame(me.RowTagAt(me.SelectedRowIndex))
 		End Sub
+	#tag EndEvent
+	#tag Event
+		Function ConstructContextualMenu(base as MenuItem, x as Integer, y as Integer) As Boolean
+		  Var game As DOSGame = Me.RowTagAt(Me.SelectedRowIndex)
+		  
+		  Var m As MenuItem = New MenuItem("Starten (Doppelklick)")
+		  m.Name = "mnPlay"
+		  base.AddMenu(m)
+		  
+		  base.AddMenu(New MenuItem("-"))
+		  
+		  m =New MenuItem("Bearbeiten...")
+		  m.Name = "mnEdit"
+		  base.AddMenu(m)
+		  
+		  m =New MenuItem("Ordner C:\ öffnen")
+		  m.Name = "mnShowC"
+		  base.AddMenu(m)
+		  
+		  If game.FolderMountAsD.Length > 0 Then
+		    m =New MenuItem("Ordner D:\ öffnen")
+		    m.Name = "mnShowD"
+		    base.AddMenu(m)
+		  End
+		End Function
+	#tag EndEvent
+	#tag Event
+		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
+		  Var game As DOSGame = Me.RowTagAt(Me.SelectedRowIndex)
+		  
+		  Select Case hitItem.Name
+		    
+		  Case "mnPlay"
+		    RunGame(game)
+		    
+		  Case "mnEdit"
+		    EditGame(game)
+		    
+		  Case "mnShowC"
+		    Var f As New FolderItem(game.FolderMountAsC, FolderItem.PathModes.Native)
+		    If f <> Nil And f.Exists And f.IsFolder Then
+		      f.Open
+		    End
+		    
+		  Case "mnShowD"
+		    Var f As New FolderItem(game.FolderMountAsD, FolderItem.PathModes.Native)
+		    If f <> Nil And f.Exists And f.IsFolder Then
+		      f.Open
+		    End
+		    
+		  End
+		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior

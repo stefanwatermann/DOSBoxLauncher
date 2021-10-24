@@ -153,11 +153,11 @@ Begin Window AboutWindow
       TabStop         =   True
       Text            =   "Copyright (c) 2021, Stefan Watermann"
       TextAlignment   =   0
-      TextColor       =   &c00000000
+      TextColor       =   &c9437FF00
       Tooltip         =   ""
       Top             =   123
       Transparent     =   False
-      Underline       =   False
+      Underline       =   True
       Visible         =   True
       Width           =   231
    End
@@ -167,6 +167,7 @@ Begin Window AboutWindow
       AllowFocusRing  =   True
       AllowTabs       =   False
       Backdrop        =   0
+      DoubleBuffer    =   False
       Enabled         =   True
       Height          =   128
       Index           =   -2147483648
@@ -226,6 +227,10 @@ End
 #tag EndWindow
 
 #tag WindowCode
+	#tag Constant, Name = kProjectGithubUrl, Type = String, Dynamic = False, Default = \"https://github.com/stefanwatermann/DOSBoxLauncher", Scope = Private
+	#tag EndConstant
+
+
 #tag EndWindowCode
 
 #tag Events PushButton1
@@ -233,6 +238,24 @@ End
 		Sub Action()
 		  Self.close
 		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events lbCopyright
+	#tag Event
+		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  ShowURL(kProjectGithubUrl)
+		  
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub MouseEnter()
+		  me.MouseCursor = system.Cursors.FingerPointer
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub MouseExit()
+		  me.MouseCursor = System.Cursors.StandardPointer
 		End Sub
 	#tag EndEvent
 #tag EndEvents

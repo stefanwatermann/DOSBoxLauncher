@@ -204,7 +204,11 @@ Class ConfigBase
 		#tag Getter
 			Get
 			  Var folder As FolderItem = SpecialFolder.ApplicationData.Child(Self.FolderName)
-			  If Not folder.Exists Or Not folder.IsFolder Then
+			  
+			  App.Log("App config folder = " + folder.NativePath)
+			  
+			  If  Not folder.Exists Or Not folder.IsFolder Then
+			    App.Log("App config folder does not exist, now creating folder.")
 			    folder.CreateFolder
 			  End
 			  

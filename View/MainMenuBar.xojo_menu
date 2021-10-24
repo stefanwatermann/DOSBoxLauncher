@@ -6,11 +6,11 @@ Begin Menu MainMenuBar
       Text = "&File"
       AutoEnabled = True
       AutoEnable = True
-      Visible = True
-      Begin MenuItem FileAbout
+      Visible = False
+      Begin AppleMenuItem FileAbout
          SpecialMenu = 0
          Index = -2147483648
-         Text = "About"
+         Text = "About DOSBoxLauncher..."
          AutoEnabled = True
          AutoEnable = True
          Visible = True

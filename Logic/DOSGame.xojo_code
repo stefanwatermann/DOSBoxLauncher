@@ -8,6 +8,8 @@ Protected Class DOSGame
 		    
 		    Var line As String = raw.Trim
 		    
+		    App.Log("...line: " + line)
+		    
 		    If line.Length > 0 And Not line.BeginsWith("#") Then
 		      
 		      Var elems() As String = line.Split("=")
@@ -444,6 +446,14 @@ Protected Class DOSGame
 			Group="Behavior"
 			InitialValue="false"
 			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="DOSBoxSettingsTextExpert"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="String"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

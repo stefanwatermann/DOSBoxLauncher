@@ -52,7 +52,7 @@ Begin Window EditGameWindow
       Top             =   12
       Transparent     =   False
       Underline       =   False
-      Value           =   0
+      Value           =   1
       Visible         =   True
       Width           =   498
       Begin Label Label7
@@ -886,7 +886,7 @@ Begin Window EditGameWindow
          Index           =   -2147483648
          InitialParent   =   "tabEditMode"
          Italic          =   False
-         Left            =   20
+         Left            =   21
          LineHeight      =   0.0
          LineSpacing     =   1.1000000000000000888178
          LockBottom      =   True
@@ -911,7 +911,7 @@ Begin Window EditGameWindow
          UnicodeMode     =   1
          ValidationMask  =   ""
          Visible         =   True
-         Width           =   498
+         Width           =   496
       End
       Begin Label lbExpertTitle
          AllowAutoDeactivate=   True
@@ -1004,7 +1004,7 @@ Begin Window EditGameWindow
          LockRight       =   False
          LockTop         =   True
          MacButtonStyle  =   0
-         Scope           =   0
+         Scope           =   2
          Segments        =   "?\n\nFalse"
          SelectionStyle  =   2
          TabIndex        =   2
@@ -1174,7 +1174,7 @@ End
 
 	#tag Method, Flags = &h21
 		Private Function GetGameFolder() As FolderItem
-		  Var f As New FolderItem(App.AppConfig.DOSGamesRootFolder)
+		  Var f As New FolderItem(App.AppConfig.DOSGamesRootFolder, FolderItem.PathModes.Native)
 		  If f.Exists And f.IsFolder Then
 		    Return f
 		  Else

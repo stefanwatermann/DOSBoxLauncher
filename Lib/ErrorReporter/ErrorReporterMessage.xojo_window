@@ -260,7 +260,6 @@ Begin Window ErrorReporterMessage Attributes ( Version = 1.0, Copyright = "2021 
       Scope           =   2
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Tooltip         =   ""
       Top             =   0
       TopLeftColor    =   &c00000000

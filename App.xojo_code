@@ -7,26 +7,27 @@ Inherits Application
 		  
 		  AppConfig = New Config
 		  
-		  If AppConfig.GetConfigFile.Exists Then
+		  Log("AppConfig initialized.")
+		  
+		  If AppConfig.GetConfigFile <> Nil And AppConfig.GetConfigFile.Exists Then
+		    Log("AppConfig found, now loading config.")
 		    AppConfig.Load
 		  Else
-		    Var f1 As FolderItem = SpecialFolder.UserHome.Child("DOS Games")
-		    If f1 <> Nil Then
-		      AppConfig.DOSGamesRootFolder = f1.NativePath
-		    End
-		    
-		    Var f2 As FolderItem = SpecialFolder.Applications.Child("DOSBox.app")
-		    If f2 <> Nil Then
-		      AppConfig.DOSBoxExecutable = f2.NativePath
-		    End
+		    Log("App config NOT found, using defaults.")
 		  End
 		  
+		  Log("DOSGamesRootFolder = " + AppConfig.DOSGamesRootFolder )
+		  Log("DOSBoxExecutable = " + AppConfig.DOSBoxExecutable)
+		  
 		  If AppConfig.InstId.Length = 0 Then
+		    Log("No InstId found, creating new one.")
 		    AppConfig.InstId = StringUtils.NewGuid
 		    AppConfig.Save
 		  End
 		  
 		  SendStats("AppStart")
+		  
+		  Log("App initialized successfully.")
 		End Sub
 	#tag EndEvent
 
@@ -38,6 +39,13 @@ Inherits Application
 		End Function
 	#tag EndEvent
 
+
+	#tag Method, Flags = &h0
+		Sub Log(msg as string)
+		  System.DebugLog("DOSBoxLauncher: " + msg)
+		  
+		End Sub
+	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SendStats(data as string)
