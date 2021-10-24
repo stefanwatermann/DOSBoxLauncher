@@ -881,7 +881,7 @@ Begin Window EditGameWindow
          HasBorder       =   False
          HasHorizontalScrollbar=   True
          HasVerticalScrollbar=   True
-         Height          =   355
+         Height          =   354
          HideSelection   =   True
          Index           =   -2147483648
          InitialParent   =   "tabEditMode"
@@ -911,7 +911,7 @@ Begin Window EditGameWindow
          UnicodeMode     =   1
          ValidationMask  =   ""
          Visible         =   True
-         Width           =   496
+         Width           =   495
       End
       Begin Label lbExpertTitle
          AllowAutoDeactivate=   True
@@ -1508,6 +1508,10 @@ End
 		  Else
 		    Me.Text = CurrentDOSGame.DOSBoxSettingsTextExpert
 		  End
+		  
+		  #If TargetWindows Then
+		    me.Width = tabEditMode.Width - 5
+		  #EndIf
 		End Sub
 	#tag EndEvent
 	#tag Event

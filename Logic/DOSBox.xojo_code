@@ -5,18 +5,21 @@ Protected Module DOSBox
 		  Var cmd As String = kDefault_DOSBox_AppPath
 		  
 		  If DOSBoxExecutable.Length > 0 Then
-		    cmd = DOSBoxExecutable + kDefault_DOSBox_AppPathPartial
+		    cmd = """" + DOSBoxExecutable + kDefault_DOSBox_AppPathPartial + """"
 		  End
 		  
-		  cmd = cmd + " -userconf "
+		  cmd = cmd + " -userconf -noconsole"
 		  
 		  If autoExit Then
 		    cmd = cmd + " -exit"
 		  End
 		  
-		  cmd = cmd + " -conf '" + configPath + "'"
+		  cmd = cmd + " -conf """ + configPath + """"
+		  
+		  app.Log("DOSBox cmd: " + cmd)
 		  
 		  Var sh As New shell
+		  sh.TimeOut = -1
 		  sh.Execute(cmd)
 		  ExitCode = sh.ExitCode
 		  
@@ -47,7 +50,7 @@ Protected Module DOSBox
 
 	#tag Constant, Name = kDefault_DOSBox_AppPathPartial, Type = String, Dynamic = False, Default = \"", Scope = Private
 		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"/Contents/MacOS/DOSBox"
-		#Tag Instance, Platform = Windows, Language = Default, Definition  = \"c:\\DOSBox\\"
+		#Tag Instance, Platform = Windows, Language = Default, Definition  = \""
 	#tag EndConstant
 
 	#tag Constant, Name = kDOSBoxManualUrl, Type = String, Dynamic = False, Default = \"https://www.dosbox.com/DOSBoxManual.html", Scope = Public

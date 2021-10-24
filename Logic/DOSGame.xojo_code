@@ -4,7 +4,7 @@ Protected Class DOSGame
 		Shared Function ParseText(t as string) As DOSGame
 		  Var game As DOSGame = New DOSGame
 		  
-		  For Each raw As String In t.Split(EndOfLine)
+		  For Each raw As String In t.Split(EndOfLine.Native)
 		    
 		    Var line As String = raw.Trim
 		    
@@ -125,7 +125,8 @@ Protected Class DOSGame
 			  Replace("#MACHINE#", Me.MachineType)._
 			  Replace("#SCALER#", Me.Scaler)._
 			  Replace("#CYCLES#", Me.CpuCycles)._
-			  Replace("#AUTOEXEC#", autoexec)
+			  Replace("#AUTOEXEC#", autoexec)._
+			  ReplaceLineEndings(EndOfLine.Native)
 			  
 			End Get
 		#tag EndGetter
@@ -233,7 +234,8 @@ Protected Class DOSGame
 			  Replace("#STARTFILE#", Me.StartFile)._
 			  Replace("#LASTSTARTDT#", lastdt)._
 			  Replace("#AUTOEXIT#", Me.AutoExit.ToString)._
-			  Replace("#EXPERTMODE#", Me.ExpertMode.ToString)
+			  Replace("#EXPERTMODE#", Me.ExpertMode.ToString)._
+			  ReplaceLineEndings(EndOfLine.Native)
 			  
 			  
 			End Get
@@ -454,7 +456,7 @@ Protected Class DOSGame
 			Group="Behavior"
 			InitialValue=""
 			Type="String"
-			EditorType=""
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

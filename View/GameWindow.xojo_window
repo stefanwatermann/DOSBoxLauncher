@@ -204,7 +204,6 @@ Begin Window GameWindow
       Width           =   405
    End
    Begin Timer Timer250ms
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Period          =   250
@@ -431,12 +430,14 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub OutputPanelVisible(visible as Boolean = false)
+		  Self.Restore
+		  
 		  If visible Then
 		    GameList.Height = Self.Height - 100
-		    ResultText.Top = 305
+		    //ResultText.Top = 305
 		  Else
 		    GameList.Height = Self.Height - 20
-		    ResultText.top = self.Height
+		    //ResultText.top = Self.Height
 		  End
 		End Sub
 	#tag EndMethod

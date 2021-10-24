@@ -6,6 +6,11 @@ Begin Toolbar ToolbarGameWindow
 		ButtonStyle = 0
 		Icon = 291407871
 	End
+	Begin ToolbarButton ToolItem3
+		Caption = "Untitled"
+		Tooltip = ""
+		ButtonStyle = 1
+	End
 	Begin ToolbarButton ToolItem1
 		Caption = "Untitled"
 		Tooltip = ""
@@ -28,6 +33,11 @@ Begin Toolbar ToolbarGameWindow
 		Tooltip = ""
 		ButtonStyle = 0
 		Icon = 316934143
+	End
+	Begin ToolbarButton ToolItem4
+		Caption = "Untitled"
+		Tooltip = ""
+		ButtonStyle = 1
 	End
 	Begin ToolbarButton ToolItem2
 		Caption = "Untitled"
