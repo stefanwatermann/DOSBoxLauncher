@@ -19,14 +19,17 @@ DOSBoxLauncher ist unter der MIT Lizenz veröffentlich.
 ## Entwicklung
 Das Projekt erfordert die Entwicklungsumgebung XOJO (2021r2.1). 
 
+## Verwendung
+Das Hauptfenster zeigt eine Liste der konfigurierten DOS Anwendungen / Spiele. Ein Doppelklick startet das jeweilige Spiel. 
+
 ![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher.png)
 
 Die Konfiguration der DOSBox Optionen findet entweder im "einfachen" oder im "Experten" Modus statt.
 
-Der "einfache" Modus erlaubt die schnelle Konfiguration wesentlicher DOSBox Optionen mittels eines einfachen Dialogs. 
+Der "einfache" Modus erlaubt die schnelle Konfiguration wesentlicher DOSBox Optionen mittels eines einfachen Dialogs.
 
 ![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_1.png)
 
-Im "Experten" Modus kann die DOSBox Konfigurationsdatei für die Anwendung direkt bearbeitet werden. Hier können alle DOSBox Optionen und Konfigurationsvarianten verwendet werden. Hier steht die volle Kontrolle über die DOS Anwendung zur Verfügung.
+Im "Experten" Modus kann die DOSBox Konfigurationsdatei für die Anwendung direkt bearbeitet werden. Hier können alle DOSBox Optionen und Konfigurationsvarianten verwendet werden. Es steht die volle Kontrolle über die DOS Anwendung zur Verfügung.
 
 ![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_2.png)
