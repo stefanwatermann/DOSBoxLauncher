@@ -17,7 +17,7 @@ Download der kompilierten App:
 DOSBoxLauncher ist unter der MIT Lizenz veröffentlich.
 
 ## Entwicklung
-Das Projekt erfordert die Entwicklungsumgebung XOJO (2021r2.1). 
+Das Projekt erfordert die Entwicklungsumgebung [XOJO](https://www.xojo.com) (2021r2.1). 
 
 ## Verwendung
 Das Hauptfenster zeigt eine Liste der konfigurierten DOS Anwendungen / Spiele. Ein Doppelklick startet das jeweilige Spiel. 
