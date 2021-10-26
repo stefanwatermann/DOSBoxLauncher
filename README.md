@@ -9,6 +9,10 @@ DOSBoxLauncher läuft aktuell auf MacOS und Windows. Linux Support ist in Vorber
 
 Aktuelle ausführbare App Dateien befindet sich im "Builds" Ordner des Repositories (.zip Dateiuen). 
 
+Download der kompilierten App: 
+- [MacOS](/Builds/macOS Universal/DOSBoxLauncher.app.zip)
+- [Windows](/Builds/Windows/DOSBoxLauncher.zip)
+
 ## Lizenz
 DOSBoxLauncher ist unter der MIT Lizenz veröffentlich.
 
