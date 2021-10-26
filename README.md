@@ -1,11 +1,13 @@
 # DOSBoxLauncher
 
-Konfiguriert und startet DOS Anwendungen (Spiele) mittels einer vorhandenen/installierten DOSBox App.
+![AppLogo](/Images/AppIcon_128.png)
+
+Konfiguriert und startet DOS Anwendungen (z.B. alte Spiele) unter MacOS und Windows mittels einer auf dem System vorhandenen/installierten DOSBox App.
 DOSBox selbst ist **kein** Bestandteil dieser App und muss separat installiert werden (siehe https://www.dosbox.com).
 
 DOSBoxLauncher läuft aktuell auf MacOS und Windows. Linux Support ist in Vorbereitung.
 
-Eine aktuelle ausführbare App Datei befindet sich im "Builds" Ordner des Repositories. 
+Aktuelle ausführbare App Dateien befindet sich im "Builds" Ordner des Repositories (.zip Dateiuen). 
 
 ## Lizenz
 DOSBoxLauncher ist unter der MIT Lizenz veröffentlich.
