@@ -7,7 +7,7 @@ DOSBox selbst ist **kein** Bestandteil dieser App und muss separat installiert w
 
 DOSBoxLauncher läuft aktuell auf MacOS und Windows. Linux Support ist in Vorbereitung.
 
-Aktuelle ausführbare App Dateien befindet sich im "Builds" Ordner des Repositories (.zip Dateiuen). 
+Aktuelle ausführbare App Dateien befindet sich im "Builds" Ordner des Repositories. 
 
 Download der kompilierten App: 
 - [MacOS](/Builds/macOS%20Universal/DOSBoxLauncher.app.zip)
