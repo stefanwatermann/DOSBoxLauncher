@@ -20,10 +20,10 @@ Begin Window AboutWindow
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "Untitled"
+   Title           =   "About"
    Type            =   8
    Visible         =   True
-   Width           =   446
+   Width           =   476
    Begin Label lbTitle
       AllowAutoDeactivate=   True
       Bold            =   False
@@ -37,7 +37,7 @@ Begin Window AboutWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   178
+      Left            =   183
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -73,7 +73,7 @@ Begin Window AboutWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   183
+      Left            =   198
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -104,7 +104,7 @@ Begin Window AboutWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   178
+      Left            =   183
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -116,11 +116,11 @@ Begin Window AboutWindow
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Konfiguriert und startet DOS Anwendungen (Spiele) mittels einer vorhandenen DOSBox App."
+      Text            =   "#klbDescription_Text"
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   55
+      Top             =   58
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -139,7 +139,7 @@ Begin Window AboutWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   178
+      Left            =   183
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -151,15 +151,15 @@ Begin Window AboutWindow
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Copyright (c) 2021, Stefan Watermann"
+      Text            =   "Copyright (c) 2021, Stefan Watermann, Germany"
       TextAlignment   =   0
       TextColor       =   &c9437FF00
       Tooltip         =   ""
-      Top             =   123
+      Top             =   128
       Transparent     =   False
       Underline       =   True
       Visible         =   True
-      Width           =   231
+      Width           =   273
    End
    Begin Canvas CanvasIcon
       AllowAutoDeactivate=   True
@@ -188,45 +188,15 @@ Begin Window AboutWindow
       Visible         =   True
       Width           =   128
    End
-   Begin Label lbCopyright1
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      FontName        =   "SmallSystem"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   178
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   2
-      Selectable      =   False
-      TabIndex        =   6
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Nutzung und Weitergabe gemäß MIT Lizenz"
-      TextAlignment   =   0
-      TextColor       =   &c00000000
-      Tooltip         =   ""
-      Top             =   140
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   252
-   End
 End
 #tag EndWindow
 
 #tag WindowCode
+	#tag Constant, Name = klbDescription_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Configure and run DOSBox apps/games using the installed DOSBox app."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Konfigurieren und starten von DOS Anwendungen (Spiele) in einer vorhandenen DOSBox App."
+	#tag EndConstant
+
 	#tag Constant, Name = kProjectGithubUrl, Type = String, Dynamic = False, Default = \"https://github.com/stefanwatermann/DOSBoxLauncher", Scope = Private
 	#tag EndConstant
 

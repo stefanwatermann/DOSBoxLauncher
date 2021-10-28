@@ -10,7 +10,7 @@ Begin Menu MainMenuBar
       Begin AppleMenuItem FileAbout
          SpecialMenu = 0
          Index = -2147483648
-         Text = "About DOSBoxLauncher..."
+         Text = "#App.kMainMenu_FileAbout_Text"
          AutoEnabled = True
          AutoEnable = True
          Visible = True

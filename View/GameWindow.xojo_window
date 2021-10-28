@@ -20,7 +20,7 @@ Begin Window GameWindow
    MinimumHeight   =   400
    MinimumWidth    =   420
    Resizeable      =   True
-   Title           =   "DOSBox [Game] Launcher"
+   Title           =   "#kGameWindow_Title"
    Type            =   0
    Visible         =   True
    Width           =   420
@@ -64,7 +64,7 @@ Begin Window GameWindow
       Text            =   ""
       TextAlignment   =   0
       TextColor       =   &c00000000
-      Tooltip         =   "DOSBox Ausgabe"
+      Tooltip         =   "#kResultText_Tooltip"
       Top             =   305
       Transparent     =   True
       Underline       =   False
@@ -107,7 +107,7 @@ Begin Window GameWindow
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "DOSBox Dokumentation"
+      Text            =   "#kDOSBoxManual_Text"
       TextAlignment   =   0
       TextColor       =   &c9437FF00
       Tooltip         =   ""
@@ -171,7 +171,7 @@ Begin Window GameWindow
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "zuletzt gespielt oben"
+      Text            =   "#kLastPlayedTop_Text"
       TextAlignment   =   0
       TextColor       =   &c92929200
       Tooltip         =   ""
@@ -179,7 +179,7 @@ Begin Window GameWindow
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   123
+      Width           =   131
    End
    Begin Separator Separator1
       AllowAutoDeactivate=   True
@@ -304,10 +304,19 @@ End
 	#tag Method, Flags = &h21
 		Private Sub ConfigureToolbatButtons()
 		  Self.GameWindowToolbar.tbAddGame.SetIcons(icoNew_black, icoNew_white)
+		  Self.GameWindowToolbar.tbAddGame.Caption = kToolbarGameWindow_AddGame
+		  
 		  Self.GameWindowToolbar.tbEditGame.SetIcons(icoEdit_black, icoEdit_white)
+		  Self.GameWindowToolbar.tbEditGame.Caption = kToolbarGameWindow_EditGame
+		  
 		  Self.GameWindowToolbar.tbDeleteGame.SetIcons(icoDelete_black, icoDelete_white)
+		  Self.GameWindowToolbar.tbDeleteGame.Caption = kToolbarGameWindow_DeleteGame
+		  
 		  Self.GameWindowToolbar.tbOptions.SetIcons(icoOptions_black, icoOptions_white)
+		  Self.GameWindowToolbar.tbOptions.Caption = kToolbarGameWindow_Options
+		  
 		  Self.GameWindowToolbar.tbRunGame.SetIcons(icoPlay_black, icoPlay_white)
+		  Self.GameWindowToolbar.tbRunGame.Caption = kToolbarGameWindow_RunGame
 		End Sub
 	#tag EndMethod
 
@@ -315,12 +324,12 @@ End
 		Private Sub DeleteGame(game as DOSGame)
 		  Var d As New MessageDialog 
 		  d.IconType = MessageDialog.IconTypes.Question
-		  d.ActionButton.Caption = "Nur Konfiguration"
+		  d.ActionButton.Caption = kDeleteGame_ConfigOnly
 		  d.CancelButton.Visible = True    
-		  d.AlternateActionButton.Caption = "Alles löschen"
+		  d.AlternateActionButton.Caption = kDeleteGame_DeleteAll
 		  d.AlternateActionButton.Visible = True           
-		  d.Message = "Spiel '" + game.Name + "' löschen?"
-		  d.Explanation = "'Alles löschen' entfernt die Konfigurationsdateien UND das Spiel selbst."
+		  d.Message = kDeleteGame_MessageText.Replace("#GAMENAME#", game.Name)
+		  d.Explanation = kDeleteGame_Explanation
 		  
 		  Var b As MessageDialogButton = d.ShowModal 
 		  
@@ -401,7 +410,7 @@ End
 		  GameList.SelectedRowIndex = 0
 		  
 		  If Not ISDOSBoxAvailable Then
-		    Call MsgBox("DOSBox Executable konnte nicht gefunden werden. Bitte installieren (www.dosbox.com) und den Pfad unter Optionen eintragen.", 16)
+		    Call MsgBox(kInit_CannotFindDOSBoxExecutable_Message, 16)
 		    ShowOptions
 		  End
 		End Sub
@@ -476,7 +485,10 @@ End
 		  SaveGameSettings(game)
 		  SaveDOSBoxSettings(game)
 		  
-		  App.SendStats("RunGame: " + game.Name)
+		  App.SendStats(_
+		  "RunGame: " + game.Name + _
+		  "; ExpertMode: " + Str(game.ExpertMode) + _
+		  "; FullScreen: " + str(game.Fullscreen))
 		  
 		  Self.Minimize
 		  
@@ -557,6 +569,87 @@ End
 		#tag EndGetter
 		Private GameFilesPath As FolderItem
 	#tag EndComputedProperty
+
+
+	#tag Constant, Name = kDeleteGame_ConfigOnly, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Configuration only"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Nur Konfiguration"
+	#tag EndConstant
+
+	#tag Constant, Name = kDeleteGame_DeleteAll, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Delete all"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Alles l\xC3\xB6schen"
+	#tag EndConstant
+
+	#tag Constant, Name = kDeleteGame_Explanation, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"\'Delete all\' removes both configuration files AND game files."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"\'Alles l\xC3\xB6schen\' entfernt die Konfigurationsdateien UND das Spiel selbst."
+	#tag EndConstant
+
+	#tag Constant, Name = kDeleteGame_MessageText, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Delete game \xE2\x80\x99#GAMENAME#\xE2\x80\x99\?"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Spiel \xE2\x80\x99#GAMENAME#\xE2\x80\x99 l\xC3\xB6schen\?"
+	#tag EndConstant
+
+	#tag Constant, Name = kDOSBoxManual_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"DOSBox Documentation"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Dokumentation"
+	#tag EndConstant
+
+	#tag Constant, Name = kGameList_ContextMenu_ShowC, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Open C:\\ folder"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Ordner C:\\ \xC3\xB6ffnen"
+	#tag EndConstant
+
+	#tag Constant, Name = kGameList_ContextMenu_ShowD, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Open D:\\ folder"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Ordner D:\\ \xC3\xB6ffnen"
+	#tag EndConstant
+
+	#tag Constant, Name = kGameWindow_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"DOSBox [Game] Launcher"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox [Game] Launcher"
+	#tag EndConstant
+
+	#tag Constant, Name = kInit_CannotFindDOSBoxExecutable_Message, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"DOSBox Executable not found. Please install DOSBox app first (www.dosbox.com) and enter path on Options dialog."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Executable konnte nicht gefunden werden. Bitte installieren (www.dosbox.com) und den Pfad unter Optionen eintragen."
+	#tag EndConstant
+
+	#tag Constant, Name = kLastPlayedTop_Text, Type = String, Dynamic = True, Default = \"zuletzt gespielt oben", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"last played on top"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"zuletzt gespielt oben"
+	#tag EndConstant
+
+	#tag Constant, Name = kResultText_Tooltip, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"DOSBox Output"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Ausgabe"
+	#tag EndConstant
+
+	#tag Constant, Name = kToolbarGameWindow_AddGame, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Add"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Hinzuf\xC3\xBCgen"
+	#tag EndConstant
+
+	#tag Constant, Name = kToolbarGameWindow_DeleteGame, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Delete"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"L\xC3\xB6schen"
+	#tag EndConstant
+
+	#tag Constant, Name = kToolbarGameWindow_EditGame, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Edit"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Bearbeiten"
+	#tag EndConstant
+
+	#tag Constant, Name = kToolbarGameWindow_Options, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Options"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Optionen"
+	#tag EndConstant
+
+	#tag Constant, Name = kToolbarGameWindow_RunGame, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Run"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Starten"
+	#tag EndConstant
 
 
 #tag EndWindowCode
@@ -664,22 +757,22 @@ End
 		Function ConstructContextualMenu(base as MenuItem, x as Integer, y as Integer) As Boolean
 		  Var game As DOSGame = Me.RowTagAt(Me.SelectedRowIndex)
 		  
-		  Var m As MenuItem = New MenuItem("Starten (Doppelklick)")
+		  Var m As MenuItem = New MenuItem(kToolbarGameWindow_RunGame)
 		  m.Name = "mnPlay"
 		  base.AddMenu(m)
 		  
 		  base.AddMenu(New MenuItem("-"))
 		  
-		  m =New MenuItem("Bearbeiten...")
+		  m =New MenuItem(kToolbarGameWindow_EditGame)
 		  m.Name = "mnEdit"
 		  base.AddMenu(m)
 		  
-		  m =New MenuItem("Ordner C:\ öffnen")
+		  m =New MenuItem(kGameList_ContextMenu_ShowC)
 		  m.Name = "mnShowC"
 		  base.AddMenu(m)
 		  
 		  If game.FolderMountAsD.Length > 0 Then
-		    m =New MenuItem("Ordner D:\ öffnen")
+		    m =New MenuItem(kGameList_ContextMenu_ShowD)
 		    m.Name = "mnShowD"
 		    base.AddMenu(m)
 		  End

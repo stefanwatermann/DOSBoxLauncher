@@ -232,7 +232,7 @@ Begin Window ErrorReporterMessage Attributes ( Version = 1.0, Copyright = "2021 
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "#Label1_Text"
+      Text            =   "#kLabel1_Text"
       TextAlignment   =   0
       TextColor       =   &c79797900
       Tooltip         =   ""
@@ -340,7 +340,7 @@ End
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Fehlerdetails in die Zwischenablage kopieren."
 	#tag EndConstant
 
-	#tag Constant, Name = Label1_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kLabel1_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
 		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Error details"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Fehlerdetails"
 	#tag EndConstant

@@ -20,7 +20,7 @@ Begin Window OptionsWindow
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "Optionen"
+   Title           =   "#kOptionsWindow_Title"
    Type            =   8
    Visible         =   True
    Width           =   459
@@ -38,7 +38,7 @@ Begin Window OptionsWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   144
+      Left            =   134
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
@@ -60,7 +60,7 @@ Begin Window OptionsWindow
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   True
-      Caption         =   "Cancel"
+      Caption         =   "#kbtnCancel_Caption"
       Default         =   False
       Enabled         =   True
       FontName        =   "System"
@@ -70,7 +70,7 @@ Begin Window OptionsWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   236
+      Left            =   226
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
@@ -86,7 +86,7 @@ Begin Window OptionsWindow
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   80
+      Width           =   100
    End
    Begin Label Label1
       AllowAutoDeactivate=   True
@@ -113,7 +113,7 @@ Begin Window OptionsWindow
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Basisverzeichnis für DOS Spiele"
+      Text            =   "#kLabel1_Text"
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
@@ -191,7 +191,7 @@ Begin Window OptionsWindow
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      Tooltip         =   ""
+      Tooltip         =   "#kbtnSelectGameFolder_Tooltip"
       Top             =   61
       Transparent     =   False
       Underline       =   False
@@ -223,7 +223,7 @@ Begin Window OptionsWindow
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "DOSBox Executable"
+      Text            =   "#kLabel2_Text"
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
@@ -301,7 +301,7 @@ Begin Window OptionsWindow
       TabIndex        =   7
       TabPanelIndex   =   0
       TabStop         =   True
-      Tooltip         =   ""
+      Tooltip         =   "#kbtnSelectDOSBox_Tooltip"
       Top             =   132
       Transparent     =   False
       Underline       =   False
@@ -311,7 +311,7 @@ Begin Window OptionsWindow
    Begin CheckBox cbSendStats
       AllowAutoDeactivate=   True
       Bold            =   False
-      Caption         =   "Anonymisierte Nutzungsdaten senden"
+      Caption         =   "#kcbSendStats_Caption"
       DataField       =   ""
       DataSource      =   ""
       Enabled         =   True
@@ -328,7 +328,7 @@ Begin Window OptionsWindow
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Scope           =   0
+      Scope           =   2
       TabIndex        =   8
       TabPanelIndex   =   0
       TabStop         =   True
@@ -348,6 +348,72 @@ End
 	#tag Property, Flags = &h0
 		ResultOk As Boolean = false
 	#tag EndProperty
+
+
+	#tag Constant, Name = kbtnCancel_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Cancel"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Abbrechen"
+	#tag EndConstant
+
+	#tag Constant, Name = kbtnSelectDOSBox_Tooltip, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select file\xE2\x80\xA6"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Datei w\xC3\xA4hlen..."
+	#tag EndConstant
+
+	#tag Constant, Name = kbtnSelectGameFolder_Tooltip, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select Folder..."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verzeichnis w\xC3\xA4hlen\xE2\x80\xA6"
+	#tag EndConstant
+
+	#tag Constant, Name = kcbSendStats_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Send anonymized usage statistics"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Anonymisierte Nutzungsdaten senden"
+	#tag EndConstant
+
+	#tag Constant, Name = kLabel1_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Base folder for DOS games/apps"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Basisverzeichnis f\xC3\xBCr DOS Spiele/Anwendungen"
+	#tag EndConstant
+
+	#tag Constant, Name = kLabel2_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"DOSBox Executable"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Executable"
+	#tag EndConstant
+
+	#tag Constant, Name = kOptionsWindow_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Options"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Optionen"
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectDOSBox_Action, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Use"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verwenden"
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectDOSBox_Prompt, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select DOSBox app file"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Datei w\xC3\xA4hlen"
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectDOSBox_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select DOSBox app file"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Datei w\xC3\xA4hlen"
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectGameFolder_Action, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Use"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verwenden"
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectGameFolder_Prompt, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select game base folder"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Basis-Verzeichnis w\xC3\xA4hlen"
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectGameFolder_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select game base folder"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Basis-Verzeichnis w\xC3\xA4hlen"
+	#tag EndConstant
 
 
 #tag EndWindowCode
@@ -386,9 +452,9 @@ End
 	#tag Event
 		Sub Action()
 		  Var dlg As New SelectFolderDialog
-		  dlg.ActionButtonCaption = "Verwenden"
-		  dlg.Title = "Basis-Verzeichnis wählen"
-		  dlg.PromptText = "Basis-Verzeichnis wählen"
+		  dlg.ActionButtonCaption = kSelectGameFolder_Action
+		  dlg.Title = kSelectGameFolder_Title
+		  dlg.PromptText = kSelectGameFolder_Prompt
 		  
 		  dlg.InitialFolder = SpecialFolder.UserHome
 		  
@@ -416,9 +482,9 @@ End
 	#tag Event
 		Sub Action()
 		  Var dlg As New OpenFileDialog
-		  dlg.ActionButtonCaption = "Verwenden"
-		  dlg.Title = "DOSBox Datei wählen"
-		  dlg.PromptText = "DOSBox Datei wählen"
+		  dlg.ActionButtonCaption = kSelectDOSBox_Action
+		  dlg.Title = kSelectDOSBox_Title
+		  dlg.PromptText = kSelectDOSBox_Prompt
 		  dlg.InitialFolder = SpecialFolder.Applications
 		  
 		  Var f As FolderItem = dlg.ShowModal

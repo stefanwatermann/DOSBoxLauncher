@@ -20,7 +20,7 @@ Begin Window EditGameWindow
    MinimumHeight   =   64
    MinimumWidth    =   64
    Resizeable      =   False
-   Title           =   "Spiel Setup"
+   Title           =   "#kEditGameWindow_Title"
    Type            =   8
    Visible         =   False
    Width           =   538
@@ -41,10 +41,10 @@ Begin Window EditGameWindow
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      Panels          =   ""
+      Panels          =   "#tabEditMode_Panels"
       Scope           =   2
       SmallTabs       =   False
-      TabDefinition   =   "Einfach\rExperte"
+      TabDefinition   =   "#ktabEditMode_PanelSimple\r#ktabEditMode_PanelExpert"
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
@@ -52,10 +52,10 @@ Begin Window EditGameWindow
       Top             =   12
       Transparent     =   False
       Underline       =   False
-      Value           =   1
+      Value           =   0
       Visible         =   True
       Width           =   498
-      Begin Label Label7
+      Begin Label lbStartFile
          AllowAutoDeactivate=   True
          Bold            =   False
          DataField       =   ""
@@ -80,7 +80,7 @@ Begin Window EditGameWindow
          TabIndex        =   10
          TabPanelIndex   =   1
          TabStop         =   True
-         Text            =   "Start Datei *"
+         Text            =   "#lbStartFile_Text"
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
@@ -122,7 +122,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   110
       End
-      Begin Label Label4
+      Begin Label lbScaler
          AllowAutoDeactivate=   True
          Bold            =   False
          DataField       =   ""
@@ -189,7 +189,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   110
       End
-      Begin Label Label2
+      Begin Label lbResolution
          AllowAutoDeactivate=   True
          Bold            =   False
          DataField       =   ""
@@ -214,7 +214,7 @@ Begin Window EditGameWindow
          TabIndex        =   13
          TabPanelIndex   =   1
          TabStop         =   True
-         Text            =   "Auflösung"
+         Text            =   "#lbResolution_Text"
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
@@ -227,7 +227,7 @@ Begin Window EditGameWindow
       Begin RadioButton rbScreenWindow
          AllowAutoDeactivate=   True
          Bold            =   False
-         Caption         =   "Fenster"
+         Caption         =   "#rbScreenWindow_Caption"
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -252,7 +252,7 @@ Begin Window EditGameWindow
          Underline       =   False
          Value           =   False
          Visible         =   True
-         Width           =   90
+         Width           =   110
       End
       Begin TextField tbGameName
          AllowAutoDeactivate=   True
@@ -270,7 +270,7 @@ Begin Window EditGameWindow
          Format          =   ""
          HasBorder       =   True
          Height          =   22
-         Hint            =   "mindestens 3 Zeichen"
+         Hint            =   "#tbGameName_Hint"
          Index           =   -2147483648
          InitialParent   =   "tabEditMode"
          Italic          =   False
@@ -301,7 +301,7 @@ Begin Window EditGameWindow
       Begin RadioButton rbScreenFull
          AllowAutoDeactivate=   True
          Bold            =   False
-         Caption         =   "Vollbild"
+         Caption         =   "#rbScreenFull_Caption"
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -328,7 +328,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   94
       End
-      Begin Label Label1
+      Begin Label lbGameName
          AllowAutoDeactivate=   True
          Bold            =   False
          DataField       =   ""
@@ -353,7 +353,7 @@ Begin Window EditGameWindow
          TabIndex        =   0
          TabPanelIndex   =   1
          TabStop         =   True
-         Text            =   "Name des Spiels *"
+         Text            =   "#lbGameName_Text"
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
@@ -395,7 +395,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   94
       End
-      Begin Label Label9
+      Begin Label lbCpuCyles
          AllowAutoDeactivate=   True
          Bold            =   False
          DataField       =   ""
@@ -430,7 +430,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   87
       End
-      Begin Label Label8
+      Begin Label lbMandatory
          AllowAutoDeactivate=   True
          Bold            =   False
          DataField       =   ""
@@ -455,7 +455,7 @@ Begin Window EditGameWindow
          TabIndex        =   1
          TabPanelIndex   =   1
          TabStop         =   True
-         Text            =   "* Pflichtfeld"
+         Text            =   "#lbMandatory_Text"
          TextAlignment   =   3
          TextColor       =   &c00000000
          Tooltip         =   ""
@@ -566,7 +566,7 @@ Begin Window EditGameWindow
          TabIndex        =   9
          TabPanelIndex   =   1
          TabStop         =   True
-         Tooltip         =   ""
+         Tooltip         =   "btnSelectFolder_Tooltip"
          Top             =   201
          Transparent     =   False
          Underline       =   False
@@ -598,7 +598,7 @@ Begin Window EditGameWindow
          TabIndex        =   5
          TabPanelIndex   =   1
          TabStop         =   True
-         Tooltip         =   ""
+         Tooltip         =   "#btnSelectFolder_Tooltip"
          Top             =   137
          Transparent     =   False
          Underline       =   False
@@ -608,7 +608,7 @@ Begin Window EditGameWindow
       Begin CheckBox cbMountAsCDROM
          AllowAutoDeactivate=   True
          Bold            =   False
-         Caption         =   "als CD-ROM mounten"
+         Caption         =   "#cbMountAsCDROM_Caption"
          DataField       =   ""
          DataSource      =   ""
          Enabled         =   True
@@ -682,7 +682,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   428
       End
-      Begin Label Label6
+      Begin Label lbMountD
          AllowAutoDeactivate=   True
          Bold            =   False
          DataField       =   ""
@@ -707,7 +707,7 @@ Begin Window EditGameWindow
          TabIndex        =   6
          TabPanelIndex   =   1
          TabStop         =   True
-         Text            =   "Verzeichnis als D: mounten"
+         Text            =   "#lbMountD_Text"
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
@@ -761,7 +761,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   428
       End
-      Begin Label Label5
+      Begin Label lbMountC
          AllowAutoDeactivate=   True
          Bold            =   False
          DataField       =   ""
@@ -786,7 +786,7 @@ Begin Window EditGameWindow
          TabIndex        =   3
          TabPanelIndex   =   1
          TabStop         =   True
-         Text            =   "Verzeichnis als C: mounten *"
+         Text            =   "#lbMountC_Text"
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
@@ -828,7 +828,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   110
       End
-      Begin Label Label3
+      Begin Label lbMachine
          AllowAutoDeactivate=   True
          Bold            =   False
          DataField       =   ""
@@ -853,7 +853,7 @@ Begin Window EditGameWindow
          TabIndex        =   15
          TabPanelIndex   =   1
          TabStop         =   True
-         Text            =   "Maschine"
+         Text            =   "#lbMachine_Text"
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
@@ -938,7 +938,7 @@ Begin Window EditGameWindow
          TabIndex        =   1
          TabPanelIndex   =   2
          TabStop         =   True
-         Text            =   "Konfigurationsdatei manuell bearbeiten."
+         Text            =   "#lbExpertTitle_Text"
          TextAlignment   =   0
          TextColor       =   &c79797900
          Tooltip         =   ""
@@ -964,7 +964,7 @@ Begin Window EditGameWindow
          Format          =   ""
          HasBorder       =   True
          Height          =   22
-         Hint            =   "Spielname (min. 3 Zeichen)"
+         Hint            =   "#tbGameNameExpert_Hint"
          Index           =   -2147483648
          InitialParent   =   "tabEditMode"
          Italic          =   False
@@ -984,7 +984,7 @@ Begin Window EditGameWindow
          Text            =   ""
          TextAlignment   =   0
          TextColor       =   &c00000000
-         Tooltip         =   "Name des Spiels, mindestens 3 Zeichen."
+         Tooltip         =   "#tbGameNameExpert_Tooltip"
          Top             =   56
          Transparent     =   False
          Underline       =   False
@@ -1010,7 +1010,7 @@ Begin Window EditGameWindow
          TabIndex        =   2
          TabPanelIndex   =   2
          TabStop         =   False
-         Tooltip         =   "DOSBox Wiki im Internet aufrufen"
+         Tooltip         =   "#btnShowDosBoxWiki_Tooltip"
          Top             =   57
          Transparent     =   False
          Visible         =   True
@@ -1019,7 +1019,7 @@ Begin Window EditGameWindow
       Begin CheckBox cbAutoExit
          AllowAutoDeactivate=   True
          Bold            =   False
-         Caption         =   "DOSBox Fenster automatisch schließen"
+         Caption         =   "#cbAutoExit_Caption"
          DataField       =   ""
          DataSource      =   ""
          Enabled         =   True
@@ -1054,7 +1054,7 @@ Begin Window EditGameWindow
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   True
-      Caption         =   "Cancel"
+      Caption         =   "#kbtnCancel_Caption"
       Default         =   False
       Enabled         =   True
       FontName        =   "System"
@@ -1064,7 +1064,7 @@ Begin Window EditGameWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   275
+      Left            =   265
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
@@ -1076,11 +1076,11 @@ Begin Window EditGameWindow
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   460
+      Top             =   465
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   80
+      Width           =   100
    End
    Begin PushButton btnOk
       AllowAutoDeactivate=   True
@@ -1096,7 +1096,7 @@ Begin Window EditGameWindow
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   183
+      Left            =   173
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
@@ -1108,7 +1108,7 @@ Begin Window EditGameWindow
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   460
+      Top             =   465
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -1264,6 +1264,157 @@ End
 	#tag EndProperty
 
 
+	#tag Constant, Name = btnSelectFolder_Tooltip, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select folder\xE2\x80\xA6"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verzeichnis w\xC3\xA4hlen\xE2\x80\xA6"
+	#tag EndConstant
+
+	#tag Constant, Name = btnShowDosBoxWiki_Tooltip, Type = String, Dynamic = True, Default = \"DOSBox Wiki im Internet aufrufen", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Open DOSBox wiki on the internet."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Wiki im Internet aufrufen"
+	#tag EndConstant
+
+	#tag Constant, Name = cbAutoExit_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Close DOSBox window automatically"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Fenster automatisch schlie\xC3\x9Fen"
+	#tag EndConstant
+
+	#tag Constant, Name = cbMountAsCDROM_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"mount as CDROM"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"als CD-ROM einbinden"
+	#tag EndConstant
+
+	#tag Constant, Name = kbtnCancel_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Cancel"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Abbrechen"
+	#tag EndConstant
+
+	#tag Constant, Name = kEditGameWindow_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"DOSBox configuration"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Konfiguration"
+	#tag EndConstant
+
+	#tag Constant, Name = kOkUseExpert, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Click OK to use the expert configuration and disable the simple config."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Mit OK wird f\xC3\xBCr dieses Spiel die manuelle (Experte) Konfiguration verwendet und die einfache deaktiviert."
+	#tag EndConstant
+
+	#tag Constant, Name = kOkUseSimple, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Click OK to use the simple configuration and disable the expert config."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Mit OK wird f\xC3\xBCr dieses Spiel die einfache Konfiguration verwendet und die manuelle (Experte) verworfen."
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectC_Action, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Use"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verwenden"
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectC_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Mount C:\\ - select folder"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Mount C:\\ - Verzeichnis w\xC3\xA4hlen"
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectD_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Mount D:\\ - select folder"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Mount D:\\ - Verzeichnis w\xC3\xA4hlen"
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectStartFile_Action, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Use"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verwenden"
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectStartFile_SelectDrive_Expl, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select drive containing the start-file."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"W\xC3\xA4hle das Laufwerk welches die Startdatei enth\xC3\xA4lt."
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectStartFile_SelectDrive_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select start drive"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Startlaufwerk ausw\xC3\xA4hlen"
+	#tag EndConstant
+
+	#tag Constant, Name = kSelectStartFile_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select start-file"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Startdatei w\xC3\xA4hlen"
+	#tag EndConstant
+
+	#tag Constant, Name = ktabEditMode_PanelExpert, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Expert"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Experte"
+	#tag EndConstant
+
+	#tag Constant, Name = ktabEditMode_PanelSimple, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Simple"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Einfach"
+	#tag EndConstant
+
+	#tag Constant, Name = lbExpertTitle_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Edit config-file manually."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Konfigurationsdatei manuell bearbeiten."
+	#tag EndConstant
+
+	#tag Constant, Name = lbGameName_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Name of game *"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Name des Spiels *"
+	#tag EndConstant
+
+	#tag Constant, Name = lbMachine_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Machine"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Maschine"
+	#tag EndConstant
+
+	#tag Constant, Name = lbMandatory_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"* Mandatory"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"* Pflichtfeld"
+	#tag EndConstant
+
+	#tag Constant, Name = lbMountC_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Folder to mount as C:\\ *"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verzeichnis als C:\\ einbinden *"
+	#tag EndConstant
+
+	#tag Constant, Name = lbMountD_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Folder to mount as D:\\"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verzeichnis als D:\\ einbinden"
+	#tag EndConstant
+
+	#tag Constant, Name = lbResolution_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Resolution"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Aufl\xC3\xB6sung"
+	#tag EndConstant
+
+	#tag Constant, Name = lbStartFile_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Start executable *"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Start Datei *"
+	#tag EndConstant
+
+	#tag Constant, Name = rbScreenFull_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Fullscreen"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Vollbild"
+	#tag EndConstant
+
+	#tag Constant, Name = rbScreenWindow_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Windowed"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Fenster"
+	#tag EndConstant
+
+	#tag Constant, Name = tbGameNameExpert_Hint, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Name of game (min. 3 char.)"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Spielname (min. 3 Zeichen)"
+	#tag EndConstant
+
+	#tag Constant, Name = tbGameNameExpert_Tooltip, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Name of game\x2C at least 3 characters."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Name des Spiels\x2C mindestens 3 Zeichen."
+	#tag EndConstant
+
+	#tag Constant, Name = tbGameName_Hint, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"min. 3 character"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"mindestens 3 Zeichen"
+	#tag EndConstant
+
+
 #tag EndWindowCode
 
 #tag Events tabEditMode
@@ -1364,8 +1515,8 @@ End
 		    d.AlternateActionButton.Caption = "D:"
 		    d.AlternateActionButton.Visible = True
 		    d.CancelButton.Visible = False               
-		    d.Message = "Startlaufwerk auswählen"
-		    d.Explanation = "Wähle das Laufwerk welches die Startdatei enthält."
+		    d.Message = kSelectStartFile_SelectDrive_Title
+		    d.Explanation = kSelectStartFile_SelectDrive_Expl
 		    
 		    Var result As MessageDialogButton = d.ShowModal
 		    
@@ -1383,9 +1534,9 @@ End
 		  End
 		  
 		  Var dlg As New OpenFileDialog
-		  dlg.ActionButtonCaption = "Verwenden"
-		  dlg.Title = "Startdatei wählen"
-		  dlg.PromptText = "Startdatei wählen"
+		  dlg.ActionButtonCaption = kSelectStartFile_Action
+		  dlg.Title = kSelectStartFile_Title
+		  dlg.PromptText = kSelectStartFile_Title
 		  dlg.InitialFolder = initialFolder
 		  Var f As FolderItem = dlg.ShowModal
 		  
@@ -1413,9 +1564,9 @@ End
 	#tag Event
 		Sub Action()
 		  Var dlg As New SelectFolderDialog
-		  dlg.ActionButtonCaption = "Verwenden"
-		  dlg.Title = "Mount D: / Verzeichnis wählen"
-		  dlg.PromptText = "Mount D: / Verzeichnis wählen"
+		  dlg.ActionButtonCaption = kSelectC_Title
+		  dlg.Title = kSelectD_Title
+		  dlg.PromptText = kSelectD_Title
 		  dlg.InitialFolder = GetGameFolder
 		  
 		  Var f As FolderItem = dlg.ShowModal
@@ -1430,9 +1581,9 @@ End
 	#tag Event
 		Sub Action()
 		  Var dlg As New SelectFolderDialog
-		  dlg.ActionButtonCaption = "Verwenden"
-		  dlg.Title = "Mount C: / Verzeichnis wählen"
-		  dlg.PromptText = "Mount C: / Verzeichnis wählen"
+		  dlg.ActionButtonCaption = kSelectC_Action
+		  dlg.Title = kSelectC_Title
+		  dlg.PromptText = kSelectC_Title
 		  dlg.InitialFolder = GetGameFolder
 		  
 		  Var f As FolderItem = dlg.ShowModal
@@ -1571,7 +1722,7 @@ End
 		  If tabEditMode.Value = 0 Then
 		    If Self.CurrentDOSGame.ExpertMode Then
 		      Var r As Integer
-		      r = MsgBox("Mit OK wird für dieses Spiel die einfache Konfiguration verwendet und die manuelle verworfen.", 33)
+		      r = MsgBox(kOkUseSimple, 33)
 		      If r = 1 Then
 		        Self.CurrentDOSGame.ExpertMode = False
 		      Else
@@ -1581,7 +1732,7 @@ End
 		  Else
 		    If Not Self.CurrentDOSGame.ExpertMode Then
 		      Var r As Integer
-		      r = MsgBox("Mit OK wird für dieses Spiel die manuelle Konfiguration verwendet und die einfache deaktiviert.", 33)
+		      r = MsgBox(kOkUseExpert, 33)
 		      If r = 1 Then
 		        Self.CurrentDOSGame.ExpertMode = True
 		      Else
