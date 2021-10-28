@@ -1265,152 +1265,152 @@ End
 
 
 	#tag Constant, Name = btnSelectFolder_Tooltip, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select folder\xE2\x80\xA6"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select folder\xE2\x80\xA6"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verzeichnis w\xC3\xA4hlen\xE2\x80\xA6"
 	#tag EndConstant
 
 	#tag Constant, Name = btnShowDosBoxWiki_Tooltip, Type = String, Dynamic = True, Default = \"DOSBox Wiki im Internet aufrufen", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Open DOSBox wiki on the internet."
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Open DOSBox wiki on the internet."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Wiki im Internet aufrufen"
 	#tag EndConstant
 
 	#tag Constant, Name = cbAutoExit_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Close DOSBox window automatically"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Close DOSBox window automatically"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Fenster automatisch schlie\xC3\x9Fen"
 	#tag EndConstant
 
 	#tag Constant, Name = cbMountAsCDROM_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"mount as CDROM"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"mount as CDROM"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"als CD-ROM einbinden"
 	#tag EndConstant
 
 	#tag Constant, Name = kbtnCancel_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Cancel"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Cancel"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Abbrechen"
 	#tag EndConstant
 
 	#tag Constant, Name = kEditGameWindow_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"DOSBox configuration"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox configuration"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Konfiguration"
 	#tag EndConstant
 
 	#tag Constant, Name = kOkUseExpert, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Click OK to use the expert configuration and disable the simple config."
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Click OK to use the expert configuration and disable the simple config."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Mit OK wird f\xC3\xBCr dieses Spiel die manuelle (Experte) Konfiguration verwendet und die einfache deaktiviert."
 	#tag EndConstant
 
 	#tag Constant, Name = kOkUseSimple, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Click OK to use the simple configuration and disable the expert config."
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Click OK to use the simple configuration and disable the expert config."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Mit OK wird f\xC3\xBCr dieses Spiel die einfache Konfiguration verwendet und die manuelle (Experte) verworfen."
 	#tag EndConstant
 
 	#tag Constant, Name = kSelectC_Action, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Use"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Use"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verwenden"
 	#tag EndConstant
 
 	#tag Constant, Name = kSelectC_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Mount C:\\ - select folder"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Mount C:\\ - select folder"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Mount C:\\ - Verzeichnis w\xC3\xA4hlen"
 	#tag EndConstant
 
 	#tag Constant, Name = kSelectD_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Mount D:\\ - select folder"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Mount D:\\ - select folder"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Mount D:\\ - Verzeichnis w\xC3\xA4hlen"
 	#tag EndConstant
 
 	#tag Constant, Name = kSelectStartFile_Action, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Use"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Use"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verwenden"
 	#tag EndConstant
 
 	#tag Constant, Name = kSelectStartFile_SelectDrive_Expl, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select drive containing the start-file."
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select drive containing the start-file."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"W\xC3\xA4hle das Laufwerk welches die Startdatei enth\xC3\xA4lt."
 	#tag EndConstant
 
 	#tag Constant, Name = kSelectStartFile_SelectDrive_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select start drive"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select start drive"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Startlaufwerk ausw\xC3\xA4hlen"
 	#tag EndConstant
 
 	#tag Constant, Name = kSelectStartFile_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Select start-file"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select start-file"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Startdatei w\xC3\xA4hlen"
 	#tag EndConstant
 
 	#tag Constant, Name = ktabEditMode_PanelExpert, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Expert"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Expert"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Experte"
 	#tag EndConstant
 
 	#tag Constant, Name = ktabEditMode_PanelSimple, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Simple"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Simple"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Einfach"
 	#tag EndConstant
 
 	#tag Constant, Name = lbExpertTitle_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Edit config-file manually."
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Edit config-file manually."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Konfigurationsdatei manuell bearbeiten."
 	#tag EndConstant
 
 	#tag Constant, Name = lbGameName_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Name of game *"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Name of game *"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Name des Spiels *"
 	#tag EndConstant
 
 	#tag Constant, Name = lbMachine_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Machine"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Machine"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Maschine"
 	#tag EndConstant
 
 	#tag Constant, Name = lbMandatory_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"* Mandatory"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"* Mandatory"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"* Pflichtfeld"
 	#tag EndConstant
 
 	#tag Constant, Name = lbMountC_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Folder to mount as C:\\ *"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Folder to mount as C:\\ *"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verzeichnis als C:\\ einbinden *"
 	#tag EndConstant
 
 	#tag Constant, Name = lbMountD_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Folder to mount as D:\\"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Folder to mount as D:\\"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verzeichnis als D:\\ einbinden"
 	#tag EndConstant
 
 	#tag Constant, Name = lbResolution_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Resolution"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Resolution"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Aufl\xC3\xB6sung"
 	#tag EndConstant
 
 	#tag Constant, Name = lbStartFile_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Start executable *"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Start executable *"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Start Datei *"
 	#tag EndConstant
 
 	#tag Constant, Name = rbScreenFull_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Fullscreen"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Fullscreen"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Vollbild"
 	#tag EndConstant
 
 	#tag Constant, Name = rbScreenWindow_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Windowed"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Windowed"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Fenster"
 	#tag EndConstant
 
 	#tag Constant, Name = tbGameNameExpert_Hint, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Name of game (min. 3 char.)"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Name of game (min. 3 char.)"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Spielname (min. 3 Zeichen)"
 	#tag EndConstant
 
 	#tag Constant, Name = tbGameNameExpert_Tooltip, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"Name of game\x2C at least 3 characters."
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Name of game\x2C at least 3 characters."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Name des Spiels\x2C mindestens 3 Zeichen."
 	#tag EndConstant
 
 	#tag Constant, Name = tbGameName_Hint, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"min. 3 character"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"min. 3 character"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"mindestens 3 Zeichen"
 	#tag EndConstant
 

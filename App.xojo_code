@@ -128,7 +128,7 @@ Inherits Application
 	#tag EndConstant
 
 	#tag Constant, Name = kMainMenu_FileAbout_Text, Type = String, Dynamic = True, Default = \"", Scope = Public
-		#Tag Instance, Platform = Any, Language = Default, Definition  = \"About DOSBox Launcher..."
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"About DOSBox Launcher..."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"\xC3\x9Cber DOSBox Launcher\xE2\x80\xA6"
 	#tag EndConstant
 
