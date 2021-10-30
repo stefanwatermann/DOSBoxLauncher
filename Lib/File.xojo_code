@@ -26,6 +26,25 @@
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub MoveToTrash(extends f as FolderItem)
+		  Var trashItem As FolderItem = SpecialFolder.Trash.Child(f.Name)
+		  
+		  If trashItem <> Nil Then
+		    If trashItem.Exists Then
+		      If trashItem.IsFolder Then
+		        call RemoveEntireFolder(trashItem)
+		      Else
+		        trashItem.Remove
+		      End
+		    End
+		  End
+		  
+		  f.MoveTo(SpecialFolder.Trash)
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0, Description = 526561647320616C6C207465787420646174612066726F6D2061205554463820656E636F6465642066696C65
 		Function ReadAllText(f as FolderItem) As string
 		  Return ReadAllText(f, Encodings.UTF8)
@@ -54,6 +73,74 @@
 		Function ReadAllText(filePath as string) As string
 		  Var f As FolderItem = New FolderItem(filePath, Folderitem.PathModes.Native)
 		  Return ReadAllText(f)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function RemoveEntireFolder(theFolder As FolderItem, continueIfErrors As Boolean = False) As Integer
+		  // Returns an error code if it fails, or zero if the folder was removed successfully
+		  
+		  Var returnCode, lastError As Integer
+		  Var files(), folders() As FolderItem
+		  
+		  If theFolder = Nil Or Not theFolder.Exists Then
+		    Return 0
+		  End If
+		  
+		  // Collect the folder‘s contents first.
+		  // This is faster than collecting them in reverse order and removing them right away!
+		  For Each item As FolderItem In theFolder.Children
+		    If item.Exists Then
+		      If item.IsFolder Then
+		        folders.AddRow(item)
+		      Else
+		        files.AddRow(item)
+		      End If
+		    End If
+		  Next
+		  
+		  // Now remove the files
+		  For Each file As FolderItem In files
+		    Try
+		      file.Remove
+		    Catch error As IOException
+		      If error.ErrorNumber <> 0 Then
+		        If continueIfErrors Then
+		          If returnCode = 0 Then returnCode = lastError
+		        Else
+		          // Return the error code if any. This will cancel the deletion.
+		          Return lastError
+		        End If
+		      End If
+		    End Try
+		  Next
+		  
+		  files.RemoveAll // free the memory used by the files array before we enter recursion
+		  
+		  // Now remove the folders
+		  For Each f As FolderItem In folders
+		    lastError = RemoveEntireFolder(f, continueIfErrors)
+		    If lastError <> 0 Then
+		      If continueIfErrors Then
+		        If returnCode = 0 Then returnCode = lastError
+		      Else
+		        // Return the error code if any. This will cancel the removal.
+		        Return lastError
+		      End If
+		    End If
+		  Next
+		  
+		  If returnCode = 0 Then
+		    // We‘re done without error, so the folder should be empty and we can remove it.
+		    Try
+		      theFolder.Remove
+		    Catch error As IOException
+		      returnCode = error.ErrorNumber
+		    End Try
+		  End If
+		  
+		  Return returnCode
+		  
 		End Function
 	#tag EndMethod
 

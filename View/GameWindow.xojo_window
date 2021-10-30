@@ -338,16 +338,16 @@ End
 		    If b = d.AlternateActionButton Then
 		      Var f As New FolderItem(game.FolderMountAsC, FolderItem.PathModes.Native)
 		      If f.Exists And f.IsFolder Then
-		        f.MoveTo(SpecialFolder.Trash)
+		        f.MoveToTrash()
 		      End
 		    End
 		    
 		    If Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).Exists Then
-		      Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).MoveTo(SpecialFolder.Trash)
+		      Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).MoveToTrash()
 		    End
 		    
 		    If Self.GameFilesPath.Child(game.SettingsFilename).Exists Then
-		      Self.GameFilesPath.Child(game.SettingsFilename).MoveTo(SpecialFolder.Trash)
+		      Self.GameFilesPath.Child(game.SettingsFilename).MoveToTrash()
 		    End
 		    
 		    ReadGameFiles
