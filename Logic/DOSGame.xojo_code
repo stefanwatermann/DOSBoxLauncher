@@ -196,7 +196,7 @@ Protected Class DOSGame
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		Resolution As String = "640x480"
+		Resolution As String = "Standard"
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
