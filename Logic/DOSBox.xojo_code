@@ -53,6 +53,9 @@ Protected Module DOSBox
 		#Tag Instance, Platform = Windows, Language = Default, Definition  = \""
 	#tag EndConstant
 
+	#tag Constant, Name = kDOSBoxInternetUrl, Type = String, Dynamic = False, Default = \"https://www.dosbox.com", Scope = Public
+	#tag EndConstant
+
 	#tag Constant, Name = kDOSBoxManualUrl, Type = String, Dynamic = False, Default = \"https://www.dosbox.com/DOSBoxManual.html", Scope = Public
 	#tag EndConstant
 

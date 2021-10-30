@@ -10,7 +10,7 @@ Begin Window OptionsWindow
    HasFullScreenButton=   False
    HasMaximizeButton=   False
    HasMinimizeButton=   False
-   Height          =   288
+   Height          =   346
    ImplicitInstance=   False
    MacProcID       =   0
    MaximumHeight   =   32000
@@ -23,7 +23,7 @@ Begin Window OptionsWindow
    Title           =   "#kOptionsWindow_Title"
    Type            =   8
    Visible         =   True
-   Width           =   459
+   Width           =   460
    Begin PushButton btnOk
       AllowAutoDeactivate=   True
       Bold            =   False
@@ -50,7 +50,7 @@ Begin Window OptionsWindow
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   248
+      Top             =   306
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -82,46 +82,11 @@ Begin Window OptionsWindow
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   248
+      Top             =   306
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   100
-   End
-   Begin Label Label1
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   40
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   2
-      Selectable      =   False
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "#kLabel1_Text"
-      TextAlignment   =   0
-      TextColor       =   &c00000000
-      Tooltip         =   ""
-      Top             =   35
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   350
    End
    Begin TextField tbGameFolder
       AllowAutoDeactivate=   True
@@ -159,7 +124,7 @@ Begin Window OptionsWindow
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   60
+      Top             =   141
       Transparent     =   False
       Underline       =   False
       ValidationMask  =   ""
@@ -192,7 +157,7 @@ Begin Window OptionsWindow
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   "#kbtnSelectGameFolder_Tooltip"
-      Top             =   61
+      Top             =   142
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -227,11 +192,11 @@ Begin Window OptionsWindow
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   106
+      Top             =   180
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   350
+      Width           =   202
    End
    Begin TextField tbDOSBoxExecutable
       AllowAutoDeactivate=   True
@@ -269,7 +234,7 @@ Begin Window OptionsWindow
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   131
+      Top             =   202
       Transparent     =   False
       Underline       =   False
       ValidationMask  =   ""
@@ -302,7 +267,7 @@ Begin Window OptionsWindow
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   "#kbtnSelectDOSBox_Tooltip"
-      Top             =   132
+      Top             =   203
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -333,13 +298,118 @@ Begin Window OptionsWindow
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   181
+      Top             =   249
       Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
       VisualState     =   0
       Width           =   350
+   End
+   Begin Label lbDescription
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   97
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   40
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      Multiline       =   True
+      Scope           =   2
+      Selectable      =   False
+      TabIndex        =   9
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "#klbDescription_Text"
+      TextAlignment   =   0
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   25
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   382
+   End
+   Begin Label Label1
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   40
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   2
+      Selectable      =   False
+      TabIndex        =   10
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "#kLabel1_Text"
+      TextAlignment   =   0
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   118
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   350
+   End
+   Begin Label lbDOSBoxInternet
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      FontName        =   "SmallSystem"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   254
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   2
+      Selectable      =   False
+      TabIndex        =   11
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "#lbDOSBoxInternet_Text"
+      TextAlignment   =   3
+      TextColor       =   &c9437FF00
+      Tooltip         =   ""
+      Top             =   181
+      Transparent     =   False
+      Underline       =   True
+      Visible         =   True
+      Width           =   136
    End
 End
 #tag EndWindow
@@ -377,7 +447,12 @@ End
 
 	#tag Constant, Name = kLabel2_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox Executable"
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Executable"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Datei"
+	#tag EndConstant
+
+	#tag Constant, Name = klbDescription_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Set-up the base (or home) folder where DOSBox Launcher will find your DOS games/apps. Furthermore you need to specify the DOSBox executable to be used to launch DOS apps."
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Lege hier das Basis- (oder Home-) Verzeichnis fest\x2C in welchem DOSBox Launcher deine DOS Anwendungen findet. Weiterhin gibst du die ausf\xC3\xBChrbare DOSBox Datei zum Start deiner DOS Anwendungen an."
 	#tag EndConstant
 
 	#tag Constant, Name = kOptionsWindow_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
@@ -413,6 +488,11 @@ End
 	#tag Constant, Name = kSelectGameFolder_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select game base folder"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Basis-Verzeichnis w\xC3\xA4hlen"
+	#tag EndConstant
+
+	#tag Constant, Name = lbDOSBoxInternet_Text, Type = String, Dynamic = True, Default = \"", Scope = Protected
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox on the Internet"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox im Internet"
 	#tag EndConstant
 
 
@@ -504,6 +584,24 @@ End
 	#tag Event
 		Sub Open()
 		  me.Value = app.AppConfig.SendStats
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events lbDOSBoxInternet
+	#tag Event
+		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  ShowURL(kDOSBoxInternetUrl)
+		  
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub MouseExit()
+		  me.MouseCursor = System.Cursors.StandardPointer
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub MouseEnter()
+		  me.MouseCursor = system.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 #tag EndEvents

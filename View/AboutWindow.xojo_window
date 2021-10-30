@@ -57,7 +57,7 @@ Begin Window AboutWindow
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   224
+      Width           =   188
    End
    Begin PushButton PushButton1
       AllowAutoDeactivate=   True
@@ -100,7 +100,7 @@ Begin Window AboutWindow
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   69
+      Height          =   60
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -120,7 +120,7 @@ Begin Window AboutWindow
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   58
+      Top             =   75
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -155,7 +155,7 @@ Begin Window AboutWindow
       TextAlignment   =   0
       TextColor       =   &c9437FF00
       Tooltip         =   ""
-      Top             =   128
+      Top             =   135
       Transparent     =   False
       Underline       =   True
       Visible         =   True
@@ -185,6 +185,41 @@ Begin Window AboutWindow
       Tooltip         =   ""
       Top             =   20
       Transparent     =   True
+      Visible         =   True
+      Width           =   128
+   End
+   Begin Label lbVersion
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      FontName        =   "SmallSystem"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   183
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   True
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   2
+      Selectable      =   False
+      TabIndex        =   6
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "-"
+      TextAlignment   =   0
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   47
+      Transparent     =   False
+      Underline       =   False
       Visible         =   True
       Width           =   128
    End
@@ -233,6 +268,13 @@ End
 	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
 		  g.DrawPicture(icoAppIcon, 0, 0)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events lbVersion
+	#tag Event
+		Sub Open()
+		  me.Text = "v" + app.LongVersion
 		End Sub
 	#tag EndEvent
 #tag EndEvents

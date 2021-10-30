@@ -402,7 +402,7 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub Init()
-		  Self.Title = Self.Title + " (v" + app.LongVersion + ")"
+		  //Self.Title = Self.Title + " (v" + app.LongVersion + ")"
 		  Self.BackgroundColor = Colors.ControlBackground
 		  
 		  OutputPanelVisible(false)
@@ -410,7 +410,7 @@ End
 		  GameList.SelectedRowIndex = 0
 		  
 		  If Not ISDOSBoxAvailable Then
-		    Call MsgBox(kInit_CannotFindDOSBoxExecutable_Message, 16)
+		    //Call MsgBox(kInit_CannotFindDOSBoxExecutable_Message, 16)
 		    ShowOptions
 		  End
 		End Sub
