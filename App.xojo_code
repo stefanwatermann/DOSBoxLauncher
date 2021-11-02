@@ -81,17 +81,42 @@ Inherits Application
 		EINER UNERLAUBTEN HANDLUNG ODER ANDERWEITIG, DIE SICH AUS, AUS ODER IN VERBINDUNG 
 		MIT DER SOFTWARE ODER DER NUTZUNG ODER ANDEREN GESCHÄFTEN MIT DER SOFTWARE ERGEBEN.
 		
+		----------------------------------------------
+		
+		opyright (c) 2021, Stefan Watermann, Germany.
+		
+		Permission is hereby granted, free of charge, to any person obtaining a copy of 
+		this software and associated documentation files (the "Software"), to deal in the 
+		Software without restriction, including without limitation the rights to use, copy, 
+		modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, 
+		and to permit persons to whom the Software is furnished to do so, subject to the 
+		following conditions:
+		
+		The above copyright notice and this permission notice shall be included in all copies 
+		or substantial portions of the Software.
+		
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+		INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+		PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+		HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION 
+		OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+		SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		
 	#tag EndNote
 
 	#tag Note, Name = DOSBox
-		Die Anwendung DOSBox kein NICHT Bestandteil dieser App 
+		Die Anwendung DOSBox ist NICHT Bestandteil dieser App 
 		und muss separat installiert werden.
+		
+		--------------------------------------
+		
+		This application does NOT have DOSBox included, please 
+		download separately.
+		
 		
 		https://www.dosbox.com
 		
 		https://www.dosbox.com/wiki/Usage
-		
 	#tag EndNote
 
 

@@ -607,8 +607,8 @@ End
 	#tag EndConstant
 
 	#tag Constant, Name = kGameWindow_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox [Game] Launcher"
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox [Game] Launcher"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox Launcher"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Launcher"
 	#tag EndConstant
 
 	#tag Constant, Name = kInit_CannotFindDOSBoxExecutable_Message, Type = String, Dynamic = True, Default = \"", Scope = Private
