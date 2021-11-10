@@ -7,14 +7,12 @@ DOSBox selbst ist **kein** Bestandteil dieser App und muss separat installiert w
 
 DOSBoxLaunchers Oberfläche unterstüzt englisch und deutsch und läuft aktuell auf MacOS und Windows. Linux Support ist in Vorbereitung.
 
-Aktuelle ausführbare App Dateien befindet sich im "Builds" Ordner des Repositories. 
-
 Download der kompilierten App: 
 - [MacOS](/Builds/macOS/DOSBoxLauncher.app.zip)
 - [Windows](/Builds/Windows/DOSBoxLauncher.zip)
 
 ## Lizenz
-DOSBoxLauncher ist unter der MIT Lizenz veröffentlich.
+DOSBoxLauncher ist unter der [MIT Lizenz](/LICENSE) veröffentlich und kann kostenlos verwendet werden.
 
 ## Entwicklung
 Das Projekt erfordert die Entwicklungsumgebung [XOJO](https://www.xojo.com) (2021r2.1). 
