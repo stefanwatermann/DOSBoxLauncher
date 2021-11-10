@@ -2,10 +2,10 @@
 
 ![AppLogo](/Images/AppIcon_128.png)
 
-Konfiguriert und startet DOS Anwendungen (z.B. alte Spiele) unter MacOS und Windows mittels einer auf dem System vorhandenen/installierten DOSBox App.
-DOSBox selbst ist **kein** Bestandteil dieser App und muss separat installiert werden (siehe https://www.dosbox.com).
+DOSBoxLauncher konfiguriert und startet DOS Anwendungen (z.B. Spiele) mittels einer auf dem System vorhandenen/installierten DOSBox App.
+DOSBox selbst ist **kein** Bestandteil dieser App und muss separat installiert werden (siehe https://www.dosbox.com). Es steht eine einfache Konfiguration mit wenigen Parametern im Fokus. DOSBoxLauncher ist für "Gelegenheits DOS Spieler" gedacht und eignet sich weniger für die Katalogisierung und Verwaltung von Sammlungen von DOS Anwendungen. 
 
-DOSBoxLaunchers Oberfläche unterstüzt englisch und deutsch und läuft aktuell auf MacOS und Windows. Linux Support ist in Vorbereitung.
+DOSBoxLaunchers Oberfläche unterstüzt englisch und deutsch und läuft aktuell auf MacOS und Windows. Linux Support ist in Vorbereitung. 
 
 Download der kompilierten App: 
 - [MacOS](/Builds/macOS/DOSBoxLauncher.app.zip)
@@ -15,7 +15,7 @@ Download der kompilierten App:
 DOSBoxLauncher ist unter der [MIT Lizenz](/LICENSE) veröffentlich und kann kostenlos verwendet werden.
 
 ## Entwicklung
-Das Projekt erfordert die Entwicklungsumgebung [XOJO](https://www.xojo.com) (2021r2.1). 
+Das Projekt ist mit der Entwicklungsumgebung [XOJO](https://www.xojo.com) (2021r2.1) entstanden. 
 
 ## Verwendung
 Das Hauptfenster zeigt eine Liste der konfigurierten DOS Anwendungen / Spiele. Ein Doppelklick startet das jeweilige Spiel. 
