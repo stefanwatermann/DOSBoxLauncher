@@ -10,7 +10,7 @@ DOSBoxLaunchers Oberfläche unterstüzt englisch und deutsch und läuft aktuell 
 Aktuelle ausführbare App Dateien befindet sich im "Builds" Ordner des Repositories. 
 
 Download der kompilierten App: 
-- [MacOS](/Builds/macOS%20Universal/DOSBoxLauncher.app.zip)
+- [MacOS](/Builds/macOS/DOSBoxLauncher.app.zip)
 - [Windows](/Builds/Windows/DOSBoxLauncher.zip)
 
 ## Lizenz
