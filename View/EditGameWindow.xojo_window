@@ -52,7 +52,7 @@ Begin Window EditGameWindow
       Top             =   12
       Transparent     =   False
       Underline       =   False
-      Value           =   0
+      Value           =   1
       Visible         =   True
       Width           =   498
       Begin Label lbStartFile
@@ -1564,7 +1564,7 @@ End
 	#tag Event
 		Sub Action()
 		  Var dlg As New SelectFolderDialog
-		  dlg.ActionButtonCaption = kSelectC_Title
+		  dlg.ActionButtonCaption = kSelectD_Title
 		  dlg.Title = kSelectD_Title
 		  dlg.PromptText = kSelectD_Title
 		  dlg.InitialFolder = GetGameFolder
