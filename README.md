@@ -1,7 +1,5 @@
 # DOSBoxLauncher
 
-<meta name="google-site-verification" content="8AiuYV6YU0JpsICSQLXVZafqnXROdErYIKYKw9p1L-c" />
-
 ![AppLogo](/Images/AppIcon_128.png)
 
 DOSBoxLauncher konfiguriert und startet DOS Anwendungen (z.B. Spiele) mittels einer auf dem System vorhandenen/installierten DOSBox App.
