@@ -1041,8 +1041,8 @@ Begin DesktopWindow EditGameWindow
          Left            =   490
          LockBottom      =   False
          LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
+         LockLeft        =   False
+         LockRight       =   True
          LockTop         =   True
          Multiline       =   False
          Scope           =   2
