@@ -1,5 +1,5 @@
-#tag Window
-Begin Window EditGameWindow
+#tag DesktopWindow
+Begin DesktopWindow EditGameWindow
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF00
    Composite       =   False
@@ -24,7 +24,129 @@ Begin Window EditGameWindow
    Type            =   8
    Visible         =   False
    Width           =   538
-   Begin TabPanel tabEditMode
+   Begin DesktopButton btnCancel
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   True
+      Caption         =   "#kbtnCancel_Caption"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   265
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      MacButtonStyle  =   0
+      Scope           =   2
+      TabIndex        =   2
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   465
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin DesktopButton btnOk
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "OK"
+      Default         =   True
+      Enabled         =   False
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   20
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   173
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      MacButtonStyle  =   0
+      Scope           =   2
+      TabIndex        =   1
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   465
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
+   Begin Scrollbar ScrollBarVertical
+      AllowAutoDeactivate=   True
+      AllowFocus      =   True
+      AllowLiveScrolling=   True
+      Enabled         =   True
+      Height          =   339
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Left            =   503
+      LineStep        =   1
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   True
+      LockTop         =   True
+      MaximumValue    =   100
+      MinimumValue    =   0
+      PageStep        =   20
+      Scope           =   2
+      TabIndex        =   3
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   91
+      Transparent     =   False
+      Value           =   0
+      Visible         =   True
+      Width           =   15
+   End
+   Begin Scrollbar ScrollBarHorizontal
+      AllowAutoDeactivate=   True
+      AllowFocus      =   True
+      AllowLiveScrolling=   True
+      Enabled         =   True
+      Height          =   15
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Left            =   20
+      LineStep        =   1
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   False
+      MaximumValue    =   100
+      MinimumValue    =   0
+      PageStep        =   20
+      Scope           =   2
+      TabIndex        =   4
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   431
+      Transparent     =   False
+      Value           =   0
+      Visible         =   True
+      Width           =   483
+   End
+   Begin DesktopTabPanel tabEditMode
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
@@ -52,14 +174,12 @@ Begin Window EditGameWindow
       Top             =   12
       Transparent     =   False
       Underline       =   False
-      Value           =   1
+      Value           =   0
       Visible         =   True
       Width           =   498
-      Begin Label lbStartFile
+      Begin DesktopLabel lbStartFile
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -90,43 +210,9 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   300
       End
-      Begin PopupMenu popupScaler
+      Begin DesktopLabel lbScaler
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
-         Enabled         =   True
-         FontName        =   "System"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   20
-         Index           =   -2147483648
-         InitialParent   =   "tabEditMode"
-         InitialValue    =   "none\nnormal2x\nnormal3x\nadvmame2x\nadvmame3x\nadvinterp2x\nadvinterp3x\nhq2x\nhq3x\n2xsai\nsuper2xsai\nsupereagle\ntv2x\ntv3x\nrgb2x\nrgb3x\nscan2x\nscan3x"
-         Italic          =   False
-         Left            =   162
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   True
-         Scope           =   2
-         SelectedRowIndex=   0
-         TabIndex        =   18
-         TabPanelIndex   =   1
-         TabStop         =   True
-         Tooltip         =   ""
-         Top             =   352
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   110
-      End
-      Begin Label lbScaler
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -157,11 +243,9 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   87
       End
-      Begin PopupMenu popupResolution
+      Begin DesktopPopupMenu popupResolution
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -189,11 +273,9 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   110
       End
-      Begin Label lbResolution
+      Begin DesktopLabel lbResolution
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -224,7 +306,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   87
       End
-      Begin RadioButton rbScreenWindow
+      Begin DesktopRadioButton rbScreenWindow
          AllowAutoDeactivate=   True
          Bold            =   False
          Caption         =   "#rbScreenWindow_Caption"
@@ -254,15 +336,13 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   110
       End
-      Begin TextField tbGameName
+      Begin DesktopTextField tbGameName
          AllowAutoDeactivate=   True
          AllowFocusRing  =   True
          AllowSpellChecking=   False
          AllowTabs       =   False
          BackgroundColor =   &cFFFFFF00
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -298,7 +378,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   300
       End
-      Begin RadioButton rbScreenFull
+      Begin DesktopRadioButton rbScreenFull
          AllowAutoDeactivate=   True
          Bold            =   False
          Caption         =   "#rbScreenFull_Caption"
@@ -328,11 +408,9 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   94
       End
-      Begin Label lbGameName
+      Begin DesktopLabel lbGameName
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -363,11 +441,9 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   232
       End
-      Begin PopupMenu popupCpuCycles
+      Begin DesktopPopupMenu popupCpuCycles
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -395,11 +471,9 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   94
       End
-      Begin Label lbCpuCyles
+      Begin DesktopLabel lbCpuCyles
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -430,11 +504,9 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   87
       End
-      Begin Label lbMandatory
+      Begin DesktopLabel lbMandatory
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "SmallSystem"
          FontSize        =   0.0
@@ -465,7 +537,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   100
       End
-      Begin PushButton btnSelectStartFile
+      Begin DesktopButton btnSelectStartFile
          AllowAutoDeactivate=   True
          Bold            =   False
          Cancel          =   False
@@ -497,15 +569,13 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   28
       End
-      Begin TextField tbStartFile
+      Begin DesktopTextField tbStartFile
          AllowAutoDeactivate=   True
          AllowFocusRing  =   True
          AllowSpellChecking=   False
          AllowTabs       =   False
          BackgroundColor =   &cFFFFFF00
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -541,7 +611,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   428
       End
-      Begin PushButton btnSelectFolderD
+      Begin DesktopButton btnSelectFolderD
          AllowAutoDeactivate=   True
          Bold            =   False
          Cancel          =   False
@@ -573,7 +643,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   27
       End
-      Begin PushButton btnSelectFolderC
+      Begin DesktopButton btnSelectFolderC
          AllowAutoDeactivate=   True
          Bold            =   False
          Cancel          =   False
@@ -605,12 +675,10 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   27
       End
-      Begin CheckBox cbMountAsCDROM
+      Begin DesktopCheckBox cbMountAsCDROM
          AllowAutoDeactivate=   True
          Bold            =   False
          Caption         =   "#cbMountAsCDROM_Caption"
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -638,15 +706,13 @@ Begin Window EditGameWindow
          VisualState     =   0
          Width           =   219
       End
-      Begin TextField tbMountD
+      Begin DesktopTextField tbMountD
          AllowAutoDeactivate=   True
          AllowFocusRing  =   True
          AllowSpellChecking=   False
          AllowTabs       =   False
          BackgroundColor =   &cFFFFFF00
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -682,11 +748,9 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   428
       End
-      Begin Label lbMountD
+      Begin DesktopLabel lbMountD
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -717,15 +781,13 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   214
       End
-      Begin TextField tbMountC
+      Begin DesktopTextField tbMountC
          AllowAutoDeactivate=   True
          AllowFocusRing  =   True
          AllowSpellChecking=   False
          AllowTabs       =   False
          BackgroundColor =   &cFFFFFF00
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -761,11 +823,9 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   428
       End
-      Begin Label lbMountC
+      Begin DesktopLabel lbMountC
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -796,11 +856,9 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   352
       End
-      Begin PopupMenu popupMachine
+      Begin DesktopPopupMenu popupMachine
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -828,11 +886,9 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   110
       End
-      Begin Label lbMachine
+      Begin DesktopLabel lbMachine
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -863,61 +919,88 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   87
       End
-      Begin TextArea tbExpertText
+      Begin CustomEditField tbExpertText
          AllowAutoDeactivate=   True
+         AllowFocus      =   False
          AllowFocusRing  =   False
-         AllowSpellChecking=   False
-         AllowStyledText =   True
-         AllowTabs       =   False
-         BackgroundColor =   &cFFFFFF00
-         Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
+         AllowTabs       =   True
+         AutoCloseBrackets=   True
+         AutocompleteAppliesStandardCase=   True
+         AutoIndentNewLines=   True
+         BackColor       =   &cFFFFFF00
+         Backdrop        =   0
+         Border          =   False
+         BorderColor     =   &c88888800
+         BracketHighlightColor=   &cFFFF0000
+         CaretColor      =   &c00000000
+         CaretLine       =   0
+         CaretPos        =   0
+         ClearHighlightedRangesOnTextChange=   True
+         DirtyLinesColor =   &cFF999900
+         disableReset    =   False
+         DisplayDirtyLines=   False
+         DisplayInvisibleCharacters=   False
+         DisplayLineNumbers=   True
+         DisplayRightMarginMarker=   False
+         DoubleBuffer    =   True
+         EnableAutocomplete=   True
          Enabled         =   True
-         FontName        =   "Courier New"
-         FontSize        =   13.0
-         FontUnit        =   0
-         Format          =   ""
-         HasBorder       =   False
-         HasHorizontalScrollbar=   True
-         HasVerticalScrollbar=   True
-         Height          =   354
-         HideSelection   =   True
+         EnableLineFoldings=   False
+         enableLineFoldingSetting=   False
+         GutterBackgroundColor=   &cEEEEEE00
+         GutterSeparationLineColor=   &c88888800
+         GutterWidth     =   0
+         Height          =   340
+         HighlightBlocksOnMouseOverGutter=   True
+         HighlightMatchingBrackets=   True
+         HighlightMatchingBracketsMode=   0
+         ignoreRepaint   =   False
+         IndentPixels    =   16
+         IndentVisually  =   False
          Index           =   -2147483648
          InitialParent   =   "tabEditMode"
-         Italic          =   False
-         Left            =   21
-         LineHeight      =   0.0
-         LineSpacing     =   1.1000000000000000888178
+         KeepEntireTextIndented=   False
+         Left            =   20
+         leftMarginOffset=   8
+         LineNumbersColor=   &c88888800
+         LineNumbersTextFont=   "System"
+         LineNumbersTextSize=   9
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   True
          LockTop         =   True
-         MaximumCharactersAllowed=   5000
-         Multiline       =   True
+         MaxVisibleLines =   0
          ReadOnly        =   False
+         RightMarginAtPixel=   0
+         RightScrollMargin=   150
          Scope           =   2
+         ScrollPosition  =   0
+         ScrollPositionX =   0
+         selLength       =   0
+         selStart        =   0
+         SelText         =   ""
          TabIndex        =   3
          TabPanelIndex   =   2
          TabStop         =   True
+         TabWidth        =   4
          Text            =   ""
-         TextAlignment   =   0
          TextColor       =   &c00000000
+         TextFont        =   ""
+         TextHeight      =   0.0
+         TextLength      =   0
+         TextSelectionColor=   &c00000000
+         TextSize        =   0
+         ThickInsertionPoint=   True
          Tooltip         =   ""
          Top             =   91
          Transparent     =   True
-         Underline       =   False
-         UnicodeMode     =   1
-         ValidationMask  =   ""
          Visible         =   True
-         Width           =   495
+         Width           =   483
       End
-      Begin Label lbExpertTitle
+      Begin DesktopLabel lbExpertTitle
          AllowAutoDeactivate=   True
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "SmallSystem"
          FontSize        =   0.0
@@ -948,15 +1031,13 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   233
       End
-      Begin TextField tbGameNameExpert
+      Begin DesktopTextField tbGameNameExpert
          AllowAutoDeactivate=   True
          AllowFocusRing  =   True
          AllowSpellChecking=   False
          AllowTabs       =   False
          BackgroundColor =   &cFFFFFF00
          Bold            =   False
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -992,7 +1073,7 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   180
       End
-      BeginSegmentedButton SegmentedButton btnShowDosBoxWiki
+      BeginDesktopSegmentedButton DesktopSegmentedButton btnShowDosBoxWiki
          Enabled         =   True
          Height          =   24
          Index           =   -2147483648
@@ -1016,12 +1097,10 @@ Begin Window EditGameWindow
          Visible         =   True
          Width           =   26
       End
-      Begin CheckBox cbAutoExit
+      Begin DesktopCheckBox cbAutoExit
          AllowAutoDeactivate=   True
          Bold            =   False
          Caption         =   "#cbAutoExit_Caption"
-         DataField       =   ""
-         DataSource      =   ""
          Enabled         =   True
          FontName        =   "System"
          FontSize        =   0.0
@@ -1049,81 +1128,47 @@ Begin Window EditGameWindow
          VisualState     =   0
          Width           =   293
       End
-   End
-   Begin PushButton btnCancel
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   True
-      Caption         =   "#kbtnCancel_Caption"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   265
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      MacButtonStyle  =   0
-      Scope           =   2
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   465
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   100
-   End
-   Begin PushButton btnOk
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "OK"
-      Default         =   True
-      Enabled         =   False
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   20
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   173
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      MacButtonStyle  =   0
-      Scope           =   2
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   465
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
+      Begin DesktopPopupMenu popupScaler
+         AllowAutoDeactivate=   True
+         Bold            =   False
+         Enabled         =   True
+         FontName        =   "System"
+         FontSize        =   0.0
+         FontUnit        =   0
+         Height          =   20
+         Index           =   -2147483648
+         InitialParent   =   "tabEditMode"
+         InitialValue    =   "none\nnormal2x\nnormal3x\nadvmame2x\nadvmame3x\nadvinterp2x\nadvinterp3x\nhq2x\nhq3x\n2xsai\nsuper2xsai\nsupereagle\ntv2x\ntv3x\nrgb2x\nrgb3x\nscan2x\nscan3x"
+         Italic          =   False
+         Left            =   162
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Scope           =   2
+         SelectedRowIndex=   0
+         TabIndex        =   18
+         TabPanelIndex   =   1
+         TabStop         =   True
+         Tooltip         =   ""
+         Top             =   352
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   110
+      End
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  If CurrentDOSGame.ExpertMode Then
-		    tabEditMode.Value = 1
+		    tabEditMode.SelectedPanelIndex = 1
 		  Else
-		    tabEditMode.Value = 0
+		    tabEditMode.SelectedPanelIndex = 0
 		  end
 		End Sub
 	#tag EndEvent
@@ -1161,7 +1206,7 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub EnableOkButton()
-		  If tabEditMode.Value = 1 Then
+		  If tabEditMode.SelectedPanelIndex = 1 Then
 		    btnOk.Enabled = (tbGameNameExpert.Text.Length > 2) And _
 		    (tbExpertText.Text.Length > 0)
 		  Else
@@ -1185,63 +1230,63 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub StyleText()
-		  tbExpertText.StyledText.Bold(0, tbExpertText.Text.Length) = False
-		  tbExpertText.StyledText.TextColor(0, tbExpertText.Text.Length) = Color.TextColor
-		  tbExpertText.StyledText.Italic(0, tbExpertText.Text.Length) = false
-		  
-		  Var i As Integer = 0
-		  Var headerOpen As Integer = -1
-		  Var headerClose As Integer = -1
-		  Var stringOpen As Integer = -1
-		  Var stringClose As Integer = -1
-		  
-		  For Each c As String In tbExpertText.Text.Characters
-		    
-		    Select Case c
-		    Case "["
-		      headerOpen = i
-		      
-		    Case "]"
-		      headerClose = i
-		      
-		    Case """"
-		      If stringOpen < 0 Then
-		        stringOpen = i
-		      Else
-		        stringClose = i
-		      End
-		      
-		    Case "="
-		      Var t As Integer = tbExpertText.CharacterPosition(tbExpertText.LineNumber(i))
-		      tbExpertText.StyledText.TextColor(t-1, i - t + 1) = &c0096FF00
-		      
-		    End
-		    
-		    If headerOpen >= 0 And headerClose >= 0 Then
-		      tbExpertText.StyledText.Bold(headerOpen, headerClose - headerOpen + 1) = True
-		      tbExpertText.StyledText.TextColor(headerOpen, headerClose - headerOpen + 1) = &c00919200 
-		      headerOpen = -1
-		      headerClose = -1
-		    End
-		    
-		    If stringOpen >= 0 And stringClose >= 0 Then
-		      tbExpertText.StyledText.TextColor(stringOpen, stringClose - stringOpen + 1) = &cFF40FF00
-		      stringOpen = -1
-		      stringClose = -1
-		    End
-		    
-		    i = i + 1
-		  Next
-		  
-		  Var eol As String = EndOfLine
-		  i = 0
-		  For Each line As String In tbExpertText.Text.Split(EndOfLine)
-		    If line.Trim.BeginsWith("#") Then
-		      tbExpertText.StyledText.TextColor(i, line.Length) = &c008E0000
-		      tbExpertText.StyledText.Italic(i, line.Length) = True
-		    End
-		    i = i + line.Length + eol.Length
-		  Next
+		  //tbExpertText.StyledText.Bold(0, tbExpertText.Text.Length) = False
+		  //tbExpertText.StyledText.TextColor(0, tbExpertText.Text.Length) = Color.TextColor
+		  //tbExpertText.StyledText.Italic(0, tbExpertText.Text.Length) = false
+		  //
+		  //Var i As Integer = 0
+		  //Var headerOpen As Integer = -1
+		  //Var headerClose As Integer = -1
+		  //Var stringOpen As Integer = -1
+		  //Var stringClose As Integer = -1
+		  //
+		  //For Each c As String In tbExpertText.Text.Characters
+		  //
+		  //Select Case c
+		  //Case "["
+		  //headerOpen = i
+		  //
+		  //Case "]"
+		  //headerClose = i
+		  //
+		  //Case """"
+		  //If stringOpen < 0 Then
+		  //stringOpen = i
+		  //Else
+		  //stringClose = i
+		  //End
+		  //
+		  //Case "="
+		  //Var t As Integer = tbExpertText.CharacterPosition(tbExpertText.LineNumber(i))
+		  //tbExpertText.StyledText.TextColor(t-1, i - t + 1) = &c0096FF00
+		  //
+		  //End
+		  //
+		  //If headerOpen >= 0 And headerClose >= 0 Then
+		  //tbExpertText.StyledText.Bold(headerOpen, headerClose - headerOpen + 1) = True
+		  //tbExpertText.StyledText.TextColor(headerOpen, headerClose - headerOpen + 1) = &c00919200 
+		  //headerOpen = -1
+		  //headerClose = -1
+		  //End
+		  //
+		  //If stringOpen >= 0 And stringClose >= 0 Then
+		  //tbExpertText.StyledText.TextColor(stringOpen, stringClose - stringOpen + 1) = &cFF40FF00
+		  //stringOpen = -1
+		  //stringClose = -1
+		  //End
+		  //
+		  //i = i + 1
+		  //Next
+		  //
+		  //Var eol As String = EndOfLine
+		  //i = 0
+		  //For Each line As String In tbExpertText.Text.Split(EndOfLine)
+		  //If line.Trim.BeginsWith("#") Then
+		  //tbExpertText.StyledText.TextColor(i, line.Length) = &c008E0000
+		  //tbExpertText.StyledText.Italic(i, line.Length) = True
+		  //End
+		  //i = i + line.Length + eol.Length
+		  //Next
 		  
 		End Sub
 	#tag EndMethod
@@ -1417,95 +1462,143 @@ End
 
 #tag EndWindowCode
 
-#tag Events tabEditMode
+#tag Events btnCancel
 	#tag Event
-		Sub Change()
-		  EnableOkButton
+		Sub Pressed()
+		  If Self.CanClose Then
+		    self.ResultOk = false
+		    Self.Close
+		  end
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events popupScaler
+#tag Events btnOk
 	#tag Event
-		Sub Change()
-		  IsDirty = True
-		  self.CurrentDOSGame.Scaler = me.SelectedRow
+		Sub Pressed()
+		  If tabEditMode.SelectedPanelIndex = 0 Then
+		    If Self.CurrentDOSGame.ExpertMode Then
+		      Var r As Integer
+		      r = MsgBox(kOkUseSimple, 33)
+		      If r = 1 Then
+		        Self.CurrentDOSGame.ExpertMode = False
+		      Else
+		        Return
+		      End
+		    End
+		  Else
+		    If Not Self.CurrentDOSGame.ExpertMode Then
+		      Var r As Integer
+		      r = MsgBox(kOkUseExpert, 33)
+		      If r = 1 Then
+		        Self.CurrentDOSGame.ExpertMode = True
+		      Else
+		        Return
+		      End
+		    End
+		  End
+		  
+		  If Self.CurrentDOSGame.ExpertMode Then
+		    Self.CurrentDOSGame.DOSBoxSettingsTextExpert = tbExpertText.Text
+		  Else
+		    Self.CurrentDOSGame.DOSBoxSettingsTextExpert = ""
+		  End
+		  
+		  Self.ResultOk = True
+		  Self.Close
 		End Sub
 	#tag EndEvent
+#tag EndEvents
+#tag Events ScrollBarVertical
 	#tag Event
-		Sub Open()
-		  me.SelectRowWithValue(self.CurrentDOSGame.Scaler)
+		Sub ValueChanged()
+		  tbExpertText.ScrollPosition = me.Value
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ScrollBarHorizontal
+	#tag Event
+		Sub ValueChanged()
+		  tbExpertText.ScrollPositionX = me.Value
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events tabEditMode
+	#tag Event
+		Sub PanelChanged()
+		  EnableOkButton
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events popupResolution
 	#tag Event
-		Sub Change()
+		Sub SelectionChanged(item As DesktopMenuItem)
 		  Self.IsDirty = True
-		  self.CurrentDOSGame.Resolution = me.SelectedRow
+		  self.CurrentDOSGame.Resolution = me.SelectedRowValue
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  me.SelectRowWithValue(self.CurrentDOSGame.Resolution)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events rbScreenWindow
 	#tag Event
-		Sub Action()
+		Sub ValueChanged()
 		  Self.IsDirty = True
 		  Self.CurrentDOSGame.Fullscreen = not Me.Value
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  me.Value = not self.CurrentDOSGame.Fullscreen
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events tbGameName
 	#tag Event
-		Sub TextChange()
+		Sub TextChanged()
 		  Self.IsDirty = True
 		  Self.CurrentDOSGame.Name = Me.Text
 		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
-		  me.Value = self.CurrentDOSGame.Name
+		Sub Opening()
+		  me.Text = self.CurrentDOSGame.Name
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events rbScreenFull
 	#tag Event
-		Sub Action()
+		Sub ValueChanged()
 		  Self.IsDirty = True
 		  Self.CurrentDOSGame.Fullscreen = Me.Value
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  me.Value = self.CurrentDOSGame.Fullscreen
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events popupCpuCycles
 	#tag Event
-		Sub Change()
+		Sub SelectionChanged(item As DesktopMenuItem)
 		  Self.IsDirty = True
-		  self.CurrentDOSGame.CpuCycles = me.SelectedRow
+		  self.CurrentDOSGame.CpuCycles = me.SelectedRowValue
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  me.SelectRowWithValue(self.CurrentDOSGame.CpuCycles)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events btnSelectStartFile
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  Var useC As Boolean = True
 		  
 		  If Self.CurrentDOSGame.FolderMountAsD.Length > 0 Then
@@ -1548,21 +1641,21 @@ End
 #tag EndEvents
 #tag Events tbStartFile
 	#tag Event
-		Sub TextChange()
+		Sub TextChanged()
 		  Self.IsDirty = True
 		  Self.CurrentDOSGame.StartFile = Me.Text
 		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
-		  me.Value = self.CurrentDOSGame.StartFile
+		Sub Opening()
+		  me.Text = self.CurrentDOSGame.StartFile
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events btnSelectFolderD
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  Var dlg As New SelectFolderDialog
 		  dlg.ActionButtonCaption = kSelectD_Title
 		  dlg.Title = kSelectD_Title
@@ -1579,7 +1672,7 @@ End
 #tag EndEvents
 #tag Events btnSelectFolderC
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  Var dlg As New SelectFolderDialog
 		  dlg.ActionButtonCaption = kSelectC_Action
 		  dlg.Title = kSelectC_Title
@@ -1600,53 +1693,53 @@ End
 #tag EndEvents
 #tag Events cbMountAsCDROM
 	#tag Event
-		Sub Action()
+		Sub ValueChanged()
 		  Self.IsDirty = True
 		  Self.CurrentDOSGame.MountDAsCdrom = Me.Value
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  me.Value = self.CurrentDOSGame.MountDAsCdrom
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events tbMountD
 	#tag Event
-		Sub TextChange()
+		Sub TextChanged()
 		  IsDirty = True
 		  self.CurrentDOSGame.FolderMountAsD = me.Text
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
-		  me.Value = self.CurrentDOSGame.FolderMountAsD
+		Sub Opening()
+		  me.Text = self.CurrentDOSGame.FolderMountAsD
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events tbMountC
 	#tag Event
-		Sub TextChange()
+		Sub TextChanged()
 		  IsDirty = True
 		  Self.CurrentDOSGame.FolderMountAsC = Me.Text
 		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
-		  me.Value = self.CurrentDOSGame.FolderMountAsC
+		Sub Opening()
+		  me.Text = self.CurrentDOSGame.FolderMountAsC
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events popupMachine
 	#tag Event
-		Sub Change()
+		Sub SelectionChanged(item As DesktopMenuItem)
 		  Self.IsDirty = True
-		  self.CurrentDOSGame.MachineType = me.SelectedRow
+		  self.CurrentDOSGame.MachineType = me.SelectedRowValue
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  me.SelectRowWithValue(self.CurrentDOSGame.MachineType)
 		End Sub
 	#tag EndEvent
@@ -1654,6 +1747,13 @@ End
 #tag Events tbExpertText
 	#tag Event
 		Sub Open()
+		  Me.setScrollbars(ScrollBarHorizontal, ScrollBarVertical)
+		  
+		  Var def As New HighlightDefinition
+		  If def.loadFromXml(HighlightDefinition.DosBoxDef) Then
+		    Me.SyntaxDefinition = def
+		  End
+		  
 		  If CurrentDOSGame.DOSBoxSettingsTextExpert.Length = 0 Then
 		    Me.Text = CurrentDOSGame.DOSBoxSettingsText
 		  Else
@@ -1661,27 +1761,22 @@ End
 		  End
 		  
 		  #If TargetWindows Then
-		    me.Width = tabEditMode.Width - 5
+		    Me.Width = tabEditMode.Width - 5
 		  #EndIf
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub TextChange()
-		  StyleText
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events tbGameNameExpert
 	#tag Event
-		Sub TextChange()
+		Sub TextChanged()
 		  Self.IsDirty = True
 		  Self.CurrentDOSGame.Name = Me.Text
 		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
-		  me.Value = self.CurrentDOSGame.Name
+		Sub Opening()
+		  me.Text = self.CurrentDOSGame.Name
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1694,61 +1789,27 @@ End
 #tag EndEvents
 #tag Events cbAutoExit
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  me.Value = self.CurrentDOSGame.AutoExit
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Action()
+		Sub ValueChanged()
 		  Self.IsDirty = True
 		  Self.CurrentDOSGame.AutoExit = Me.Value
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events btnCancel
+#tag Events popupScaler
 	#tag Event
-		Sub Action()
-		  If Self.CanClose Then
-		    self.ResultOk = false
-		    Self.Close
-		  end
-		  
+		Sub SelectionChanged(item As DesktopMenuItem)
+		  IsDirty = True
+		  self.CurrentDOSGame.Scaler = me.SelectedRowValue
 		End Sub
 	#tag EndEvent
-#tag EndEvents
-#tag Events btnOk
 	#tag Event
-		Sub Action()
-		  If tabEditMode.Value = 0 Then
-		    If Self.CurrentDOSGame.ExpertMode Then
-		      Var r As Integer
-		      r = MsgBox(kOkUseSimple, 33)
-		      If r = 1 Then
-		        Self.CurrentDOSGame.ExpertMode = False
-		      Else
-		        Return
-		      End
-		    End
-		  Else
-		    If Not Self.CurrentDOSGame.ExpertMode Then
-		      Var r As Integer
-		      r = MsgBox(kOkUseExpert, 33)
-		      If r = 1 Then
-		        Self.CurrentDOSGame.ExpertMode = True
-		      Else
-		        Return
-		      End
-		    End
-		  End
-		  
-		  If Self.CurrentDOSGame.ExpertMode Then
-		    Self.CurrentDOSGame.DOSBoxSettingsTextExpert = tbExpertText.Text
-		  Else
-		    Self.CurrentDOSGame.DOSBoxSettingsTextExpert = ""
-		  End
-		  
-		  Self.ResultOk = True
-		  Self.Close
+		Sub Opening()
+		  me.SelectRowWithValue(self.CurrentDOSGame.Scaler)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
