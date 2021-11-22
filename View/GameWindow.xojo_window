@@ -204,7 +204,6 @@ Begin Window GameWindow
       Width           =   405
    End
    Begin Timer Timer250ms
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Period          =   250
@@ -342,11 +341,11 @@ End
 		      End
 		    End
 		    
-		    If Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).Exists Then
+		    If Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).Exists And Not Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).IsFolder Then
 		      Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).MoveToTrash()
 		    End
 		    
-		    If Self.GameFilesPath.Child(game.SettingsFilename).Exists Then
+		    If Self.GameFilesPath.Child(game.SettingsFilename).Exists and not Self.GameFilesPath.Child(game.SettingsFilename).IsFolder Then
 		      Self.GameFilesPath.Child(game.SettingsFilename).MoveToTrash()
 		    End
 		    

@@ -17,9 +17,9 @@ Begin DesktopWindow EditGameWindow
    MaximumWidth    =   32000
    MenuBar         =   0
    MenuBarVisible  =   True
-   MinimumHeight   =   64
-   MinimumWidth    =   64
-   Resizeable      =   False
+   MinimumHeight   =   498
+   MinimumWidth    =   538
+   Resizeable      =   True
    Title           =   "#kEditGameWindow_Title"
    Type            =   8
    Visible         =   False
@@ -95,12 +95,12 @@ Begin DesktopWindow EditGameWindow
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   434
+      Height          =   435
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   20
-      LockBottom      =   False
+      LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   True
@@ -118,7 +118,7 @@ Begin DesktopWindow EditGameWindow
       Underline       =   False
       Value           =   1
       Visible         =   True
-      Width           =   498
+      Width           =   500
       Begin DesktopLabel lbStartFile
          AllowAutoDeactivate=   True
          Bold            =   False
@@ -147,7 +147,7 @@ Begin DesktopWindow EditGameWindow
          TextColor       =   &c00000000
          Tooltip         =   ""
          Top             =   261
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   300
@@ -180,7 +180,7 @@ Begin DesktopWindow EditGameWindow
          TextColor       =   &c00000000
          Tooltip         =   ""
          Top             =   338
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   87
@@ -243,7 +243,7 @@ Begin DesktopWindow EditGameWindow
          TextColor       =   &c00000000
          Tooltip         =   ""
          Top             =   338
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   87
@@ -272,7 +272,7 @@ Begin DesktopWindow EditGameWindow
          TabStop         =   True
          Tooltip         =   ""
          Top             =   392
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -344,7 +344,7 @@ Begin DesktopWindow EditGameWindow
          TabStop         =   True
          Tooltip         =   ""
          Top             =   414
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -378,7 +378,7 @@ Begin DesktopWindow EditGameWindow
          TextColor       =   &c00000000
          Tooltip         =   ""
          Top             =   58
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   232
@@ -441,7 +441,7 @@ Begin DesktopWindow EditGameWindow
          TextColor       =   &c00000000
          Tooltip         =   ""
          Top             =   338
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   87
@@ -457,7 +457,7 @@ Begin DesktopWindow EditGameWindow
          Index           =   -2147483648
          InitialParent   =   "tabEditMode"
          Italic          =   False
-         Left            =   398
+         Left            =   400
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   False
@@ -474,7 +474,7 @@ Begin DesktopWindow EditGameWindow
          TextColor       =   &c00000000
          Tooltip         =   ""
          Top             =   58
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   100
@@ -496,8 +496,8 @@ Begin DesktopWindow EditGameWindow
          Left            =   471
          LockBottom      =   False
          LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
+         LockLeft        =   False
+         LockRight       =   True
          LockTop         =   True
          MacButtonStyle  =   0
          Scope           =   2
@@ -533,7 +533,7 @@ Begin DesktopWindow EditGameWindow
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
-         LockRight       =   False
+         LockRight       =   True
          LockTop         =   True
          MaximumCharactersAllowed=   0
          Password        =   False
@@ -570,8 +570,8 @@ Begin DesktopWindow EditGameWindow
          Left            =   471
          LockBottom      =   False
          LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
+         LockLeft        =   False
+         LockRight       =   True
          LockTop         =   True
          MacButtonStyle  =   0
          Scope           =   2
@@ -602,8 +602,8 @@ Begin DesktopWindow EditGameWindow
          Left            =   471
          LockBottom      =   False
          LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
+         LockLeft        =   False
+         LockRight       =   True
          LockTop         =   True
          MacButtonStyle  =   0
          Scope           =   2
@@ -641,7 +641,7 @@ Begin DesktopWindow EditGameWindow
          TabStop         =   True
          Tooltip         =   ""
          Top             =   185
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -670,7 +670,7 @@ Begin DesktopWindow EditGameWindow
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
-         LockRight       =   False
+         LockRight       =   True
          LockTop         =   True
          MaximumCharactersAllowed=   0
          Password        =   False
@@ -718,7 +718,7 @@ Begin DesktopWindow EditGameWindow
          TextColor       =   &c00000000
          Tooltip         =   ""
          Top             =   185
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   214
@@ -745,7 +745,7 @@ Begin DesktopWindow EditGameWindow
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
-         LockRight       =   False
+         LockRight       =   True
          LockTop         =   True
          MaximumCharactersAllowed=   0
          Password        =   False
@@ -793,7 +793,7 @@ Begin DesktopWindow EditGameWindow
          TextColor       =   &c00000000
          Tooltip         =   ""
          Top             =   121
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   352
@@ -856,7 +856,7 @@ Begin DesktopWindow EditGameWindow
          TextColor       =   &c00000000
          Tooltip         =   ""
          Top             =   338
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   87
@@ -872,11 +872,11 @@ Begin DesktopWindow EditGameWindow
          Index           =   -2147483648
          InitialParent   =   "tabEditMode"
          Italic          =   False
-         Left            =   237
+         Left            =   246
          LockBottom      =   False
          LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
+         LockLeft        =   False
+         LockRight       =   True
          LockTop         =   True
          Multiline       =   False
          Scope           =   2
@@ -885,10 +885,10 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   2
          TabStop         =   True
          Text            =   "#lbExpertTitle_Text"
-         TextAlignment   =   0
+         TextAlignment   =   3
          TextColor       =   &c79797900
          Tooltip         =   ""
-         Top             =   66
+         Top             =   64
          Transparent     =   True
          Underline       =   False
          Visible         =   True
@@ -916,7 +916,7 @@ Begin DesktopWindow EditGameWindow
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
-         LockRight       =   False
+         LockRight       =   True
          LockTop         =   True
          MaximumCharactersAllowed=   0
          Password        =   False
@@ -934,31 +934,7 @@ Begin DesktopWindow EditGameWindow
          Underline       =   False
          ValidationMask  =   ""
          Visible         =   True
-         Width           =   180
-      End
-      BeginDesktopSegmentedButton DesktopSegmentedButton btnShowDosBoxWiki
-         Enabled         =   True
-         Height          =   24
-         Index           =   -2147483648
-         InitialParent   =   "tabEditMode"
-         Left            =   472
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   True
-         MacButtonStyle  =   0
-         Scope           =   2
-         Segments        =   "?\n\nFalse"
-         SelectionStyle  =   2
-         TabIndex        =   2
-         TabPanelIndex   =   2
-         TabStop         =   False
-         Tooltip         =   "#btnShowDosBoxWiki_Tooltip"
-         Top             =   65
-         Transparent     =   False
-         Visible         =   True
-         Width           =   26
+         Width           =   204
       End
       Begin DesktopCheckBox cbAutoExit
          AllowAutoDeactivate=   True
@@ -984,7 +960,7 @@ Begin DesktopWindow EditGameWindow
          TabStop         =   True
          Tooltip         =   ""
          Top             =   414
-         Transparent     =   False
+         Transparent     =   True
          Underline       =   False
          Value           =   False
          Visible         =   True
@@ -1020,6 +996,69 @@ Begin DesktopWindow EditGameWindow
          Underline       =   False
          Visible         =   True
          Width           =   110
+      End
+      Begin CustomEditFieldContainer tbExpertText
+         AllowAutoDeactivate=   True
+         AllowFocus      =   False
+         AllowFocusRing  =   False
+         AllowTabs       =   True
+         Backdrop        =   0
+         BackgroundColor =   &cFFFFFF00
+         Composited      =   False
+         Enabled         =   True
+         HasBackgroundColor=   False
+         Height          =   353
+         Index           =   -2147483648
+         InitialParent   =   "tabEditMode"
+         Left            =   20
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
+         Scope           =   2
+         TabIndex        =   3
+         TabPanelIndex   =   2
+         TabStop         =   True
+         Text            =   ""
+         Tooltip         =   ""
+         Top             =   100
+         Transparent     =   False
+         Visible         =   True
+         Width           =   500
+      End
+      Begin DesktopLabel Label1
+         AllowAutoDeactivate=   True
+         Bold            =   True
+         Enabled         =   True
+         FontName        =   "System"
+         FontSize        =   0.0
+         FontUnit        =   0
+         Height          =   20
+         Index           =   -2147483648
+         InitialParent   =   "tabEditMode"
+         Italic          =   False
+         Left            =   490
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Multiline       =   False
+         Scope           =   2
+         Selectable      =   False
+         TabIndex        =   4
+         TabPanelIndex   =   2
+         TabStop         =   True
+         Text            =   "?"
+         TextAlignment   =   2
+         TextColor       =   &c9437FF00
+         Tooltip         =   ""
+         Top             =   66
+         Transparent     =   True
+         Underline       =   False
+         Visible         =   True
+         Width           =   20
       End
    End
 End
@@ -1607,13 +1646,6 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events btnShowDosBoxWiki
-	#tag Event
-		Sub Pressed(segmentIndex as integer)
-		  ShowUrl(DosBox.kDOSBoxWikiUrl)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events cbAutoExit
 	#tag Event
 		Sub Opening()
@@ -1637,6 +1669,44 @@ End
 	#tag Event
 		Sub Opening()
 		  me.SelectRowWithValue(self.CurrentDOSGame.Scaler)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events tbExpertText
+	#tag Event
+		Sub Initialized()
+		  
+		  
+		  If CurrentDOSGame.DOSBoxSettingsTextExpert.Length = 0 Then
+		    Me.Text = CurrentDOSGame.DOSBoxSettingsText
+		  Else
+		    Me.Text = CurrentDOSGame.DOSBoxSettingsTextExpert
+		  End
+		  
+		  
+		  #If TargetWindows Then
+		    Me.Top = 100
+		    Me.Left = 21
+		    Me.Width = tabEditMode.Width - 4
+		    
+		  #EndIf
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events Label1
+	#tag Event
+		Function MouseDown(x As Integer, y As Integer) As Boolean
+		  ShowUrl(DosBox.kDOSBoxWikiUrl)
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub MouseEnter()
+		  me.MouseCursor = System.Cursors.FingerPointer
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub MouseExit()
+		  me.MouseCursor = System.Cursors.StandardPointer
 		End Sub
 	#tag EndEvent
 #tag EndEvents

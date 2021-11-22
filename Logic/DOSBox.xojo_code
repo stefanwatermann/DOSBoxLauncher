@@ -59,7 +59,7 @@ Protected Module DOSBox
 	#tag Constant, Name = kDOSBoxManualUrl, Type = String, Dynamic = False, Default = \"https://www.dosbox.com/DOSBoxManual.html", Scope = Public
 	#tag EndConstant
 
-	#tag Constant, Name = kDOSBoxWikiUrl, Type = String, Dynamic = False, Default = \"https://www.dosbox.com/wiki", Scope = Public
+	#tag Constant, Name = kDOSBoxWikiUrl, Type = String, Dynamic = False, Default = \"https://www.dosbox.com/wiki/Dosbox.conf", Scope = Public
 	#tag EndConstant
 
 

@@ -1,15 +1,14 @@
-#tag Window
-Begin ContainerControl CustomEditFieldContainer
+#tag DesktopWindow
+Begin DesktopContainer CustomEditFieldContainer
    AllowAutoDeactivate=   True
    AllowFocus      =   False
    AllowFocusRing  =   False
    AllowTabs       =   True
    Backdrop        =   0
-   BackgroundColor =   &cFFFFFF00
-   DoubleBuffer    =   False
+   BackgroundColor =   &cC0C0C000
+   Composited      =   False
    Enabled         =   True
-   EraseBackground =   True
-   HasBackgroundColor=   False
+   HasBackgroundColor=   True
    Height          =   300
    Index           =   -2147483648
    InitialParent   =   ""
@@ -49,7 +48,7 @@ Begin ContainerControl CustomEditFieldContainer
       DisplayInvisibleCharacters=   False
       DisplayLineNumbers=   True
       DisplayRightMarginMarker=   False
-      DoubleBuffer    =   True
+      DoubleBuffer    =   False
       EnableAutocomplete=   True
       Enabled         =   True
       EnableLineFoldings=   False
@@ -57,7 +56,7 @@ Begin ContainerControl CustomEditFieldContainer
       GutterBackgroundColor=   &cEEEEEE00
       GutterSeparationLineColor=   &c88888800
       GutterWidth     =   0
-      Height          =   285
+      Height          =   284
       HighlightBlocksOnMouseOverGutter=   True
       HighlightMatchingBrackets=   True
       HighlightMatchingBracketsMode=   0
@@ -100,8 +99,8 @@ Begin ContainerControl CustomEditFieldContainer
       TextSize        =   0
       ThickInsertionPoint=   True
       Tooltip         =   ""
-      Top             =   0
-      Transparent     =   True
+      Top             =   1
+      Transparent     =   False
       Visible         =   True
       Width           =   285
    End
@@ -164,14 +163,21 @@ Begin ContainerControl CustomEditFieldContainer
       Width           =   285
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
-		Sub Open()
-		  Me.BackgroundColor = Colors.ControlLightBackground
+		Sub Opening()
+		  Me.BackgroundColor = Colors.WindowBackground
 		  
 		  RaiseEvent Initialized
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Paint(g As Graphics, areas() As Rect)
+		  g.DrawingColor = me.BackgroundColor
+		  g.FillRectangle(0, 0, g.Width, g.Height)
 		End Sub
 	#tag EndEvent
 
@@ -207,16 +213,6 @@ End
 		  If def.loadFromXml(HighlightDefinition.DosBoxDef) Then
 		    Me.SyntaxDefinition = def
 		  End
-		  
-		  If CurrentDOSGame.DOSBoxSettingsTextExpert.Length = 0 Then
-		    Me.Text = CurrentDOSGame.DOSBoxSettingsText
-		  Else
-		    Me.Text = CurrentDOSGame.DOSBoxSettingsTextExpert
-		  End
-		  
-		  //#If TargetWindows Then
-		  //Me.Width = tabEditMode.Width - 5
-		  //#EndIf
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -235,6 +231,14 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="Composited"
+		Visible=true
+		Group="Windows Behavior"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
@@ -384,8 +388,8 @@ End
 		Visible=true
 		Group="Background"
 		InitialValue="&hFFFFFF"
-		Type="Color"
-		EditorType="Color"
+		Type="ColorGroup"
+		EditorType="ColorGroup"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
@@ -436,14 +440,6 @@ End
 		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="DoubleBuffer"
-		Visible=true
-		Group="Windows Behavior"
-		InitialValue="False"
-		Type="Boolean"
-		EditorType=""
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="InitialParent"
 		Visible=false
 		Group="Position"
@@ -457,14 +453,6 @@ End
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
-		EditorType=""
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="EraseBackground"
-		Visible=false
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
 		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior
