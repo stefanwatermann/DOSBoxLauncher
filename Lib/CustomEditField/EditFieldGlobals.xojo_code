@@ -178,10 +178,10 @@ Protected Module EditFieldGlobals
 		#tag Getter
 			Get
 			  if mBlocktrailimage = nil then
-			    mBlocktrailimage = EditFieldGlobals.LoadMaskedPicture(blockFoldedTrailMarker)
+			    //mBlocktrailimage = EditFieldGlobals.LoadMaskedPicture(blockFoldedTrailMarker)
 			  end if
 			  
-			  return mBlocktrailimage
+			  Return mBlocktrailimage
 			End Get
 		#tag EndGetter
 		Protected BlockFoldedTrailImage As picture

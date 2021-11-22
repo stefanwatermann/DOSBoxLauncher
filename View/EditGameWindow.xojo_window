@@ -88,64 +88,6 @@ Begin DesktopWindow EditGameWindow
       Visible         =   True
       Width           =   80
    End
-   Begin Scrollbar ScrollBarVertical
-      AllowAutoDeactivate=   True
-      AllowFocus      =   True
-      AllowLiveScrolling=   True
-      Enabled         =   True
-      Height          =   339
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   503
-      LineStep        =   1
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   True
-      LockTop         =   True
-      MaximumValue    =   100
-      MinimumValue    =   0
-      PageStep        =   20
-      Scope           =   2
-      TabIndex        =   3
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   91
-      Transparent     =   False
-      Value           =   0
-      Visible         =   True
-      Width           =   15
-   End
-   Begin Scrollbar ScrollBarHorizontal
-      AllowAutoDeactivate=   True
-      AllowFocus      =   True
-      AllowLiveScrolling=   True
-      Enabled         =   True
-      Height          =   15
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   20
-      LineStep        =   1
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   True
-      LockTop         =   False
-      MaximumValue    =   100
-      MinimumValue    =   0
-      PageStep        =   20
-      Scope           =   2
-      TabIndex        =   4
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   431
-      Transparent     =   False
-      Value           =   0
-      Visible         =   True
-      Width           =   483
-   End
    Begin DesktopTabPanel tabEditMode
       AllowAutoDeactivate=   True
       Bold            =   False
@@ -171,10 +113,10 @@ Begin DesktopWindow EditGameWindow
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   12
+      Top             =   20
       Transparent     =   False
       Underline       =   False
-      Value           =   0
+      Value           =   1
       Visible         =   True
       Width           =   498
       Begin DesktopLabel lbStartFile
@@ -204,7 +146,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   253
+         Top             =   261
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -237,7 +179,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   330
+         Top             =   338
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -267,7 +209,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   352
+         Top             =   360
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -300,7 +242,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   330
+         Top             =   338
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -329,7 +271,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   384
+         Top             =   392
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -371,7 +313,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   73
+         Top             =   81
          Transparent     =   False
          Underline       =   False
          ValidationMask  =   ""
@@ -401,7 +343,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   406
+         Top             =   414
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -435,7 +377,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   50
+         Top             =   58
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -465,7 +407,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   352
+         Top             =   360
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -498,7 +440,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   330
+         Top             =   338
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -531,7 +473,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   3
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   50
+         Top             =   58
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -563,7 +505,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   277
+         Top             =   285
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -604,7 +546,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   276
+         Top             =   284
          Transparent     =   False
          Underline       =   False
          ValidationMask  =   ""
@@ -637,7 +579,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   "btnSelectFolder_Tooltip"
-         Top             =   201
+         Top             =   209
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -669,7 +611,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   "#btnSelectFolder_Tooltip"
-         Top             =   137
+         Top             =   145
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -698,7 +640,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   177
+         Top             =   185
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -741,7 +683,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   200
+         Top             =   208
          Transparent     =   False
          Underline       =   False
          ValidationMask  =   ""
@@ -775,7 +717,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   177
+         Top             =   185
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -816,7 +758,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   136
+         Top             =   144
          Transparent     =   False
          Underline       =   False
          ValidationMask  =   ""
@@ -850,7 +792,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   113
+         Top             =   121
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -880,7 +822,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   352
+         Top             =   360
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -913,90 +855,11 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   ""
-         Top             =   330
+         Top             =   338
          Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   87
-      End
-      Begin CustomEditField tbExpertText
-         AllowAutoDeactivate=   True
-         AllowFocus      =   False
-         AllowFocusRing  =   False
-         AllowTabs       =   True
-         AutoCloseBrackets=   True
-         AutocompleteAppliesStandardCase=   True
-         AutoIndentNewLines=   True
-         BackColor       =   &cFFFFFF00
-         Backdrop        =   0
-         Border          =   False
-         BorderColor     =   &c88888800
-         BracketHighlightColor=   &cFFFF0000
-         CaretColor      =   &c00000000
-         CaretLine       =   0
-         CaretPos        =   0
-         ClearHighlightedRangesOnTextChange=   True
-         DirtyLinesColor =   &cFF999900
-         disableReset    =   False
-         DisplayDirtyLines=   False
-         DisplayInvisibleCharacters=   False
-         DisplayLineNumbers=   True
-         DisplayRightMarginMarker=   False
-         DoubleBuffer    =   True
-         EnableAutocomplete=   True
-         Enabled         =   True
-         EnableLineFoldings=   False
-         enableLineFoldingSetting=   False
-         GutterBackgroundColor=   &cEEEEEE00
-         GutterSeparationLineColor=   &c88888800
-         GutterWidth     =   0
-         Height          =   340
-         HighlightBlocksOnMouseOverGutter=   True
-         HighlightMatchingBrackets=   True
-         HighlightMatchingBracketsMode=   0
-         ignoreRepaint   =   False
-         IndentPixels    =   16
-         IndentVisually  =   False
-         Index           =   -2147483648
-         InitialParent   =   "tabEditMode"
-         KeepEntireTextIndented=   False
-         Left            =   20
-         leftMarginOffset=   8
-         LineNumbersColor=   &c88888800
-         LineNumbersTextFont=   "System"
-         LineNumbersTextSize=   9
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   True
-         LockTop         =   True
-         MaxVisibleLines =   0
-         ReadOnly        =   False
-         RightMarginAtPixel=   0
-         RightScrollMargin=   150
-         Scope           =   2
-         ScrollPosition  =   0
-         ScrollPositionX =   0
-         selLength       =   0
-         selStart        =   0
-         SelText         =   ""
-         TabIndex        =   3
-         TabPanelIndex   =   2
-         TabStop         =   True
-         TabWidth        =   4
-         Text            =   ""
-         TextColor       =   &c00000000
-         TextFont        =   ""
-         TextHeight      =   0.0
-         TextLength      =   0
-         TextSelectionColor=   &c00000000
-         TextSize        =   0
-         ThickInsertionPoint=   True
-         Tooltip         =   ""
-         Top             =   91
-         Transparent     =   True
-         Visible         =   True
-         Width           =   483
       End
       Begin DesktopLabel lbExpertTitle
          AllowAutoDeactivate=   True
@@ -1005,7 +868,7 @@ Begin DesktopWindow EditGameWindow
          FontName        =   "SmallSystem"
          FontSize        =   0.0
          FontUnit        =   0
-         Height          =   20
+         Height          =   22
          Index           =   -2147483648
          InitialParent   =   "tabEditMode"
          Italic          =   False
@@ -1025,8 +888,8 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c79797900
          Tooltip         =   ""
-         Top             =   58
-         Transparent     =   False
+         Top             =   66
+         Transparent     =   True
          Underline       =   False
          Visible         =   True
          Width           =   233
@@ -1066,7 +929,7 @@ Begin DesktopWindow EditGameWindow
          TextAlignment   =   0
          TextColor       =   &c00000000
          Tooltip         =   "#tbGameNameExpert_Tooltip"
-         Top             =   56
+         Top             =   64
          Transparent     =   False
          Underline       =   False
          ValidationMask  =   ""
@@ -1092,7 +955,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   2
          TabStop         =   False
          Tooltip         =   "#btnShowDosBoxWiki_Tooltip"
-         Top             =   57
+         Top             =   65
          Transparent     =   False
          Visible         =   True
          Width           =   26
@@ -1120,7 +983,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   406
+         Top             =   414
          Transparent     =   False
          Underline       =   False
          Value           =   False
@@ -1152,7 +1015,7 @@ Begin DesktopWindow EditGameWindow
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   352
+         Top             =   360
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -1509,20 +1372,6 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events ScrollBarVertical
-	#tag Event
-		Sub ValueChanged()
-		  tbExpertText.ScrollPosition = me.Value
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events ScrollBarHorizontal
-	#tag Event
-		Sub ValueChanged()
-		  tbExpertText.ScrollPositionX = me.Value
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events tabEditMode
 	#tag Event
 		Sub PanelChanged()
@@ -1741,28 +1590,6 @@ End
 	#tag Event
 		Sub Opening()
 		  me.SelectRowWithValue(self.CurrentDOSGame.MachineType)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events tbExpertText
-	#tag Event
-		Sub Open()
-		  Me.setScrollbars(ScrollBarHorizontal, ScrollBarVertical)
-		  
-		  Var def As New HighlightDefinition
-		  If def.loadFromXml(HighlightDefinition.DosBoxDef) Then
-		    Me.SyntaxDefinition = def
-		  End
-		  
-		  If CurrentDOSGame.DOSBoxSettingsTextExpert.Length = 0 Then
-		    Me.Text = CurrentDOSGame.DOSBoxSettingsText
-		  Else
-		    Me.Text = CurrentDOSGame.DOSBoxSettingsTextExpert
-		  End
-		  
-		  #If TargetWindows Then
-		    Me.Width = tabEditMode.Width - 5
-		  #EndIf
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -2023,8 +1850,8 @@ End
 		Visible=true
 		Group="Background"
 		InitialValue="&hFFFFFF"
-		Type="Color"
-		EditorType="Color"
+		Type="ColorGroup"
+		EditorType="ColorGroup"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
@@ -2039,7 +1866,7 @@ End
 		Visible=true
 		Group="Menus"
 		InitialValue=""
-		Type="MenuBar"
+		Type="DesktopMenuBar"
 		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty

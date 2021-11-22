@@ -440,6 +440,14 @@
 			Type="Color"
 			EditorType=""
 		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TextForegroundSelected"
+			Visible=false
+			Group="Behavior"
+			InitialValue="&c000000"
+			Type="Color"
+			EditorType=""
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Module
 #tag EndModule

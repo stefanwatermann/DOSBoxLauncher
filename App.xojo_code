@@ -143,8 +143,9 @@ Inherits Application
 		#Tag Instance, Platform = Linux, Language = Default, Definition  = \"&Delete"
 	#tag EndConstant
 
-	#tag Constant, Name = kFileQuit, Type = String, Dynamic = False, Default = \"&Quit", Scope = Public
-		#Tag Instance, Platform = Windows, Language = Default, Definition  = \"E&xit"
+	#tag Constant, Name = kFileQuit, Type = String, Dynamic = True, Default = \"&Quit", Scope = Public
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"E&xit"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Beenden"
 	#tag EndConstant
 
 	#tag Constant, Name = kFileQuitShortcut, Type = String, Dynamic = False, Default = \"", Scope = Public

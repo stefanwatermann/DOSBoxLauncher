@@ -1467,11 +1467,11 @@ Implements MessageReceiver
 		      // but on Mac OS it's not needed any more.
 		      // In fact, it would prevent Retina / HiDPI rendering from working. Therefore, for
 		      // Mac builds, we now draw directly into the Canvas by not creating this back buffer
-		      #if RBVersion < 2017
-		        mBackBuffer = new Picture(gr.Width, gr.Height, 32)
-		      #else
-		        mBackBuffer = parentWindow.BitmapForCaching(gr.Width, gr.Height)
-		      #endif
+		      //#If RBVersion < 2017
+		      mBackBuffer = new Picture(gr.Width, gr.Height, 32)
+		      //#else
+		      //mBackBuffer = parentWindow.BitmapForCaching(gr.Width, gr.Height)
+		      //#endif
 		    end if
 		    CalculateMaxHorizontalSB
 		    CalculateMaxVerticalSB
@@ -1521,11 +1521,11 @@ Implements MessageReceiver
 		      // use separate graphics buffer for gutter
 		      if Gutter = nil or Gutter.Height <> g.Height or gutter.Width <> gutterWidth then
 		        
-		        #if RBVersion < 2017
-		          Gutter = New Picture(gutterWidth, g.Height, 32)
-		        #else
-		          Gutter = parentWindow.BitmapForCaching(gutterWidth, g.Height)
-		        #endif
+		        //#if RBVersion < 2017
+		        Gutter = New Picture(gutterWidth, g.Height, 32)
+		        //#else
+		        //Gutter = parentWindow.BitmapForCaching(gutterWidth, g.Height)
+		        //#endif
 		        
 		        gg = gutter.Graphics
 		        #if EditFieldGlobals.UseOldRenderer
@@ -5042,8 +5042,8 @@ Implements MessageReceiver
 	#tag ComputedProperty, Flags = &h1
 		#tag Getter
 			Get
-			  if gBlockendimage = nil then
-			    gBlockendimage = EditFieldGlobals.LoadMaskedPicture(blockEndMarker)
+			  If gBlockendimage = Nil Then
+			    //gBlockendimage = EditFieldGlobals.LoadMaskedPicture(blockEndMarker)
 			  end if
 			  return gBlockendimage
 			End Get
@@ -5055,7 +5055,7 @@ Implements MessageReceiver
 		#tag Getter
 			Get
 			  if gBlockfoldedimage = nil then
-			    gBlockfoldedimage = EditFieldGlobals.LoadMaskedPicture(blockFoldedMarker)
+			    //gBlockfoldedimage = EditFieldGlobals.LoadMaskedPicture(blockFoldedMarker)
 			  end if
 			  return gBlockfoldedimage
 			End Get
@@ -5067,7 +5067,7 @@ Implements MessageReceiver
 		#tag Getter
 			Get
 			  if gBlockstartimage = nil then
-			    gBlockstartimage = EditFieldGlobals.LoadMaskedPicture(blockStartMarker)
+			    //gBlockstartimage = EditFieldGlobals.LoadMaskedPicture(blockStartMarker)
 			  end if
 			  return gBlockstartimage
 			End Get
@@ -5079,7 +5079,7 @@ Implements MessageReceiver
 		#tag Getter
 			Get
 			  if gBookmarkImage = nil then
-			    gBookmarkImage = EditFieldGlobals.LoadMaskedPicture(bookmarksimg)
+			    //gBookmarkImage = EditFieldGlobals.LoadMaskedPicture(bookmarksimg)
 			  end if
 			  return gBookmarkImage
 			End Get
