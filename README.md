@@ -25,7 +25,6 @@ The main window shows a list of the configured DOS applications / games. A doubl
 ![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_EN.png)
 
 The configuration of the DOSBox options takes place either in "simple" or in "expert" mode.
-
 The "simple" mode allows the quick configuration of essential DOSBox options by means of a simple dialog.
 
 ![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_1_EN.png)
