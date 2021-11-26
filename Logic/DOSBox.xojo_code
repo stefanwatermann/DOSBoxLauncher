@@ -1,7 +1,7 @@
 #tag Module
 Protected Module DOSBox
 	#tag Method, Flags = &h0
-		Sub RunGame(configPath as string, autoExit as Boolean)
+		Function GetDOSBoxCommandLine(configPath as string, autoExit as Boolean) As String
 		  Var cmd As String = kDefault_DOSBox_AppPath
 		  
 		  If DOSBoxExecutable.Length > 0 Then
@@ -16,6 +16,27 @@ Protected Module DOSBox
 		  
 		  cmd = cmd + " -conf """ + configPath + """"
 		  
+		  Return cmd
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub RunGame(configPath as string, autoExit as Boolean)
+		  //Var cmd As String = kDefault_DOSBox_AppPath
+		  //
+		  //If DOSBoxExecutable.Length > 0 Then
+		  //cmd = """" + DOSBoxExecutable + kDefault_DOSBox_AppPathPartial + """"
+		  //End
+		  //
+		  //cmd = cmd + " -userconf -noconsole"
+		  //
+		  //If autoExit Then
+		  //cmd = cmd + " -exit"
+		  //End
+		  //
+		  //cmd = cmd + " -conf """ + configPath + """"
+		  
+		  var cmd as string = DosBox.GetDOSBoxCommandLine(configPath, autoExit)
 		  app.Log("DOSBox cmd: " + cmd)
 		  
 		  Var sh As New shell
@@ -26,6 +47,7 @@ Protected Module DOSBox
 		  Result = sh.Result.Right(sh.result.Length - sh.result.IndexOf("DOSBox version"))
 		  
 		  sh.Close
+		  
 		End Sub
 	#tag EndMethod
 

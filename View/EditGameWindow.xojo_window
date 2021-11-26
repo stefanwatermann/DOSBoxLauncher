@@ -116,7 +116,7 @@ Begin DesktopWindow EditGameWindow
       Top             =   20
       Transparent     =   False
       Underline       =   False
-      Value           =   1
+      Value           =   0
       Visible         =   True
       Width           =   500
       Begin DesktopLabel lbStartFile

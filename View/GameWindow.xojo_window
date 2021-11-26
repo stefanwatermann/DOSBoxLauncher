@@ -264,6 +264,18 @@ Begin Window GameWindow
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
+   Begin Thread ShellThread
+      DebugIdentifier =   ""
+      Enabled         =   True
+      Index           =   -2147483648
+      LockedInPosition=   False
+      Priority        =   5
+      Scope           =   2
+      StackSize       =   0
+      TabPanelIndex   =   0
+      ThreadID        =   0
+      ThreadState     =   0
+   End
 End
 #tag EndWindow
 
@@ -317,6 +329,22 @@ End
 		  
 		  Self.GameWindowToolbar.tbRunGame.SetIcons(icoPlay_black, icoPlay_white)
 		  Self.GameWindowToolbar.tbRunGame.Caption = kToolbarGameWindow_RunGame
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub CreateShortcut(game as DOSGame)
+		  #If TargetWindows Then
+		    
+		  #EndIf
+		  
+		  #If TargetMacOS Then
+		    //Var mShell As New Shell
+		    //
+		    //Var c As String = "ln -s '" + _
+		    //D
+		    //mShell.Execute(c)
+		  #EndIf
 		End Sub
 	#tag EndMethod
 
@@ -492,6 +520,9 @@ End
 		  
 		  Self.Minimize
 		  
+		  Self.CurrentGame = game
+		  //ShellThread.Start
+		  
 		  DOSBox.DOSBoxExecutable = App.AppConfig.DOSBoxExecutable
 		  DOSBox.RunGame(Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).NativePath, game.AutoExit)
 		  
@@ -555,6 +586,10 @@ End
 	#tag EndMethod
 
 
+	#tag Property, Flags = &h21
+		Private CurrentGame As DOSGame
+	#tag EndProperty
+
 	#tag ComputedProperty, Flags = &h21
 		#tag Getter
 			Get
@@ -596,6 +631,11 @@ End
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Dokumentation"
 	#tag EndConstant
 
+	#tag Constant, Name = kGameList_ContextMenu_CreateShortcut, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Create Desktop shortcut"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Desktop Shortcut anlegen"
+	#tag EndConstant
+
 	#tag Constant, Name = kGameList_ContextMenu_ShowC, Type = String, Dynamic = True, Default = \"", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Open C:\\ folder"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Ordner C:\\ \xC3\xB6ffnen"
@@ -614,6 +654,11 @@ End
 	#tag Constant, Name = kInit_CannotFindDOSBoxExecutable_Message, Type = String, Dynamic = True, Default = \"", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox Executable not found. Please install DOSBox app first (www.dosbox.com) and enter path on Options dialog."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Executable konnte nicht gefunden werden. Bitte installieren (www.dosbox.com) und den Pfad unter Optionen eintragen."
+	#tag EndConstant
+
+	#tag Constant, Name = kLastPlayedAt, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Last played "
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Zuletzt gespielt "
 	#tag EndConstant
 
 	#tag Constant, Name = kLastPlayedTop_Text, Type = String, Dynamic = True, Default = \"zuletzt gespielt oben", Scope = Private
@@ -724,7 +769,7 @@ End
 		    g.DrawText(game.Name, 10, 22)
 		    
 		    g.FontSize = 11
-		    g.DrawText("Zuletzt gespielt " + game.LastStartDtText, 10, 40)
+		    g.DrawText(kLastPlayedAt + game.LastStartDtText, 10, 40)
 		  End
 		  
 		  Return True
@@ -776,6 +821,11 @@ End
 		    m.Name = "mnShowD"
 		    base.AddMenu(m)
 		  End
+		  
+		  //m =New MenuItem(kGameList_ContextMenu_CreateShortcut)
+		  //m.Name = "mnCreateShortcut"
+		  //base.AddMenu(m)
+		  
 		End Function
 	#tag EndEvent
 	#tag Event
@@ -802,8 +852,33 @@ End
 		      f.Open
 		    End
 		    
+		  Case "mnCreateShortcut"
+		    CreateShortcut(game)
+		    
 		  End
 		End Function
+	#tag EndEvent
+#tag EndEvents
+#tag Events ShellThread
+	#tag Event
+		Sub Run()
+		  DOSBox.DOSBoxExecutable = App.AppConfig.DOSBoxExecutable
+		  DOSBox.RunGame(Self.GameFilesPath.Child(self.CurrentGame.DOSBoxSettingsFilename).NativePath, self.CurrentGame.AutoExit)
+		  
+		  Me.AddUserInterfaceUpdate()
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub UserInterfaceUpdate(data() as Dictionary)
+		  ResultText.Text = DOSBox.Result
+		  ResultText.VerticalScrollPosition = ResultText.LineNumber(ResultText.Text.length)
+		  
+		  OutputPanelVisible(dosbox.ExitCode <> 0)
+		  
+		  Self.Show
+		  
+		  ReadGameFiles
+		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
