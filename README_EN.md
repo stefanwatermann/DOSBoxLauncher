@@ -22,14 +22,14 @@ The project was created using the development environment [XOJO](https://www.xoj
 ## Useage
 The main window shows a list of the configured DOS applications / games. A double click starts the respective game.
 
-![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher.png)
+![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_EN.png)
 
 The configuration of the DOSBox options takes place either in "simple" or in "expert" mode.
 
 The "simple" mode allows the quick configuration of essential DOSBox options by means of a simple dialog.
 
-![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_1.png)
+![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_1_EN.png)
 
 In "Expert" mode, the DOSBox configuration file for the application can be edited directly. All DOSBox options and configuration variants can be used here. Full control over the DOS application is available.
 
-![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_2.png)
+![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_2_EN.png)
