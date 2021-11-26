@@ -7,7 +7,7 @@ DOSBox itself is not part of this app and must be installed separately (see http
 A simple configuration with a few parameters is in the foreground. DOSBoxLauncher is therefore less suitable for cataloging 
 and managing complex collections of DOS applications.
 
-DOSBoxLaunchers interface supports English and German and currently runs on MacOS and Windows. Linux support is in preparation.
+DOSBoxLaunchers interface supports English and German language and currently runs on MacOS and Windows. Linux support is in preparation.
 
 Download of compiled App: 
 - [MacOS](/Builds/macOS/DOSBoxLauncher.app.zip)
