@@ -1,9 +1,10 @@
 #tag Module
 Protected Module GameShortcut
-	#tag Method, Flags = &h21
-		Private Sub CreateMacShortcut()
+	#tag Method, Flags = &h0
+		Sub CreateMacShortcut(game as DOSGame)
+		  // shall create a shortcut to the game on desktop
 		  //Var cmd As String = _
-		  //"'" + DosBox.GetDOSBoxCommandLine(Self.GameFilesPath.Child(game.DOSBoxSettingsFilename).NativePath, game.AutoExit) + "'"
+		  //"'" + DosBox.GetDOSBoxCommandLine(Self.GameFilesFolder.Child(game.DOSBoxSettingsFilename).NativePath, game.AutoExit) + "'"
 		End Sub
 	#tag EndMethod
 

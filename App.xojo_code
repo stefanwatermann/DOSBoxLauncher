@@ -7,7 +7,7 @@ Inherits Application
 		  
 		  AppConfig = New Config
 		  
-		  Log("AppConfig initialized.")
+		  Log("AppConfig initializing...")
 		  
 		  If AppConfig.GetConfigFile <> Nil And AppConfig.GetConfigFile.Exists Then
 		    Log("AppConfig found, now loading config.")

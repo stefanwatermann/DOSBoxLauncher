@@ -154,6 +154,10 @@ Protected Class DOSGame
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		Id As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		LastStartDt As DateTime
 	#tag EndProperty
 
