@@ -2,32 +2,33 @@
 
 ![AppLogo](/Images/AppIcon_128.png)
 
-DOSBoxLauncher konfiguriert und startet DOS Anwendungen (z.B. Spiele) mittels einer auf dem System vorhandenen/installierten DOSBox App.
-DOSBox selbst ist **kein** Bestandteil dieser App und muss separat installiert werden (siehe https://www.dosbox.com). Es steht eine einfache Konfiguration mit wenigen Parametern im Vordergrund. DOSBoxLauncher eignet sich daher weniger für die Katalogisierung und Verwaltung komplexer Sammlungen von DOS Anwendungen. 
+DOSBoxLauncher configures and starts DOS applications (e.g. games) using an already installed DOSBox app on the system. 
+DOSBox itself is not part of this app and must be installed separately (see https://www.dosbox.com). 
+A simple configuration with a few parameters is in the foreground. DOSBoxLauncher is therefore less suitable for cataloging 
+and managing complex collections of DOS applications.
 
-DOSBoxLaunchers Oberfläche unterstüzt englisch und deutsch und läuft aktuell auf MacOS und Windows. Linux Support ist in Vorbereitung. 
+DOSBoxLaunchers interface supports English and German language and currently runs on MacOS and Windows. Linux support is in preparation.
 
-Download der kompilierten App: 
+Download of compiled App: 
 - [MacOS](/Builds/macOS/DOSBoxLauncher.app.zip)
 - [Windows](/Builds/Windows/DOSBoxLauncher.zip)
 
-## Lizenz
-DOSBoxLauncher ist unter der [MIT Lizenz](/LICENSE) veröffentlich und kann kostenlos verwendet werden.
+## License
+DOSBox Launcher is published under the [MIT License](/LICENSE) and can be used free of charge.
 
-## Entwicklung
-Das Projekt ist mit der Entwicklungsumgebung [XOJO](https://www.xojo.com) (2021r2.1) entstanden. 
+## Development
+The project was created using the development environment [XOJO](https://www.xojo.com) (2021r2.1).
 
-## Verwendung
-Das Hauptfenster zeigt eine Liste der konfigurierten DOS Anwendungen / Spiele. Ein Doppelklick startet das jeweilige Spiel. 
+## Useage
+The main window shows a list of the configured DOS applications / games. A double click starts the respective game.
 
-![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher.png)
+![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_EN.png)
 
-Die Konfiguration der DOSBox Optionen findet entweder im "einfachen" oder im "Experten" Modus statt.
+The configuration of the DOSBox options takes place either in "simple" or in "expert" mode.
+The "simple" mode allows the quick configuration of essential DOSBox options by means of a simple dialog.
 
-Der "einfache" Modus erlaubt die schnelle Konfiguration wesentlicher DOSBox Optionen mittels eines einfachen Dialogs.
+![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_1_EN.png)
 
-![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_1.png)
+In "Expert" mode, the DOSBox configuration file for the application can be edited directly. All DOSBox options and configuration variants can be used here. Full control over the DOS application is available.
 
-Im "Experten" Modus kann die DOSBox Konfigurationsdatei für die Anwendung direkt bearbeitet werden. Hier können alle DOSBox Optionen und Konfigurationsvarianten verwendet werden. Es steht die volle Kontrolle über die DOS Anwendung zur Verfügung.
-
-![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_2.png)
+![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_2_EN.png)
