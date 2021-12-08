@@ -5,6 +5,16 @@ Protected Module GameShortcut
 		  // shall create a shortcut to the game on desktop
 		  //Var cmd As String = _
 		  //"'" + DosBox.GetDOSBoxCommandLine(Self.GameFilesFolder.Child(game.DOSBoxSettingsFilename).NativePath, game.AutoExit) + "'"
+		  
+		  // TODO Implemenation
+		  
+		  #If TargetWindows Then
+		    
+		  #EndIf
+		  
+		  #If TargetMacOS Then
+		    
+		  #EndIf
 		End Sub
 	#tag EndMethod
 

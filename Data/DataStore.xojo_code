@@ -64,10 +64,12 @@ Protected Module DataStore
 		      
 		      Var rs As RowSet = zDb.SelectSQL(sql)
 		      
-		      If rs.RowCount > 0 Then
+		      If rs.RowCount > 1 Then
+		        Raise New RuntimeException("Too may records found for " + game.Name + ".")
+		      ElseIf rs.RowCount = 1 Then
 		        // update
 		        rs.EditRow
-		        zDosGame2DatabaseRow(game, rs.Iterator.Value)
+		        zDosGame2DatabaseRow(game, rs)
 		        rs.SaveRow
 		      Else
 		        // add new
@@ -166,6 +168,32 @@ Protected Module DataStore
 
 	#tag Method, Flags = &h21
 		Private Sub zDosGame2DatabaseRow(game as DOSGame, dbrow as DatabaseRow)
+		  // TODO find solution to have column mapping ony once 
+		  // Problem is that "Edit" works on RowSet but "Add" with DatabaseRow
+		  // and casting one into th eother is not possible :-(
+		  dbrow.Column("Name").StringValue = game.Name
+		  dbrow.Column("AutoExit").BooleanValue = game.AutoExit
+		  dbrow.Column("CpuCycles").StringValue = game.CpuCycles
+		  dbrow.Column("DOSBoxSettingsTextExpert").StringValue = game.DOSBoxSettingsTextExpert
+		  dbrow.Column("ExpertMode").BooleanValue = game.ExpertMode
+		  dbrow.Column("FolderMountAsC").StringValue = game.FolderMountAsC
+		  dbrow.Column("FolderMountAsD").StringValue = game.FolderMountAsD
+		  dbrow.Column("Fullscreen").BooleanValue = game.Fullscreen
+		  dbrow.Column("LastStartDt").DateTimeValue = game.LastStartDt
+		  dbrow.Column("MachineType").StringValue = game.MachineType
+		  dbrow.Column("MountDAsCdrom").BooleanValue = game.MountDAsCdrom
+		  dbrow.Column("Resolution").StringValue = game.Resolution
+		  dbrow.Column("Scaler").StringValue = game.Scaler
+		  dbrow.Column("StartDrive").StringValue = game.StartDrive
+		  dbrow.Column("StartFile").StringValue = game.StartFile
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub zDosGame2DatabaseRow(game as DOSGame, dbrow as RowSet)
+		  // TODO find solution to have column mapping ony once 
+		  // Problem is that "Edit" works on RowSet but "Add" with DatabaseRow
+		  // and casting one into th eother is not possible :-(
 		  dbrow.Column("Name").StringValue = game.Name
 		  dbrow.Column("AutoExit").BooleanValue = game.AutoExit
 		  dbrow.Column("CpuCycles").StringValue = game.CpuCycles

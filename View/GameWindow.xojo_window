@@ -264,18 +264,6 @@ Begin Window GameWindow
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
-   Begin Thread ShellThread
-      DebugIdentifier =   ""
-      Enabled         =   True
-      Index           =   -2147483648
-      LockedInPosition=   False
-      Priority        =   5
-      Scope           =   2
-      StackSize       =   0
-      TabPanelIndex   =   0
-      ThreadID        =   0
-      ThreadState     =   0
-   End
 End
 #tag EndWindow
 
@@ -334,13 +322,7 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub CreateShortcut(game as DOSGame)
-		  #If TargetWindows Then
-		    
-		  #EndIf
-		  
-		  #If TargetMacOS Then
-		    GameShortcut.CreateMacShortcut(game)
-		  #EndIf
+		  GameShortcut.CreateMacShortcut(game)
 		End Sub
 	#tag EndMethod
 
@@ -360,22 +342,26 @@ End
 		  If b = d.ActionButton Or b = d.AlternateActionButton Then
 		    
 		    If b = d.AlternateActionButton Then
+		      // delete game folder
 		      Var f As New FolderItem(game.FolderMountAsC, FolderItem.PathModes.Native)
 		      If f.Exists And f.IsFolder Then
 		        f.MoveToTrash()
 		      End
 		    End
 		    
-		    // TODO remove games file, delete record in DB
-		    
+		    // delete generated DOSBox settings file
 		    If Self.GameFilesFolder.Child(game.DOSBoxSettingsFilename).Exists And Not Self.GameFilesFolder.Child(game.DOSBoxSettingsFilename).IsFolder Then
 		      Self.GameFilesFolder.Child(game.DOSBoxSettingsFilename).MoveToTrash()
 		    End
 		    
-		    If Self.GameFilesFolder.Child(game.SettingsFilename).Exists and not Self.GameFilesFolder.Child(game.SettingsFilename).IsFolder Then
-		      Self.GameFilesFolder.Child(game.SettingsFilename).MoveToTrash()
-		    End
+		    // delete game record in db
+		    Var r As DataStore.DataStoreResult = DataStore.Delete(game)
 		    
+		    If r.Status = DataStore.DataStoreResult.DataStoreResultStatus.failed Then
+		      Call MsgBox(r.Message, 16)
+		    end
+		    
+		    // refresh list
 		    ReadGameFiles
 		  End
 		  
@@ -392,10 +378,12 @@ End
 		  If editWindow.ResultOk Then
 		    SaveGameSettings(game)
 		    
-		    If editWindow.OrigGameFileName.Lowercase <> game.Name.Lowercase Then
-		      // game wurde umbenannt, alte config datei löschen
-		      Self.GameFilesFolder.Child(editWindow.OrigGameFileName).Remove
-		    End
+		    // TODO handle rename of game -> former file rename
+		    
+		    //If editWindow.OrigGameFileName.Lowercase <> game.Name.Lowercase Then
+		    //// game wurde umbenannt, alte config datei löschen
+		    //Self.GameFilesFolder.Child(editWindow.OrigGameFileName).Remove
+		    //End
 		  End
 		  
 		  editWindow = nil
@@ -431,6 +419,9 @@ End
 		  Self.BackgroundColor = Colors.ControlBackground
 		  
 		  DataStore.Initialize(Self.GameFilesFolder)
+		  
+		  // TODO remove this if all files are migrated
+		  TEMP_MigrateGameSettingsFiles
 		  
 		  OutputPanelVisible(False)
 		  ReadGameFiles
@@ -481,43 +472,13 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ReadGameFiles()
-		  // TODO migrate old textfiles into db
-		  
 		  GameList.RemoveAllRows
 		  
 		  Var r As DataStore.DataStoreResult = DataStore.Get()
 		  
 		  For Each game As DosGame In r.Games
-		    
 		    GameList.AddRow(game.name, Str(game.LastStartDtSqlText))
 		    GameList.RowTagAt(GameList.LastAddedRowIndex) = game
-		    
-		  Next
-		  
-		  SortGameList
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub ReadGameFiles_FILEBASED()
-		  
-		  GameList.RemoveAllRows
-		  
-		  For Each f As FolderItem In Self.GameFilesFolder.Children
-		    If f.name.EndsWith(dosgame.kFileSettingsFileExtension) Then
-		      App.Log("ReadGameFiles: " + f.Name)
-		      
-		      Var data As String = File.ReadAllText(f)
-		      Var game As dosgame = DOSGame.ParseText(data)
-		      
-		      If game.ExpertMode Then
-		        game.DOSBoxSettingsTextExpert = file.ReadAllText(Self.GameFilesFolder.Child(game.DOSBoxSettingsFilename))
-		      End
-		      
-		      GameList.AddRow(game.name, Str(game.LastStartDtSqlText))
-		      GameList.RowTagAt(GameList.LastAddedRowIndex) = game
-		    End
 		  Next
 		  
 		  SortGameList
@@ -540,7 +501,6 @@ End
 		  Self.Minimize
 		  
 		  Self.CurrentGame = game
-		  //ShellThread.Start
 		  
 		  DOSBox.DOSBoxExecutable = App.AppConfig.DOSBoxExecutable
 		  DOSBox.RunGame(Self.GameFilesFolder.Child(game.DOSBoxSettingsFilename).NativePath, game.AutoExit)
@@ -573,10 +533,11 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub SaveGameSettings(game as DosGame)
-		  //File.WriteAllText(Self.GameFilesFolder.Child(game.SettingsFilename), game.SettingsText)
-		  
 		  Var r As DataStore.DataStoreResult = DataStore.Save(game)
-		  System.DebugLog(r.Message)
+		  
+		  If r.Status = DataStore.DataStoreResult.DataStoreResultStatus.failed Then
+		    Call MsgBox(r.Message, 16)
+		  End
 		End Sub
 	#tag EndMethod
 
@@ -604,6 +565,38 @@ End
 		  
 		  GameList.Sort
 		  Gamelist.Invalidate
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub TEMP_MigrateGameSettingsFiles()
+		  // TODO remove after all files have been mograted
+		  
+		  // read game files
+		  For Each f As FolderItem In Self.GameFilesFolder.Children
+		    If f.name.EndsWith(dosgame.kFileSettingsFileExtension) Then
+		      App.Log("ReadGameFiles: " + f.Name)
+		      
+		      Var data As String = File.ReadAllText(f)
+		      Var game As dosgame = DOSGame.ParseText(data)
+		      
+		      If game.ExpertMode Then
+		        game.DOSBoxSettingsTextExpert = file.ReadAllText(Self.GameFilesFolder.Child(game.DOSBoxSettingsFilename))
+		      End
+		      
+		      // add game to db
+		      Var r As DataStore.DataStoreResult = DataStore.Save(game)
+		      
+		      If r.Status = DataStore.DataStoreResult.DataStoreResultStatus.failed Then
+		        Raise New RuntimeException("Cannot save game to db: " + r.Message)
+		      End
+		      
+		      // delete game file
+		      If Self.GameFilesFolder.Child(game.SettingsFilename).Exists And Not Self.GameFilesFolder.Child(game.SettingsFilename).IsFolder Then
+		        Self.GameFilesFolder.Child(game.SettingsFilename).MoveToTrash()
+		      End
+		    End
+		  Next
 		End Sub
 	#tag EndMethod
 
@@ -879,28 +872,6 @@ End
 		    
 		  End
 		End Function
-	#tag EndEvent
-#tag EndEvents
-#tag Events ShellThread
-	#tag Event
-		Sub Run()
-		  DOSBox.DOSBoxExecutable = App.AppConfig.DOSBoxExecutable
-		  DOSBox.RunGame(Self.GameFilesFolder.Child(self.CurrentGame.DOSBoxSettingsFilename).NativePath, self.CurrentGame.AutoExit)
-		  
-		  Me.AddUserInterfaceUpdate()
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub UserInterfaceUpdate(data() as Dictionary)
-		  ResultText.Text = DOSBox.Result
-		  ResultText.VerticalScrollPosition = ResultText.LineNumber(ResultText.Text.length)
-		  
-		  OutputPanelVisible(dosbox.ExitCode <> 0)
-		  
-		  Self.Show
-		  
-		  ReadGameFiles
-		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
