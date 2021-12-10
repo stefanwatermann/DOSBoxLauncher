@@ -1,7 +1,15 @@
 #tag Class
 Protected Class DOSGame
 	#tag Method, Flags = &h0
+		Sub Constructor()
+		  me.Guid = StringUtils.NewGuid
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Shared Function ParseText(t as string) As DOSGame
+		  // TODO remove when TEMP_MigrateGame... has been removed
+		  
 		  Var game As DOSGame = New DOSGame
 		  
 		  For Each raw As String In t.Split(EndOfLine.Native)
@@ -88,7 +96,11 @@ Protected Class DOSGame
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return me.Name.CreateSafeFilename + kDOSBoxSettingsFileExtension
+			  If Guid.Length = 0 Then
+			    Return Me.Name.CreateSafeFilename + kDOSBoxSettingsFileExtension
+			  Else
+			    Return Me.Guid + kDOSBoxSettingsFileExtension
+			  End
 			End Get
 		#tag EndGetter
 		DOSBoxSettingsFilename As String
@@ -154,6 +166,10 @@ Protected Class DOSGame
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		Guid As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		Id As Integer
 	#tag EndProperty
 
@@ -210,7 +226,8 @@ Protected Class DOSGame
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  return me.Name.CreateSafeFilename + kFileSettingsFileExtension
+			  // TODO remove when TEMP_MigrateGame... has been removed
+			  Return Me.Name.CreateSafeFilename + kFileSettingsFileExtension
 			End Get
 		#tag EndGetter
 		SettingsFilename As String
@@ -461,6 +478,14 @@ Protected Class DOSGame
 			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Id"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

@@ -379,6 +379,7 @@ End
 		    SaveGameSettings(game)
 		    
 		    // TODO handle rename of game -> former file rename
+		    // introduce GUID 
 		    
 		    //If editWindow.OrigGameFileName.Lowercase <> game.Name.Lowercase Then
 		    //// game wurde umbenannt, alte config datei löschen

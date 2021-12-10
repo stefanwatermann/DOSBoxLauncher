@@ -171,6 +171,7 @@ Protected Module DataStore
 		  // TODO find solution to have column mapping ony once 
 		  // Problem is that "Edit" works on RowSet but "Add" with DatabaseRow
 		  // and casting one into th eother is not possible :-(
+		  dbrow.Column("GUID").StringValue = game.Guid
 		  dbrow.Column("Name").StringValue = game.Name
 		  dbrow.Column("AutoExit").BooleanValue = game.AutoExit
 		  dbrow.Column("CpuCycles").StringValue = game.CpuCycles
@@ -194,6 +195,7 @@ Protected Module DataStore
 		  // TODO find solution to have column mapping ony once 
 		  // Problem is that "Edit" works on RowSet but "Add" with DatabaseRow
 		  // and casting one into th eother is not possible :-(
+		  dbrow.Column("GUID").StringValue = game.Guid
 		  dbrow.Column("Name").StringValue = game.Name
 		  dbrow.Column("AutoExit").BooleanValue = game.AutoExit
 		  dbrow.Column("CpuCycles").StringValue = game.CpuCycles
@@ -221,6 +223,7 @@ Protected Module DataStore
 		    Var game As New DOSGame
 		    
 		    game.Id = rs.Column("id").IntegerValue
+		    game.Guid = rs.Column("GUID").StringValue
 		    game.Name = rs.Column("Name").StringValue
 		    game.AutoExit = rs.Column("AutoExit").BooleanValue
 		    game.CpuCycles = rs.Column("CpuCycles").StringValue

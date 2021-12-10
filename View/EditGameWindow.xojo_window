@@ -1071,7 +1071,8 @@ End
 		    tabEditMode.SelectedPanelIndex = 1
 		  Else
 		    tabEditMode.SelectedPanelIndex = 0
-		  end
+		  End
+		  
 		End Sub
 	#tag EndEvent
 
@@ -1258,7 +1259,7 @@ End
 
 	#tag Constant, Name = kSelectC_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Mount C:\\ - select folder"
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Mount C:\\ - Verzeichnis w\xC3\xA4hlen"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verzeichnis als C:\\ w\xC3\xA4hlen"
 	#tag EndConstant
 
 	#tag Constant, Name = kSelectD_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
@@ -1576,6 +1577,14 @@ End
 		      tbGameName.Text = f.Name
 		    End
 		  End 
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Opening()
+		  If CurrentDOSGame.Name.Length = 0 Then
+		    Me.Press
+		    tbGameName.SetFocus
+		  End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
