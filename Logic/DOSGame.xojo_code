@@ -86,7 +86,7 @@ Protected Class DOSGame
 
 
 	#tag Property, Flags = &h0
-		AutoExit As Boolean = True
+		AutoExit As Boolean = False
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -485,6 +485,14 @@ Protected Class DOSGame
 			Group="Behavior"
 			InitialValue=""
 			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Guid"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="String"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

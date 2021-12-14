@@ -1581,10 +1581,10 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Opening()
-		  If CurrentDOSGame.Name.Length = 0 Then
-		    Me.Press
-		    tbGameName.SetFocus
-		  End
+		  //If CurrentDOSGame.Name.Length = 0 Then
+		  //Me.Press
+		  //tbGameName.SetFocus
+		  //End
 		End Sub
 	#tag EndEvent
 #tag EndEvents

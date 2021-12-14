@@ -1,5 +1,5 @@
 Type=Desktop
-RBProjectVersion=2021.03
+RBProjectVersion=2021.031
 MinIDEVersion=20210300
 OrigIDEVersion=20210300
 Class=App;App.xojo_code;&h000000003AB437FF;&h0000000000000000;false
@@ -113,7 +113,7 @@ AppMenuBar=MainMenuBar
 MajorVersion=1
 MinorVersion=1
 SubVersion=6
-NonRelease=76
+NonRelease=78
 Release=0
 InfoVersion=Konfigurieren  und Starten von DOS Programment mittels DOSBox.
 LongVersion=(c)2021, Stefan Watermann
