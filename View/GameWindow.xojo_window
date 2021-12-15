@@ -687,6 +687,11 @@ End
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"zuletzt gespielt oben"
 	#tag EndConstant
 
+	#tag Constant, Name = kPlayedTotalTime, Type = String, Dynamic = True, Default = \"", Scope = Private
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"total time played:"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Gesamtspielzeit:"
+	#tag EndConstant
+
 	#tag Constant, Name = kResultText_Tooltip, Type = String, Dynamic = True, Default = \"", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox Output"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Ausgabe"
@@ -790,7 +795,7 @@ End
 		    g.DrawText(game.Name, 10, 22)
 		    
 		    g.FontSize = 11
-		    g.DrawText(kLastPlayedAt + game.LastStartDtText + ", Gesamt-Spieldauer: " + str(game.TotalTimePlayedFormatted), 10, 40)
+		    g.DrawText(kLastPlayedAt + game.LastStartDtText + " - " + kPlayedTotalTime + " " + str(game.TotalTimePlayedFormatted), 10, 40)
 		  End
 		  
 		  Return True
