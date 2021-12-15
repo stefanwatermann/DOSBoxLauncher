@@ -194,7 +194,7 @@ Protected Class DOSGame
 		#tag Getter
 			Get
 			  If Me.LastStartDt = Nil Then
-			    Return "nie"
+			    Return kLastStartDtNever
 			  Else
 			    return me.LastStartDt.ToString
 			  End
@@ -221,6 +221,10 @@ Protected Class DOSGame
 
 	#tag Property, Flags = &h0
 		Scaler As String = "normal2x"
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		SecondsPlayed As Integer
 	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -272,6 +276,21 @@ Protected Class DOSGame
 		StartFile As String
 	#tag EndProperty
 
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Var total As Integer = Self.SecondsPlayed 
+			  
+			  Var seconds As Integer = total Mod 60
+			  Var minutes As Integer = (total / 60) Mod 60
+			  Var hours As Integer = total / 3600
+			  
+			  return Str(hours, "00") + ":" + Str(minutes, "00") + ":" + Str(seconds, "00")
+			End Get
+		#tag EndGetter
+		TotalTimePlayedFormatted As string
+	#tag EndComputedProperty
+
 
 	#tag Constant, Name = kDOSBoxSettingsFileExtension, Type = String, Dynamic = False, Default = \".conf", Scope = Public
 	#tag EndConstant
@@ -283,6 +302,11 @@ Protected Class DOSGame
 	#tag EndConstant
 
 	#tag Constant, Name = kFileSettingsFileTemplate, Type = String, Dynamic = False, Default = \"name\x3D#NAME#\nfullscreen\x3D#FULLSCREEN#\nresolution\x3D#RESOLUTION#\nmachine\x3D#MACHINE#\ncycles\x3D#CYCLES#\nscaler\x3D#SCALER#\nfolder_c\x3D#FOLDERC#\nfolder_d\x3D#FOLDERD#\nmount_d_cdrom\x3D#MOUNTDCDROM#\nstartdrive\x3D#STARTDRIVE#\nstartfile\x3D#STARTFILE#\nlaststartdt\x3D#LASTSTARTDT#\nautoexit\x3D#AUTOEXIT#\nexpertmode\x3D#EXPERTMODE#", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kLastStartDtNever, Type = String, Dynamic = True, Default = \"nie", Scope = Public
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"never"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"nie"
 	#tag EndConstant
 
 
@@ -493,6 +517,14 @@ Protected Class DOSGame
 			Group="Behavior"
 			InitialValue=""
 			Type="String"
+			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="SecondsPlayed"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

@@ -511,6 +511,11 @@ End
 		  
 		  OutputPanelVisible(dosbox.ExitCode <> 0)
 		  
+		  Var secondsPlayed As Integer = DateTime.Now.SecondsFrom1970 - game.LastStartDt.SecondsFrom1970
+		  game.SecondsPlayed = game.SecondsPlayed + secondsPlayed
+		  
+		  SaveGameSettings(game)
+		  
 		  Self.Show
 		  
 		  ReadGameFiles
@@ -785,7 +790,7 @@ End
 		    g.DrawText(game.Name, 10, 22)
 		    
 		    g.FontSize = 11
-		    g.DrawText(kLastPlayedAt + game.LastStartDtText, 10, 40)
+		    g.DrawText(kLastPlayedAt + game.LastStartDtText + ", Gesamt-Spieldauer: " + str(game.TotalTimePlayedFormatted), 10, 40)
 		  End
 		  
 		  Return True

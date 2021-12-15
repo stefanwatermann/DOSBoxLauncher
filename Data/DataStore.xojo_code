@@ -187,6 +187,7 @@ Protected Module DataStore
 		  dbrow.Column("Scaler").StringValue = game.Scaler
 		  dbrow.Column("StartDrive").StringValue = game.StartDrive
 		  dbrow.Column("StartFile").StringValue = game.StartFile
+		  dbrow.Column("SecondsPlayed").IntegerValue = game.SecondsPlayed
 		End Sub
 	#tag EndMethod
 
@@ -211,6 +212,7 @@ Protected Module DataStore
 		  dbrow.Column("Scaler").StringValue = game.Scaler
 		  dbrow.Column("StartDrive").StringValue = game.StartDrive
 		  dbrow.Column("StartFile").StringValue = game.StartFile
+		  dbrow.Column("SecondsPlayed").IntegerValue = game.SecondsPlayed
 		End Sub
 	#tag EndMethod
 
@@ -239,6 +241,7 @@ Protected Module DataStore
 		    game.DOSBoxSettingsTextExpert = rs.Column("DOSBoxSettingsTextExpert").StringValue
 		    game.StartDrive = rs.Column("StartDrive").StringValue
 		    game.StartFile = rs.Column("StartFile").StringValue
+		    game.SecondsPlayed = rs.Column("SecondsPlayed").IntegerValue
 		    
 		    games.Add(game)
 		    
