@@ -9,7 +9,7 @@ and managing complex collections of DOS applications.
 
 DOSBoxLaunchers interface supports English and German language and currently runs on MacOS and Windows. Linux support is in preparation.
 
-Download of compiled App: 
+Download of compiled app, current version 1.1.6: 
 - [MacOS](/Builds/macOS/DOSBoxLauncher.app.zip)
 - [Windows](/Builds/Windows/DOSBoxLauncher.zip)
 
