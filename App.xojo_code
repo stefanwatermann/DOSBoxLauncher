@@ -143,7 +143,7 @@ Inherits Application
 		#Tag Instance, Platform = Linux, Language = Default, Definition  = \"&Delete"
 	#tag EndConstant
 
-	#tag Constant, Name = kFileQuit, Type = String, Dynamic = True, Default = \"&Quit", Scope = Public
+	#tag Constant, Name = kFileQuit, Type = String, Dynamic = True, Default = \"&Exit", Scope = Public
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"E&xit"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Beenden"
 	#tag EndConstant
@@ -153,7 +153,7 @@ Inherits Application
 		#Tag Instance, Platform = Linux, Language = Default, Definition  = \"Ctrl+Q"
 	#tag EndConstant
 
-	#tag Constant, Name = kMainMenu_FileAbout_Text, Type = String, Dynamic = True, Default = \"", Scope = Public
+	#tag Constant, Name = kMainMenu_FileAbout_Text, Type = String, Dynamic = True, Default = \"About DOSBox Launcher...", Scope = Public
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"About DOSBox Launcher..."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"\xC3\x9Cber DOSBox Launcher\xE2\x80\xA6"
 	#tag EndConstant

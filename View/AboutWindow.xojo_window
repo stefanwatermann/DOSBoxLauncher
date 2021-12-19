@@ -227,7 +227,7 @@ End
 #tag EndWindow
 
 #tag WindowCode
-	#tag Constant, Name = klbDescription_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = klbDescription_Text, Type = String, Dynamic = True, Default = \"Configure and run DOSBox apps/games using the installed DOSBox app.", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Configure and run DOSBox apps/games using the installed DOSBox app."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Konfigurieren und starten von DOS Anwendungen (Spiele) in einer vorhandenen DOSBox App."
 	#tag EndConstant

@@ -279,13 +279,24 @@ Protected Class DOSGame
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  Var total As Integer = Self.SecondsPlayed 
-			  
+			  Var total As Integer = Self.SecondsPlayed
 			  Var seconds As Integer = total Mod 60
 			  Var minutes As Integer = (total / 60) Mod 60
 			  Var hours As Integer = total / 3600
 			  
-			  return Str(hours, "00") + ":" + Str(minutes, "00") + ":" + Str(seconds, "00")
+			  If total = 0 Then Return "-"
+			  
+			  If total < 60 Then Return kTotalTime_LeesThanAMinute
+			  
+			  If total > 59 And hours = 0 And minutes = 1 Then Return kTotalTime_OneMinute
+			  
+			  If total > 59 And hours = 0 And minutes > 1 Then Return kTotalTime_Minutes.Format2(minutes) 
+			  
+			  If total > 59 And hours = 1 Then Return kTotalTime_OneHourAnd.Format2(minutes)
+			  
+			  If total > 59 And hours > 1 Then Return kTotalTime_HoursAndMinutes.Format2(hours, minutes)
+			  
+			  Return Str(hours, "00") + ":" + Str(minutes, "00") + ":" + Str(seconds, "00")
 			End Get
 		#tag EndGetter
 		TotalTimePlayedFormatted As string
@@ -304,9 +315,34 @@ Protected Class DOSGame
 	#tag Constant, Name = kFileSettingsFileTemplate, Type = String, Dynamic = False, Default = \"name\x3D#NAME#\nfullscreen\x3D#FULLSCREEN#\nresolution\x3D#RESOLUTION#\nmachine\x3D#MACHINE#\ncycles\x3D#CYCLES#\nscaler\x3D#SCALER#\nfolder_c\x3D#FOLDERC#\nfolder_d\x3D#FOLDERD#\nmount_d_cdrom\x3D#MOUNTDCDROM#\nstartdrive\x3D#STARTDRIVE#\nstartfile\x3D#STARTFILE#\nlaststartdt\x3D#LASTSTARTDT#\nautoexit\x3D#AUTOEXIT#\nexpertmode\x3D#EXPERTMODE#", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kLastStartDtNever, Type = String, Dynamic = True, Default = \"nie", Scope = Public
+	#tag Constant, Name = kLastStartDtNever, Type = String, Dynamic = True, Default = \"never", Scope = Public
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"never"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"nie"
+	#tag EndConstant
+
+	#tag Constant, Name = kTotalTime_HoursAndMinutes, Type = String, Dynamic = True, Default = \"{d} hours and {d} minutes", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"{0} hours and {1} minutes"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"{0} Stunden und {1} Minuten"
+	#tag EndConstant
+
+	#tag Constant, Name = kTotalTime_LeesThanAMinute, Type = String, Dynamic = True, Default = \"less than a minute", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"less than a minute"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"weniger als eine Minute"
+	#tag EndConstant
+
+	#tag Constant, Name = kTotalTime_Minutes, Type = String, Dynamic = True, Default = \"{d} minutes", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"{0} minutes"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"{0} Minuten"
+	#tag EndConstant
+
+	#tag Constant, Name = kTotalTime_OneHourAnd, Type = String, Dynamic = True, Default = \"one hour and {d} minutes", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"one hour and {0} minutes"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"eine Stunde und {0} Minuten"
+	#tag EndConstant
+
+	#tag Constant, Name = kTotalTime_OneMinute, Type = String, Dynamic = True, Default = \"one minute", Scope = Private
+		#Tag Instance, Platform = Any, Language = Default, Definition  = \"one minute"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"eine Minute"
 	#tag EndConstant
 
 
@@ -526,6 +562,14 @@ Protected Class DOSGame
 			InitialValue=""
 			Type="Integer"
 			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TotalTimePlayedFormatted"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="string"
+			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

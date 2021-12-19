@@ -627,27 +627,27 @@ End
 	#tag EndComputedProperty
 
 
-	#tag Constant, Name = kDeleteGame_ConfigOnly, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kDeleteGame_ConfigOnly, Type = String, Dynamic = True, Default = \"Configuration only", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Configuration only"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Nur Konfiguration"
 	#tag EndConstant
 
-	#tag Constant, Name = kDeleteGame_DeleteAll, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kDeleteGame_DeleteAll, Type = String, Dynamic = True, Default = \"Delete all", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Delete all"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Alles l\xC3\xB6schen"
 	#tag EndConstant
 
-	#tag Constant, Name = kDeleteGame_Explanation, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kDeleteGame_Explanation, Type = String, Dynamic = True, Default = \"\'Delete all\' removes both configuration files AND game files.", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"\'Delete all\' removes both configuration files AND game files."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"\'Alles l\xC3\xB6schen\' entfernt die Konfigurationsdateien UND das Spiel selbst."
 	#tag EndConstant
 
-	#tag Constant, Name = kDeleteGame_MessageText, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kDeleteGame_MessageText, Type = String, Dynamic = True, Default = \"Delete game \xE2\x80\x99#GAMENAME#\xE2\x80\x99\?", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Delete game \xE2\x80\x99#GAMENAME#\xE2\x80\x99\?"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Spiel \xE2\x80\x99#GAMENAME#\xE2\x80\x99 l\xC3\xB6schen\?"
 	#tag EndConstant
 
-	#tag Constant, Name = kDOSBoxManual_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kDOSBoxManual_Text, Type = String, Dynamic = True, Default = \"DOSBox Documentation", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox Documentation"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Dokumentation"
 	#tag EndConstant
@@ -657,67 +657,67 @@ End
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Desktop Shortcut anlegen"
 	#tag EndConstant
 
-	#tag Constant, Name = kGameList_ContextMenu_ShowC, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kGameList_ContextMenu_ShowC, Type = String, Dynamic = True, Default = \"Open C:\\ folder", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Open C:\\ folder"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Ordner C:\\ \xC3\xB6ffnen"
 	#tag EndConstant
 
-	#tag Constant, Name = kGameList_ContextMenu_ShowD, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kGameList_ContextMenu_ShowD, Type = String, Dynamic = True, Default = \"Open D:\\ folder", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Open D:\\ folder"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Ordner D:\\ \xC3\xB6ffnen"
 	#tag EndConstant
 
-	#tag Constant, Name = kGameWindow_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kGameWindow_Title, Type = String, Dynamic = True, Default = \"DOSBox Launcher", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox Launcher"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Launcher"
 	#tag EndConstant
 
-	#tag Constant, Name = kInit_CannotFindDOSBoxExecutable_Message, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kInit_CannotFindDOSBoxExecutable_Message, Type = String, Dynamic = True, Default = \"DOSBox Executable not found. Please install DOSBox app first (www.dosbox.com) and enter path on Options dialog.", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox Executable not found. Please install DOSBox app first (www.dosbox.com) and enter path on Options dialog."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Executable konnte nicht gefunden werden. Bitte installieren (www.dosbox.com) und den Pfad unter Optionen eintragen."
 	#tag EndConstant
 
-	#tag Constant, Name = kLastPlayedAt, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kLastPlayedAt, Type = String, Dynamic = True, Default = \"Last played ", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Last played "
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Zuletzt gespielt "
 	#tag EndConstant
 
-	#tag Constant, Name = kLastPlayedTop_Text, Type = String, Dynamic = True, Default = \"zuletzt gespielt oben", Scope = Private
+	#tag Constant, Name = kLastPlayedTop_Text, Type = String, Dynamic = True, Default = \"last played on top", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"last played on top"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"zuletzt gespielt oben"
 	#tag EndConstant
 
-	#tag Constant, Name = kPlayedTotalTime, Type = String, Dynamic = True, Default = \"", Scope = Private
-		#Tag Instance, Platform = Any, Language = en, Definition  = \"total time played:"
+	#tag Constant, Name = kPlayedTotalTime, Type = String, Dynamic = True, Default = \"total time played:", Scope = Private
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Total time played:"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Gesamtspielzeit:"
 	#tag EndConstant
 
-	#tag Constant, Name = kResultText_Tooltip, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kResultText_Tooltip, Type = String, Dynamic = True, Default = \"DOSBox Output", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox Output"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Ausgabe"
 	#tag EndConstant
 
-	#tag Constant, Name = kToolbarGameWindow_AddGame, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kToolbarGameWindow_AddGame, Type = String, Dynamic = True, Default = \"Add", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Add"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Hinzuf\xC3\xBCgen"
 	#tag EndConstant
 
-	#tag Constant, Name = kToolbarGameWindow_DeleteGame, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kToolbarGameWindow_DeleteGame, Type = String, Dynamic = True, Default = \"Delete", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Delete"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"L\xC3\xB6schen"
 	#tag EndConstant
 
-	#tag Constant, Name = kToolbarGameWindow_EditGame, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kToolbarGameWindow_EditGame, Type = String, Dynamic = True, Default = \"Edit", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Edit"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Bearbeiten"
 	#tag EndConstant
 
-	#tag Constant, Name = kToolbarGameWindow_Options, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kToolbarGameWindow_Options, Type = String, Dynamic = True, Default = \"Options", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Options"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Optionen"
 	#tag EndConstant
 
-	#tag Constant, Name = kToolbarGameWindow_RunGame, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kToolbarGameWindow_RunGame, Type = String, Dynamic = True, Default = \"Run", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Run"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Starten"
 	#tag EndConstant
@@ -795,7 +795,7 @@ End
 		    g.DrawText(game.Name, 10, 22)
 		    
 		    g.FontSize = 11
-		    g.DrawText(kLastPlayedAt + game.LastStartDtText + " - " + kPlayedTotalTime + " " + str(game.TotalTimePlayedFormatted), 10, 40)
+		    g.DrawText(kLastPlayedAt + game.LastStartDtText + EndOfLine + kPlayedTotalTime + " " + str(game.TotalTimePlayedFormatted), 10, 40)
 		  End
 		  
 		  Return True
@@ -816,7 +816,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Open()
-		  Me.DefaultRowHeight = 50
+		  Me.DefaultRowHeight = 65
 		End Sub
 	#tag EndEvent
 	#tag Event

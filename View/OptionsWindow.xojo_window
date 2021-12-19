@@ -420,77 +420,77 @@ End
 	#tag EndProperty
 
 
-	#tag Constant, Name = kbtnCancel_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kbtnCancel_Caption, Type = String, Dynamic = True, Default = \"Cancel", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Cancel"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Abbrechen"
 	#tag EndConstant
 
-	#tag Constant, Name = kbtnSelectDOSBox_Tooltip, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kbtnSelectDOSBox_Tooltip, Type = String, Dynamic = True, Default = \"Select file\xE2\x80\xA6", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select file\xE2\x80\xA6"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Datei w\xC3\xA4hlen..."
 	#tag EndConstant
 
-	#tag Constant, Name = kbtnSelectGameFolder_Tooltip, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kbtnSelectGameFolder_Tooltip, Type = String, Dynamic = True, Default = \"Select Folder...", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select Folder..."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verzeichnis w\xC3\xA4hlen\xE2\x80\xA6"
 	#tag EndConstant
 
-	#tag Constant, Name = kcbSendStats_Caption, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kcbSendStats_Caption, Type = String, Dynamic = True, Default = \"Send anonymized usage statistics", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Send anonymized usage statistics"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Anonymisierte Nutzungsdaten senden"
 	#tag EndConstant
 
-	#tag Constant, Name = kLabel1_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kLabel1_Text, Type = String, Dynamic = True, Default = \"Base folder for DOS games/apps", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Base folder for DOS games/apps"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Basisverzeichnis f\xC3\xBCr DOS Spiele/Anwendungen"
 	#tag EndConstant
 
-	#tag Constant, Name = kLabel2_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kLabel2_Text, Type = String, Dynamic = True, Default = \"DOSBox Executable", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox Executable"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Datei"
 	#tag EndConstant
 
-	#tag Constant, Name = klbDescription_Text, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = klbDescription_Text, Type = String, Dynamic = True, Default = \"Set-up the base (or home) folder where DOSBox Launcher will find your DOS games/apps. Furthermore you need to specify the DOSBox executable to be used to launch DOS apps.", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Set-up the base (or home) folder where DOSBox Launcher will find your DOS games/apps. Furthermore you need to specify the DOSBox executable to be used to launch DOS apps."
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Lege hier das Basis- (oder Home-) Verzeichnis fest\x2C in welchem DOSBox Launcher deine DOS Anwendungen findet. Weiterhin gibst du die ausf\xC3\xBChrbare DOSBox Datei zum Start deiner DOS Anwendungen an."
 	#tag EndConstant
 
-	#tag Constant, Name = kOptionsWindow_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kOptionsWindow_Title, Type = String, Dynamic = True, Default = \"Options", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Options"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Optionen"
 	#tag EndConstant
 
-	#tag Constant, Name = kSelectDOSBox_Action, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kSelectDOSBox_Action, Type = String, Dynamic = True, Default = \"Use", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Use"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verwenden"
 	#tag EndConstant
 
-	#tag Constant, Name = kSelectDOSBox_Prompt, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kSelectDOSBox_Prompt, Type = String, Dynamic = True, Default = \"Select DOSBox app file", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select DOSBox app file"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Datei w\xC3\xA4hlen"
 	#tag EndConstant
 
-	#tag Constant, Name = kSelectDOSBox_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kSelectDOSBox_Title, Type = String, Dynamic = True, Default = \"Select DOSBox app file", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select DOSBox app file"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Datei w\xC3\xA4hlen"
 	#tag EndConstant
 
-	#tag Constant, Name = kSelectGameFolder_Action, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kSelectGameFolder_Action, Type = String, Dynamic = True, Default = \"Use", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Use"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Verwenden"
 	#tag EndConstant
 
-	#tag Constant, Name = kSelectGameFolder_Prompt, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kSelectGameFolder_Prompt, Type = String, Dynamic = True, Default = \"Select game base folder", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select game base folder"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Basis-Verzeichnis w\xC3\xA4hlen"
 	#tag EndConstant
 
-	#tag Constant, Name = kSelectGameFolder_Title, Type = String, Dynamic = True, Default = \"", Scope = Private
+	#tag Constant, Name = kSelectGameFolder_Title, Type = String, Dynamic = True, Default = \"Select game base folder", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select game base folder"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Basis-Verzeichnis w\xC3\xA4hlen"
 	#tag EndConstant
 
-	#tag Constant, Name = lbDOSBoxInternet_Text, Type = String, Dynamic = True, Default = \"", Scope = Protected
+	#tag Constant, Name = lbDOSBoxInternet_Text, Type = String, Dynamic = True, Default = \"DOSBox on the Internet", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox on the Internet"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox im Internet"
 	#tag EndConstant
