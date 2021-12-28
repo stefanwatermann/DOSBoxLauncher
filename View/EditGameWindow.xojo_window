@@ -3,7 +3,7 @@ Begin DesktopWindow EditGameWindow
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF00
    Composite       =   False
-   DefaultLocation =   0
+   DefaultLocation =   3
    FullScreen      =   False
    HasBackgroundColor=   False
    HasCloseButton  =   True
@@ -116,7 +116,7 @@ Begin DesktopWindow EditGameWindow
       Top             =   20
       Transparent     =   False
       Underline       =   False
-      Value           =   0
+      Value           =   1
       Visible         =   True
       Width           =   500
       Begin DesktopLabel lbStartFile

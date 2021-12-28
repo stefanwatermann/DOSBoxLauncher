@@ -1,5 +1,5 @@
-#tag Window
-Begin Window GameWindow
+#tag DesktopWindow
+Begin DesktopWindow GameWindow
    Backdrop        =   0
    BackgroundColor =   &c21212100
    Composite       =   False
@@ -24,7 +24,7 @@ Begin Window GameWindow
    Type            =   0
    Visible         =   True
    Width           =   420
-   Begin TextArea ResultText
+   Begin DesktopTextArea ResultText
       AllowAutoDeactivate=   True
       AllowFocusRing  =   False
       AllowSpellChecking=   True
@@ -32,8 +32,6 @@ Begin Window GameWindow
       AllowTabs       =   False
       BackgroundColor =   &cFFFFFF00
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       FontName        =   "SmallSystem"
       FontSize        =   0.0
@@ -82,11 +80,9 @@ Begin Window GameWindow
       TabPanelIndex   =   0
       Visible         =   True
    End
-   Begin Label lbDOSBoxManual
+   Begin DesktopLabel lbDOSBoxManual
       AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       FontName        =   "SmallSystem"
       FontSize        =   0.0
@@ -146,11 +142,9 @@ Begin Window GameWindow
       Visible         =   True
       Width           =   20
    End
-   Begin Label lbLastPlayedTop
+   Begin DesktopLabel lbLastPlayedTop
       AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       FontName        =   "SmallSystem"
       FontSize        =   0.0
@@ -181,8 +175,10 @@ Begin Window GameWindow
       Visible         =   True
       Width           =   131
    End
-   Begin Separator Separator1
+   Begin DesktopSeparator Separator1
+      Active          =   False
       AllowAutoDeactivate=   True
+      AllowTabStop    =   False
       Enabled         =   True
       Height          =   4
       Index           =   -2147483648
@@ -193,6 +189,7 @@ Begin Window GameWindow
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   5
       TabPanelIndex   =   0
@@ -202,6 +199,10 @@ Begin Window GameWindow
       Transparent     =   False
       Visible         =   True
       Width           =   405
+      _mIndex         =   0
+      _mInitialParent =   ""
+      _mName          =   ""
+      _mPanelIndex    =   0
    End
    Begin Timer Timer250ms
       Enabled         =   True
@@ -212,7 +213,7 @@ Begin Window GameWindow
       Scope           =   2
       TabPanelIndex   =   0
    End
-   Begin Listbox GameList
+   Begin DesktopListBox GameList
       AllowAutoDeactivate=   True
       AllowAutoHideScrollbars=   True
       AllowExpandableRows=   False
@@ -223,16 +224,13 @@ Begin Window GameWindow
       Bold            =   False
       ColumnCount     =   2
       ColumnWidths    =   "100%,0%"
-      DataField       =   ""
-      DataSource      =   ""
       DefaultRowHeight=   -1
       DropIndicatorVisible=   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      GridLinesHorizontalStyle=   0
-      GridLinesVerticalStyle=   0
+      GridLineStyle   =   0
       HasBorder       =   False
       HasHeader       =   False
       HasHorizontalScrollbar=   False
@@ -265,11 +263,11 @@ Begin Window GameWindow
       _ScrollWidth    =   -1
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  Init
 		End Sub
 	#tag EndEvent
@@ -283,13 +281,21 @@ End
 		End Function
 	#tag EndMenuHandler
 
+	#tag MenuHandler
+		Function FileQuit() As Boolean Handles FileQuit.Action
+			self.Close
+			Return True
+			
+		End Function
+	#tag EndMenuHandler
+
 
 	#tag Method, Flags = &h21
 		Private Sub AddGame()
 		  Var game As DOSGame = New DOSGame
 		  
 		  Var editWindow As EditGameWindow = New EditGameWindow(game)
-		  editWindow.ShowModal()
+		  editWindow.ShowModal(self)
 		  
 		  If editWindow.ResultOk Then
 		    SaveGameSettings(game)
@@ -373,7 +379,7 @@ End
 		Private Sub EditGame(game as DOSGame)
 		  
 		  Var editWindow As EditGameWindow = New EditGameWindow(game)
-		  editWindow.ShowModal()
+		  editWindow.ShowModal(Self)
 		  
 		  If editWindow.ResultOk Then
 		    SaveGameSettings(game)
@@ -392,7 +398,7 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub HandleToolbarButton(item as ToolItem)
+		Private Sub HandleToolbarButton(item as DesktopToolbarItem)
 		  
 		  Select Case item.Name
 		    
@@ -429,9 +435,12 @@ End
 		  GameList.SelectedRowIndex = 0
 		  
 		  If Not ISDOSBoxAvailable Then
-		    //Call MsgBox(kInit_CannotFindDOSBoxExecutable_Message, 16)
 		    ShowOptions
 		  End
+		  
+		  #If TargetLinux Then
+		    Self.Width = 430
+		  #EndIf
 		End Sub
 	#tag EndMethod
 
@@ -550,7 +559,7 @@ End
 	#tag Method, Flags = &h21
 		Private Sub ShowOptions()
 		  Var dlg As New OptionsWindow()
-		  dlg.ShowModal
+		  dlg.ShowModal(self)
 		  
 		  If dlg.ResultOk Then
 		    App.AppConfig.Save
@@ -563,14 +572,14 @@ End
 		  
 		  If cbSortByDate.On Then
 		    GameList.SortingColumn = 1
-		    GameList.ColumnSortDirectionAt(1) = ListBox.SortDirections.Descending
+		    GameList.ColumnSortDirectionAt(1) = DesktopListBox.SortDirections.Descending
 		  Else
 		    GameList.SortingColumn = 0
-		    GameList.ColumnSortDirectionAt(0) = ListBox.SortDirections.Ascending
+		    GameList.ColumnSortDirectionAt(0) = DesktopListBox.SortDirections.Ascending
 		  End
 		  
 		  GameList.Sort
-		  Gamelist.Invalidate
+		  Gamelist.Refresh
 		End Sub
 	#tag EndMethod
 
@@ -727,27 +736,27 @@ End
 
 #tag Events ResultText
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  me.TextColor = Colors.TextForegroundDisabled
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events GameWindowToolbar
 	#tag Event
-		Sub Action(item As ToolItem)
-		  HandleToolbarButton(item)
+		Sub Opening()
+		  LinuxHelper.FixLargeToolbarButtons(Me)
+		  ConfigureToolbatButtons
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
-		  LinuxHelper.FixLargeToolbarButtons(Me)
-		  ConfigureToolbatButtons
+		Sub Pressed(item As DesktopToolbarItem)
+		  HandleToolbarButton(item)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events lbDOSBoxManual
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  ShowURL(Dosbox.kDOSBoxManualUrl)
 		End Function
 	#tag EndEvent
@@ -781,11 +790,11 @@ End
 #tag EndEvents
 #tag Events GameList
 	#tag Event
-		Function CellTextPaint(g As Graphics, row As Integer, column As Integer, x as Integer, y as Integer) As Boolean
+		Function PaintCellText(g as Graphics, row as Integer, column as Integer, x as Integer, y as Integer) As Boolean
 		  If column = 0 Then
 		    Var game As dosgame = GameList.RowTagAt(row)
 		    
-		    If Me.Selected(row) Then
+		    If Me.RowSelectedAt(row) Then
 		      g.DrawingColor = colors.TextForegroundSelected
 		    Else
 		      g.DrawingColor = colors.TextForeground
@@ -802,7 +811,7 @@ End
 		End Function
 	#tag EndEvent
 	#tag Event
-		Function CellBackgroundPaint(g As Graphics, row As Integer, column As Integer) As Boolean
+		Function PaintCellBackground(g As Graphics, row As Integer, column As Integer) As Boolean
 		  If row Mod 2 = 0 Then
 		    g.DrawingColor= Colors.ListRow
 		  Else
@@ -815,17 +824,17 @@ End
 		End Function
 	#tag EndEvent
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  Me.DefaultRowHeight = 65
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub DoubleClick()
+		Sub DoublePressed()
 		  RunGame(me.RowTagAt(me.SelectedRowIndex))
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function ConstructContextualMenu(base as MenuItem, x as Integer, y as Integer) As Boolean
+		Function ConstructContextualMenu(base As DesktopMenuItem, x As Integer, y As Integer) As Boolean
 		  Var game As DOSGame = Me.RowTagAt(Me.SelectedRowIndex)
 		  
 		  Var m As MenuItem = New MenuItem(kToolbarGameWindow_RunGame)
@@ -855,10 +864,10 @@ End
 		End Function
 	#tag EndEvent
 	#tag Event
-		Function ContextualMenuAction(hitItem as MenuItem) As Boolean
+		Function ContextualMenuItemSelected(selectedItem As DesktopMenuItem) As Boolean
 		  Var game As DOSGame = Me.RowTagAt(Me.SelectedRowIndex)
 		  
-		  Select Case hitItem.Name
+		  Select Case selectedItem.Name
 		    
 		  Case "mnPlay"
 		    RunGame(game)
@@ -1095,8 +1104,8 @@ End
 		Visible=true
 		Group="Background"
 		InitialValue="&hFFFFFF"
-		Type="Color"
-		EditorType="Color"
+		Type="ColorGroup"
+		EditorType="ColorGroup"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
@@ -1111,7 +1120,7 @@ End
 		Visible=true
 		Group="Menus"
 		InitialValue=""
-		Type="MenuBar"
+		Type="DesktopMenuBar"
 		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty

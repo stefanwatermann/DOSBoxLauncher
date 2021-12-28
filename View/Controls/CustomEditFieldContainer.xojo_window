@@ -25,142 +25,52 @@ Begin DesktopContainer CustomEditFieldContainer
    Transparent     =   False
    Visible         =   True
    Width           =   300
-   Begin CustomEditField tbExpertText
+   Begin DesktopTextArea tbExpertText
       AllowAutoDeactivate=   True
-      AllowFocus      =   False
       AllowFocusRing  =   False
+      AllowSpellChecking=   False
+      AllowStyledText =   True
       AllowTabs       =   True
-      AutoCloseBrackets=   True
-      AutocompleteAppliesStandardCase=   True
-      AutoIndentNewLines=   True
-      BackColor       =   &cFFFFFF00
-      Backdrop        =   0
-      Border          =   False
-      BorderColor     =   &c88888800
-      BracketHighlightColor=   &cFFFF0000
-      CaretColor      =   &c00000000
-      CaretLine       =   0
-      CaretPos        =   0
-      ClearHighlightedRangesOnTextChange=   True
-      DirtyLinesColor =   &cFF999900
-      disableReset    =   False
-      DisplayDirtyLines=   False
-      DisplayInvisibleCharacters=   False
-      DisplayLineNumbers=   True
-      DisplayRightMarginMarker=   False
-      DoubleBuffer    =   False
-      EnableAutocomplete=   True
+      BackgroundColor =   &cFFFFFF
+      Bold            =   False
       Enabled         =   True
-      EnableLineFoldings=   False
-      enableLineFoldingSetting=   False
-      GutterBackgroundColor=   &cEEEEEE00
-      GutterSeparationLineColor=   &c88888800
-      GutterWidth     =   0
-      Height          =   284
-      HighlightBlocksOnMouseOverGutter=   True
-      HighlightMatchingBrackets=   True
-      HighlightMatchingBracketsMode=   0
-      ignoreRepaint   =   False
-      IndentPixels    =   16
-      IndentVisually  =   False
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Format          =   ""
+      HasBorder       =   False
+      HasHorizontalScrollbar=   True
+      HasVerticalScrollbar=   True
+      Height          =   299
+      HideSelection   =   True
       Index           =   -2147483648
-      InitialParent   =   ""
-      KeepEntireTextIndented=   False
-      Left            =   0
-      leftMarginOffset=   8
-      LineNumbersColor=   &c88888800
-      LineNumbersTextFont=   "System"
-      LineNumbersTextSize=   9
+      Italic          =   False
+      Left            =   1
+      LineHeight      =   0.0
+      LineSpacing     =   1.0
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      MaxVisibleLines =   0
+      MaximumCharactersAllowed=   0
+      Multiline       =   True
       ReadOnly        =   False
-      RightMarginAtPixel=   0
-      RightScrollMargin=   150
-      Scope           =   2
-      ScrollPosition  =   0
-      ScrollPositionX =   0
-      selLength       =   0
-      selStart        =   0
-      SelText         =   ""
+      Scope           =   0
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
-      TabWidth        =   4
       Text            =   ""
-      TextColor       =   &c00000000
-      TextFont        =   ""
-      TextHeight      =   0.0
-      TextLength      =   0
-      TextSelectionColor=   &c00000000
-      TextSize        =   0
-      ThickInsertionPoint=   True
+      TextAlignment   =   0
+      TextColor       =   &c000000
       Tooltip         =   ""
       Top             =   1
       Transparent     =   False
+      Underline       =   False
+      UnicodeMode     =   0
+      ValidationMask  =   ""
       Visible         =   True
-      Width           =   285
-   End
-   Begin Scrollbar ScrollBarVertical
-      AllowAutoDeactivate=   True
-      AllowFocus      =   True
-      AllowLiveScrolling=   True
-      Enabled         =   True
-      Height          =   285
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   285
-      LineStep        =   1
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   True
-      LockTop         =   True
-      MaximumValue    =   100
-      MinimumValue    =   0
-      PageStep        =   20
-      Scope           =   2
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   0
-      Transparent     =   False
-      Value           =   0
-      Visible         =   True
-      Width           =   15
-   End
-   Begin Scrollbar ScrollBarHorizontal
-      AllowAutoDeactivate=   True
-      AllowFocus      =   True
-      AllowLiveScrolling=   True
-      Enabled         =   True
-      Height          =   15
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   0
-      LineStep        =   1
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   True
-      LockTop         =   False
-      MaximumValue    =   100
-      MinimumValue    =   0
-      PageStep        =   20
-      Scope           =   2
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   285
-      Transparent     =   False
-      Value           =   0
-      Visible         =   True
-      Width           =   285
+      Width           =   299
    End
 End
 #tag EndDesktopWindow
@@ -169,7 +79,7 @@ End
 	#tag Event
 		Sub Opening()
 		  Me.BackgroundColor = Colors.WindowBackground
-		  
+		  me.SetFont
 		  RaiseEvent Initialized
 		End Sub
 	#tag EndEvent
@@ -182,10 +92,56 @@ End
 	#tag EndEvent
 
 
+	#tag Method, Flags = &h21
+		Private Sub HighlightSyntax(tb as DesktopTextArea)
+		  For i As Integer = 0 To tb.StyledText.ParagraphCount - 1
+		    HighlightSyntaxParagraph(tb.StyledText.Paragraph(i), tb)
+		  Next
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub HighlightSyntaxParagraph(p as Paragraph, tb as DesktopTextArea)
+		  System.DebugLog("HighlightSyntaxParagraph: start=" + _
+		  Str(p.StartPosition) + ", length=" + _
+		  Str(p.Length) + ", end=" + _
+		  Str(p.EndPosition) + ", text=" + _
+		  tb.Text.Middle(p.StartPosition, p.Length))
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub InitKeywords()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub SetFont()
+		  // set non-prop font for expert-editor
+		  #If TargetMacOS Then
+		    tbExpertText.FontName = "Monaco"
+		  #ElseIf TargetLinux Then
+		    tbExpertText.FontName = "Monospace"
+		  #ElseIf TargetWindows
+		    tbExpertText.FontName = "Consolas"
+		  #Else
+		    tbExpertText.FontName = "Curier"
+		  #EndIf
+		End Sub
+	#tag EndMethod
+
+
 	#tag Hook, Flags = &h0
 		Event Initialized()
 	#tag EndHook
 
+
+	#tag Property, Flags = &h21
+		Private KeyWords As Dictionary
+	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
@@ -202,31 +158,16 @@ End
 	#tag EndComputedProperty
 
 
+	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"sdl\ndosbox\nrender\n\tframeskip(int)\n\taspect(bool)\n\tscaler(string) \x3D none | normal2x | normal3x | tv2x | tv3x | rgb2x | rgb3x | scan2x | scan3x | advmame2x | advmame3x | advinterp2x | advinterp3x | 2xsai | super2xsai | supereagle | hq2x | hq3x\ncpu\n\tcore(string) \x3D simple | normal| dynamic | auto\n\tcputype(string) \x3D auto | 386 | 386_slow | 486_slow | pentium_slow | 386_prefetch", Scope = Private
+	#tag EndConstant
+
+
 #tag EndWindowCode
 
 #tag Events tbExpertText
 	#tag Event
-		Sub Open()
-		  Me.setScrollbars(ScrollBarHorizontal, ScrollBarVertical)
-		  
-		  Var def As New HighlightDefinition
-		  If def.loadFromXml(HighlightDefinition.DosBoxDef) Then
-		    Me.SyntaxDefinition = def
-		  End
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events ScrollBarVertical
-	#tag Event
-		Sub ValueChanged()
-		  tbExpertText.ScrollPosition = me.Value
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events ScrollBarHorizontal
-	#tag Event
-		Sub ValueChanged()
-		  tbExpertText.ScrollPositionX = me.Value
+		Sub TextChanged()
+		  HighlightSyntax(me)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -432,14 +373,6 @@ End
 		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Text"
-		Visible=true
-		Group="Behavior"
-		InitialValue=""
-		Type="String"
-		EditorType="MultiLineEditor"
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="InitialParent"
 		Visible=false
 		Group="Position"
@@ -454,5 +387,13 @@ End
 		InitialValue="0"
 		Type="Integer"
 		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Text"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="String"
+		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 #tag EndViewBehavior

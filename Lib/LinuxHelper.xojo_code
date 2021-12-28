@@ -1,7 +1,7 @@
 #tag Module
  Attributes ( Version = 1.0, Copyright = "2021 - watermann-it.de" ) Protected Module LinuxHelper
 	#tag Method, Flags = &h0
-		Sub FixLargeToolbarButtons(t as Toolbar)
+		Sub FixLargeToolbarButtons(t as DesktopToolbar)
 		  
 		  // To be called from the "Toolbar.Open" event-handler
 		  // https://forum.xojo.com/t/getting-huge-icons-in-toolbar-on-windows-how-to-fix/40342/15
@@ -10,11 +10,11 @@
 		  #If TargetLinux Then 
 		    #If (RBVersion >= 2017.02) Then 
 		      'GTK3 
-		      Soft Declare Sub gtk_toolbar_set_style Lib "libgtk-3" (handle As Integer, iStyle As Integer) 
+		      Soft Declare Sub gtk_toolbar_set_style Lib "libgtk-3" (handle As ptr, iStyle As Integer) 
 		      If (Not System.IsFunctionAvailable("gtk_toolbar_set_style", "libgtk-3")) Then Return 
 		    #Else 
 		      'GTK2 
-		      Soft Declare Sub gtk_toolbar_set_style Lib "libgtk-x11" (handle As Integer, iStyle As Integer) 
+		      Soft Declare Sub gtk_toolbar_set_style Lib "libgtk-x11" (handle As ptr, iStyle As Integer) 
 		      If (Not System.IsFunctionAvailable("gtk_toolbar_set_style", "libgtk-x11")) Then Return 
 		    #EndIf 
 		    
@@ -36,6 +36,12 @@
 		Die Linux Unterstützung ist noch experimentell und nicht getestet!
 		
 	#tag EndNote
+
+
+	#tag Structure, Name = GtkRequisition, Flags = &h0
+		Width as Integer
+		Height as Integer
+	#tag EndStructure
 
 
 	#tag ViewBehavior

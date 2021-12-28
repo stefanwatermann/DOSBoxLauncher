@@ -1,5 +1,5 @@
-#tag Window
-Begin Window ErrorReporterMessage Attributes ( Version = 1.0, Copyright = "2021 - watermann-it.de" ) 
+#tag DesktopWindow
+Begin DesktopWindow ErrorReporterMessage Attributes ( Version = 1.0, Copyright = "2021 - watermann-it.de" ) 
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF00
    Composite       =   False
@@ -260,7 +260,6 @@ Begin Window ErrorReporterMessage Attributes ( Version = 1.0, Copyright = "2021 
       Scope           =   2
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Tooltip         =   ""
       Top             =   0
       TopLeftColor    =   &c00000000
@@ -269,7 +268,7 @@ Begin Window ErrorReporterMessage Attributes ( Version = 1.0, Copyright = "2021 
       Width           =   5
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Method, Flags = &h0

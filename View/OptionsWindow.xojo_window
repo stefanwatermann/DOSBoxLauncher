@@ -1,5 +1,5 @@
-#tag Window
-Begin Window OptionsWindow
+#tag DesktopWindow
+Begin DesktopWindow OptionsWindow
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF00
    Composite       =   False
@@ -412,7 +412,7 @@ Begin Window OptionsWindow
       Width           =   136
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Property, Flags = &h0

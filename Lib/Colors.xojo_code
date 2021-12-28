@@ -68,13 +68,14 @@
 		#tag Getter
 			Get
 			  #If TargetMacOS Then
-			    Return IsDarkMode
+			    Return Color.IsDarkMode
 			    //#ElseIf TargetWindows
 			    //Var reg As New RegistryItem("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", False)
 			    //Var v As Variant = reg.Value("AppsUseLightTheme")
 			    //Return Not v.BooleanValue
 			  #Else
-			    Return zDarkMode
+			    //System.EnvironmentVariable("XOJO_WIN32_DARKMODE_DISABLED") = True
+			    Return Color.IsDarkMode
 			  #EndIf
 			End Get
 		#tag EndGetter

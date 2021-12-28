@@ -1,9 +1,9 @@
-#tag Window
-Begin Window AboutWindow
+#tag DesktopWindow
+Begin DesktopWindow AboutWindow
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF00
    Composite       =   False
-   DefaultLocation =   0
+   DefaultLocation =   3
    FullScreen      =   False
    HasBackgroundColor=   False
    HasCloseButton  =   True
@@ -224,7 +224,7 @@ Begin Window AboutWindow
       Width           =   128
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Constant, Name = klbDescription_Text, Type = String, Dynamic = True, Default = \"Configure and run DOSBox apps/games using the installed DOSBox app.", Scope = Private
@@ -488,8 +488,8 @@ End
 		Visible=true
 		Group="Background"
 		InitialValue="&hFFFFFF"
-		Type="Color"
-		EditorType="Color"
+		Type="ColorGroup"
+		EditorType="ColorGroup"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
@@ -504,7 +504,7 @@ End
 		Visible=true
 		Group="Menus"
 		InitialValue=""
-		Type="MenuBar"
+		Type="DesktopMenuBar"
 		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty

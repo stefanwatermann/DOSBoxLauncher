@@ -1,9 +1,9 @@
-#tag Window
-Begin Window MountPointWindow
+#tag DesktopWindow
+Begin DesktopWindow MountPointWindow
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF00
    Composite       =   False
-   DefaultLocation =   0
+   DefaultLocation =   3
    FullScreen      =   False
    HasBackgroundColor=   False
    HasCloseButton  =   False
@@ -122,7 +122,7 @@ Begin Window MountPointWindow
       Width           =   80
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 #tag EndWindowCode
@@ -337,8 +337,8 @@ End
 		Visible=true
 		Group="Background"
 		InitialValue="&hFFFFFF"
-		Type="Color"
-		EditorType="Color"
+		Type="ColorGroup"
+		EditorType="ColorGroup"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
@@ -353,7 +353,7 @@ End
 		Visible=true
 		Group="Menus"
 		InitialValue=""
-		Type="MenuBar"
+		Type="DesktopMenuBar"
 		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
