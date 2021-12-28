@@ -79,7 +79,8 @@ End
 	#tag Event
 		Sub Opening()
 		  Me.BackgroundColor = Colors.WindowBackground
-		  me.SetFont
+		  Me.SetFont
+		  me.InitKeywords
 		  RaiseEvent Initialized
 		End Sub
 	#tag EndEvent
@@ -114,7 +115,36 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub InitKeywords()
+		  Var lines() As String = kSyntax_Keywords.Split(EndOfLine)
 		  
+		  Me.KeyWords = New Dictionary
+		  
+		  For Each line As String In lines
+		    Var section As String
+		    Var key As String
+		    Var params() As String
+		    
+		    If line.BeginsWith("[") Then
+		      section = line
+		    Else
+		      section = ""
+		      Var items() As String = line.Split("=")
+		      If items.Count = 1 Then
+		        key = line
+		        params = Nil
+		      Else
+		        key = items(0)
+		        params = items(1).Split(",")
+		      End
+		    End
+		    
+		    If section.Length > 0 Then
+		      
+		    Else
+		      Me.KeyWords.Value(section) = ""
+		    End
+		    
+		  Next
 		End Sub
 	#tag EndMethod
 
@@ -158,7 +188,7 @@ End
 	#tag EndComputedProperty
 
 
-	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"sdl\ndosbox\nrender\n\tframeskip(int)\n\taspect(bool)\n\tscaler(string) \x3D none | normal2x | normal3x | tv2x | tv3x | rgb2x | rgb3x | scan2x | scan3x | advmame2x | advmame3x | advinterp2x | advinterp3x | 2xsai | super2xsai | supereagle | hq2x | hq3x\ncpu\n\tcore(string) \x3D simple | normal| dynamic | auto\n\tcputype(string) \x3D auto | 386 | 386_slow | 486_slow | pentium_slow | 386_prefetch", Scope = Private
+	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"[sdl]\r\n[dosbox]\r\n[render]\r\nframeskip(int)\r\naspect(bool)\r\nscaler(string) \x3D none | normal2x | normal3x | tv2x | tv3x | rgb2x | rgb3x | scan2x | scan3x | advmame2x | advmame3x | advinterp2x | advinterp3x | 2xsai | super2xsai | supereagle | hq2x | hq3x\r\n[cpu]\r\ncore(string) \x3D simple | normal| dynamic | auto\r\ncputype(string) \x3D auto | 386 | 386_slow | 486_slow | pentium_slow | 386_prefetch", Scope = Private
 	#tag EndConstant
 
 

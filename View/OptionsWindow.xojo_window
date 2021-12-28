@@ -34,7 +34,7 @@ Begin DesktopWindow OptionsWindow
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   20
+      Height          =   23
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -66,7 +66,7 @@ Begin DesktopWindow OptionsWindow
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   20
+      Height          =   23
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -315,7 +315,7 @@ Begin DesktopWindow OptionsWindow
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   97
+      Height          =   93
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -815,8 +815,8 @@ End
 		Visible=true
 		Group="Background"
 		InitialValue="&hFFFFFF"
-		Type="Color"
-		EditorType="Color"
+		Type="ColorGroup"
+		EditorType="ColorGroup"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
@@ -831,7 +831,7 @@ End
 		Visible=true
 		Group="Menus"
 		InitialValue=""
-		Type="MenuBar"
+		Type="DesktopMenuBar"
 		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty

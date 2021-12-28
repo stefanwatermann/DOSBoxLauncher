@@ -69,7 +69,7 @@ Begin DesktopWindow AboutWindow
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   20
+      Height          =   23
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False

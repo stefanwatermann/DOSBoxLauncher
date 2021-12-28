@@ -2,7 +2,7 @@
 Protected Module DOSBox
 	#tag Method, Flags = &h0
 		Function GetDOSBoxCommandLine(configPath as string, autoExit as Boolean) As String
-		  Var cmd As String = kDefault_DOSBox_AppPath
+		  Var cmd As String
 		  
 		  If DOSBoxExecutable.Length > 0 Then
 		    cmd = """" + DOSBoxExecutable + kDefault_DOSBox_AppPathPartial + """"
@@ -52,12 +52,32 @@ Protected Module DOSBox
 	#tag EndMethod
 
 
-	#tag Property, Flags = &h0
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Var f As New FolderItem(mDOSBoxExecutable, FolderItem.PathModes.Native)
+			  
+			  If mDOSBoxExecutable.Length > 0 and f.Exists Then
+			    Return mDOSBoxExecutable
+			  Else
+			    Return kDefault_DOSBox_Executable
+			  End
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mDOSBoxExecutable = value
+			End Set
+		#tag EndSetter
 		DOSBoxExecutable As string
-	#tag EndProperty
+	#tag EndComputedProperty
 
 	#tag Property, Flags = &h0
 		ExitCode As Integer
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mDOSBoxExecutable As string
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -65,14 +85,14 @@ Protected Module DOSBox
 	#tag EndProperty
 
 
-	#tag Constant, Name = kDefault_DOSBox_AppPath, Type = String, Dynamic = False, Default = \"", Scope = Private
-		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"/Applications/dosbox.app/Contents/MacOS/DOSBox"
-		#Tag Instance, Platform = Windows, Language = Default, Definition  = \"c:\\DOSBox\\"
-	#tag EndConstant
-
 	#tag Constant, Name = kDefault_DOSBox_AppPathPartial, Type = String, Dynamic = False, Default = \"", Scope = Private
 		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"/Contents/MacOS/DOSBox"
-		#Tag Instance, Platform = Windows, Language = Default, Definition  = \""
+	#tag EndConstant
+
+	#tag Constant, Name = kDefault_DOSBox_Executable, Type = String, Dynamic = False, Default = \"", Scope = Private
+		#Tag Instance, Platform = Windows, Language = Default, Definition  = \"dosbox.exe"
+		#Tag Instance, Platform = Linux, Language = Default, Definition  = \"dosbox"
+		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"/Applications/dosbox.app"
 	#tag EndConstant
 
 	#tag Constant, Name = kDOSBoxInternetUrl, Type = String, Dynamic = False, Default = \"https://www.dosbox.com", Scope = Public
@@ -143,7 +163,7 @@ Protected Module DOSBox
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="DOSBoxExecutable"
+			Name="mDOSBoxExecutable"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
