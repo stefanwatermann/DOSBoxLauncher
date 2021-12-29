@@ -812,9 +812,10 @@ End
 		Private Sub EnableOkButton()
 		  Var canEnable As Boolean = False
 		  
-		  canEnable = ((tbGameName.Text.Length > 2) And _
-		  (tbStartFile.Text.Length > 2) And _
-		  (tbMountC.Text.Length > 2))
+		  canEnable = ((Self.CurrentDOSGame.Name.Length > 2) And _
+		  (Self.CurrentDOSGame.StartFile.Length > 2) And _
+		  (Self.CurrentDOSGame.FolderMountAsC.Length > 2) And _
+		  self.IsDirty)
 		  
 		  RaiseEvent CanEnableOkButton(canEnable)
 		  
@@ -958,7 +959,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Opening()
-		  me.Text = self.CurrentDOSGame.Name
+		  Me.Text = Self.CurrentDOSGame.Name
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -972,7 +973,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Opening()
-		  me.Text = self.CurrentDOSGame.FolderMountAsC
+		  Me.Text = Self.CurrentDOSGame.FolderMountAsC
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1002,6 +1003,7 @@ End
 		Sub ValueChanged()
 		  Self.IsDirty = True
 		  Self.CurrentDOSGame.MountDAsCdrom = Me.Value
+		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1014,7 +1016,8 @@ End
 	#tag Event
 		Sub TextChanged()
 		  IsDirty = True
-		  self.CurrentDOSGame.FolderMountAsD = me.Text
+		  Self.CurrentDOSGame.FolderMountAsD = Me.Text
+		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1050,7 +1053,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Opening()
-		  me.Text = self.CurrentDOSGame.StartFile
+		  Me.Text = Self.CurrentDOSGame.StartFile
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1101,7 +1104,8 @@ End
 	#tag Event
 		Sub SelectionChanged(item As DesktopMenuItem)
 		  Self.IsDirty = True
-		  self.CurrentDOSGame.Resolution = me.SelectedRowValue
+		  Self.CurrentDOSGame.Resolution = Me.SelectedRowValue
+		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1114,7 +1118,8 @@ End
 	#tag Event
 		Sub SelectionChanged(item As DesktopMenuItem)
 		  IsDirty = True
-		  self.CurrentDOSGame.Scaler = me.SelectedRowValue
+		  Self.CurrentDOSGame.Scaler = Me.SelectedRowValue
+		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1127,7 +1132,8 @@ End
 	#tag Event
 		Sub SelectionChanged(item As DesktopMenuItem)
 		  Self.IsDirty = True
-		  self.CurrentDOSGame.MachineType = me.SelectedRowValue
+		  Self.CurrentDOSGame.MachineType = Me.SelectedRowValue
+		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1140,7 +1146,8 @@ End
 	#tag Event
 		Sub SelectionChanged(item As DesktopMenuItem)
 		  Self.IsDirty = True
-		  self.CurrentDOSGame.CpuCycles = me.SelectedRowValue
+		  Self.CurrentDOSGame.CpuCycles = Me.SelectedRowValue
+		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1153,7 +1160,8 @@ End
 	#tag Event
 		Sub ValueChanged()
 		  Self.IsDirty = True
-		  Self.CurrentDOSGame.Fullscreen = not Me.Value
+		  Self.CurrentDOSGame.Fullscreen = Not Me.Value
+		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1167,6 +1175,7 @@ End
 		Sub ValueChanged()
 		  Self.IsDirty = True
 		  Self.CurrentDOSGame.Fullscreen = Me.Value
+		  EnableOkButton
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -1185,6 +1194,7 @@ End
 		Sub ValueChanged()
 		  Self.IsDirty = True
 		  Self.CurrentDOSGame.AutoExit = Me.Value
+		  EnableOkButton
 		End Sub
 	#tag EndEvent
 #tag EndEvents

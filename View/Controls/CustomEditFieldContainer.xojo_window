@@ -38,16 +38,16 @@ Begin DesktopContainer CustomEditFieldContainer
       FontSize        =   0.0
       FontUnit        =   0
       Format          =   ""
-      HasBorder       =   False
+      HasBorder       =   True
       HasHorizontalScrollbar=   True
       HasVerticalScrollbar=   True
-      Height          =   299
+      Height          =   298
       HideSelection   =   True
       Index           =   -2147483648
       Italic          =   False
       Left            =   1
       LineHeight      =   0.0
-      LineSpacing     =   1.0
+      LineSpacing     =   1.3000000000000000444089
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
@@ -70,7 +70,7 @@ Begin DesktopContainer CustomEditFieldContainer
       UnicodeMode     =   0
       ValidationMask  =   ""
       Visible         =   True
-      Width           =   299
+      Width           =   298
    End
 End
 #tag EndDesktopWindow
@@ -80,7 +80,8 @@ End
 		Sub Opening()
 		  Me.BackgroundColor = Colors.WindowBackground
 		  Me.SetFont
-		  me.InitKeywords
+		  Me.InitKeywords
+		  
 		  RaiseEvent Initialized
 		End Sub
 	#tag EndEvent
@@ -95,56 +96,79 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub HighlightSyntax(tb as DesktopTextArea)
-		  For i As Integer = 0 To tb.StyledText.ParagraphCount - 1
-		    HighlightSyntaxParagraph(tb.StyledText.Paragraph(i), tb)
+		  tb.TextColor = Colors.TextForeground
+		  
+		  // sections
+		  For Each section As String In Me.Sections
+		    Var start As Integer = tb.Text.IndexOf(section)
+		    If start >= 0 Then
+		      tb.SelectionStart = start
+		      tb.SelectionLength = section.Length
+		      tb.SelectionTextColor = &c00F900
+		    End
 		  Next
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub HighlightSyntaxParagraph(p as Paragraph, tb as DesktopTextArea)
-		  System.DebugLog("HighlightSyntaxParagraph: start=" + _
-		  Str(p.StartPosition) + ", length=" + _
-		  Str(p.Length) + ", end=" + _
-		  Str(p.EndPosition) + ", text=" + _
-		  tb.Text.Middle(p.StartPosition, p.Length))
 		  
+		  // keywords
+		  For Each keyword As String In Me.Keywords
+		    Var start As Integer = tb.Text.IndexOf(keyword)
+		    Var eq As Integer = tb.Text.IndexOf(start, "=")
+		    If start >= 0 And eq < start +keyword.Length + 20 Then
+		      tb.SelectionStart = start
+		      tb.SelectionLength = keyword.Length
+		      tb.SelectionTextColor = &cD783FF
+		    End
+		  Next
 		  
+		  // strings
+		  Var i As Integer = 0
+		  Var start As Integer = -1
+		  
+		  For Each c As String In tb.Text.Characters
+		    
+		    If c = """" Then
+		      If start < 0 Then
+		        start = i
+		      Else
+		        tb.SelectionStart = start
+		        tb.SelectionLength = i - start + 1
+		        tb.SelectionTextColor = &cA4F1FF00
+		        start = -1
+		      End
+		    End
+		    
+		    i = i + 1
+		    
+		  Next
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub InitKeywords()
-		  Var lines() As String = kSyntax_Keywords.Split(EndOfLine)
+		  Me.Keywords = kSyntax_Keywords.Split(EndOfLine)
+		  Me.Sections = kSyntax_Sections.Split(EndOfLine)
+		  Me.Params = kSyntax_Params.Split(EndOfLine)
 		  
-		  Me.KeyWords = New Dictionary
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub setAutomaticQuoteSubstitutionEnabled(t as DesktopTextArea, value as Boolean)
+		  // https://forum.xojo.com/t/how-to-prevent-smart-quotes-from-being-entered-into-a-textarea/21111/6
 		  
-		  For Each line As String In lines
-		    Var section As String
-		    Var key As String
-		    Var params() As String
+		  #If TargetCocoa Then
+		    Declare Function NSClassFromString Lib "Cocoa" (aClassName As CFStringRef) As Ptr
 		    
-		    If line.BeginsWith("[") Then
-		      section = line
-		    Else
-		      section = ""
-		      Var items() As String = line.Split("=")
-		      If items.Count = 1 Then
-		        key = line
-		        params = Nil
-		      Else
-		        key = items(0)
-		        params = items(1).Split(",")
-		      End
-		    End
+		    dim myTextArea as ptr
+		    declare function documentView lib "Cocoa" selector "documentView" _
+		    (obj_id As ptr) As Ptr
 		    
-		    If section.Length > 0 Then
-		      
-		    Else
-		      Me.KeyWords.Value(section) = ""
-		    End
+		    myTextArea = documentView(t.Handle)
 		    
-		  Next
+		    Declare Sub setAutomaticQuoteSubstitutionEnabled Lib "Cocoa" Selector "setAutomaticQuoteSubstitutionEnabled:" _
+		    (Id as ptr, value as Boolean)
+		    
+		    setAutomaticQuoteSubstitutionEnabled (myTextArea, value)
+		  #endif
 		End Sub
 	#tag EndMethod
 
@@ -170,7 +194,15 @@ End
 
 
 	#tag Property, Flags = &h21
-		Private KeyWords As Dictionary
+		Private Keywords() As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private Params() As string
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private Sections() As String
 	#tag EndProperty
 
 	#tag ComputedProperty, Flags = &h0
@@ -188,7 +220,13 @@ End
 	#tag EndComputedProperty
 
 
-	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"[sdl]\r\n[dosbox]\r\n[render]\r\nframeskip(int)\r\naspect(bool)\r\nscaler(string) \x3D none | normal2x | normal3x | tv2x | tv3x | rgb2x | rgb3x | scan2x | scan3x | advmame2x | advmame3x | advinterp2x | advinterp3x | 2xsai | super2xsai | supereagle | hq2x | hq3x\r\n[cpu]\r\ncore(string) \x3D simple | normal| dynamic | auto\r\ncputype(string) \x3D auto | 386 | 386_slow | 486_slow | pentium_slow | 386_prefetch", Scope = Private
+	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"frameskip\naspect\nscaler\ncore\ncputype\ncycles\ncycleup\ncycledown\nmpu401\nmididevice\nmidiconfig\nfullscreen\nfulldouble\nfullresolution\nwindowresolution\noutput\nautolock\nsensitivity\nwaitonerror\npriority\nmapperfile\nusescancodes\nlanguage\nmemsize\nmachine\ncaptures\nserialX\nxms\nems\numb\nkeyboardlayout\nipx", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kSyntax_Params, Type = String, Dynamic = False, Default = \"[sdl]\n[dosbox]\n[render]\n[cpu]", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kSyntax_Sections, Type = String, Dynamic = False, Default = \"[sdl]\n[dosbox]\n[render]\n[cpu]\n[mixer]\n[midi]\n[sblaster]\n[gus]\n[speaker]\n[joystick]\n[serial]\n[dos]\n[ipx]\n[autoexec]", Scope = Private
 	#tag EndConstant
 
 
@@ -197,7 +235,21 @@ End
 #tag Events tbExpertText
 	#tag Event
 		Sub TextChanged()
-		  HighlightSyntax(me)
+		  Var tempStart As Integer = Me.SelectionStart
+		  
+		  // remove all styles when pasted from clicpboard
+		  Var t As String = Me.Text
+		  Me.Text = t
+		  
+		  HighlightSyntax(Me)
+		  
+		  Me.SelectionStart = tempStart
+		  me.SelectionLength = 0
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Opening()
+		  setAutomaticQuoteSubstitutionEnabled me, false
 		End Sub
 	#tag EndEvent
 #tag EndEvents

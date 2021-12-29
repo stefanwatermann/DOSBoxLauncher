@@ -37,6 +37,7 @@ Begin DesktopWindow EditGameWindow
       Height          =   415
       Index           =   -2147483648
       InitialParent   =   ""
+      IsDirty         =   False
       Left            =   20
       LockBottom      =   True
       LockedInPosition=   False
@@ -130,6 +131,7 @@ Begin DesktopWindow EditGameWindow
       Height          =   415
       Index           =   -2147483648
       InitialParent   =   ""
+      IsDirty         =   False
       Left            =   550
       LockBottom      =   True
       LockedInPosition=   False
@@ -147,7 +149,9 @@ Begin DesktopWindow EditGameWindow
       Width           =   500
    End
    Begin DesktopSeparator Separator1
+      Active          =   False
       AllowAutoDeactivate=   True
+      AllowTabStop    =   False
       Enabled         =   True
       Height          =   20
       Index           =   -2147483648
@@ -158,6 +162,7 @@ Begin DesktopWindow EditGameWindow
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   6
       TabPanelIndex   =   0
@@ -167,6 +172,10 @@ Begin DesktopWindow EditGameWindow
       Transparent     =   False
       Visible         =   True
       Width           =   500
+      _mIndex         =   0
+      _mInitialParent =   ""
+      _mName          =   ""
+      _mPanelIndex    =   0
    End
    BeginDesktopSegmentedButton DesktopSegmentedButton tabEditMode
       Enabled         =   True
@@ -187,6 +196,7 @@ Begin DesktopWindow EditGameWindow
       TabStop         =   False
       Tooltip         =   ""
       Top             =   20
+      Transparent     =   False
       Visible         =   True
       Width           =   160
    End
@@ -444,6 +454,7 @@ End
 #tag Events SimpleConfigContainer1
 	#tag Event
 		Sub CanEnableOkButton(enable as Boolean)
+		  System.DebugLog(Str(enable))
 		  btnOk.Enabled = enable
 		End Sub
 	#tag EndEvent
