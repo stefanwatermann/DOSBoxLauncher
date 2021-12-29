@@ -205,6 +205,7 @@ Begin DesktopWindow GameWindow
       _mPanelIndex    =   0
    End
    Begin Timer Timer250ms
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Period          =   250

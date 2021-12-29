@@ -131,7 +131,7 @@ End
 		      Else
 		        tb.SelectionStart = start
 		        tb.SelectionLength = i - start + 1
-		        tb.SelectionTextColor = &cA4F1FF00
+		        tb.SelectionTextColor = HighlightColor_String
 		        start = -1
 		      End
 		    End
@@ -193,6 +193,19 @@ End
 	#tag EndHook
 
 
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  If Color.IsDarkMode Then
+			    Return &cA4F1FF00
+			  Else
+			    Return &c0080FF00
+			  End
+			End Get
+		#tag EndGetter
+		Private HighlightColor_String As Color
+	#tag EndComputedProperty
+
 	#tag Property, Flags = &h21
 		Private Keywords() As string
 	#tag EndProperty
@@ -223,7 +236,7 @@ End
 	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"frameskip\naspect\nscaler\ncore\ncputype\ncycles\ncycleup\ncycledown\nmpu401\nmididevice\nmidiconfig\nfullscreen\nfulldouble\nfullresolution\nwindowresolution\noutput\nautolock\nsensitivity\nwaitonerror\npriority\nmapperfile\nusescancodes\nlanguage\nmemsize\nmachine\ncaptures\nserialX\nxms\nems\numb\nkeyboardlayout\nipx", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kSyntax_Params, Type = String, Dynamic = False, Default = \"[sdl]\n[dosbox]\n[render]\n[cpu]", Scope = Private
+	#tag Constant, Name = kSyntax_Params, Type = String, Dynamic = False, Default = \"", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kSyntax_Sections, Type = String, Dynamic = False, Default = \"[sdl]\n[dosbox]\n[render]\n[cpu]\n[mixer]\n[midi]\n[sblaster]\n[gus]\n[speaker]\n[joystick]\n[serial]\n[dos]\n[ipx]\n[autoexec]", Scope = Private

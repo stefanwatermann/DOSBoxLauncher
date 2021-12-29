@@ -24,6 +24,35 @@ Begin DesktopWindow EditGameWindow
    Type            =   8
    Visible         =   False
    Width           =   538
+   Begin DesktopSeparator Separator1
+      Active          =   False
+      AllowAutoDeactivate=   True
+      AllowTabStop    =   False
+      Enabled         =   True
+      Height          =   23
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      PanelIndex      =   0
+      Scope           =   2
+      TabIndex        =   6
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   21
+      Transparent     =   False
+      Visible         =   True
+      Width           =   500
+      _mIndex         =   0
+      _mInitialParent =   ""
+      _mName          =   ""
+      _mPanelIndex    =   0
+   End
    Begin SimpleConfigContainer SimpleConfigContainer1
       AllowAutoDeactivate=   True
       AllowFocus      =   False
@@ -148,40 +177,11 @@ Begin DesktopWindow EditGameWindow
       Visible         =   True
       Width           =   500
    End
-   Begin DesktopSeparator Separator1
-      Active          =   False
-      AllowAutoDeactivate=   True
-      AllowTabStop    =   False
-      Enabled         =   True
-      Height          =   20
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   True
-      LockTop         =   True
-      PanelIndex      =   0
-      Scope           =   2
-      TabIndex        =   6
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   33
-      Transparent     =   False
-      Visible         =   True
-      Width           =   500
-      _mIndex         =   0
-      _mInitialParent =   ""
-      _mName          =   ""
-      _mPanelIndex    =   0
-   End
    BeginDesktopSegmentedButton DesktopSegmentedButton tabEditMode
       Enabled         =   True
       Height          =   23
       Index           =   -2147483648
-      Left            =   20
+      Left            =   189
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -195,7 +195,7 @@ Begin DesktopWindow EditGameWindow
       TabPanelIndex   =   0
       TabStop         =   False
       Tooltip         =   ""
-      Top             =   20
+      Top             =   21
       Transparent     =   False
       Visible         =   True
       Width           =   160
@@ -219,6 +219,12 @@ End
 		    tabEditMode.PanelIndex = 0
 		  End
 		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Resizing()
+		  tabEditMode.Left = (self.Width - tabEditMode.Width) / 2
 		End Sub
 	#tag EndEvent
 

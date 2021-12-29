@@ -415,8 +415,23 @@ End
 #tag EndDesktopWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Opening()
+		  Self.WasSendStatsChecked = app.AppConfig.SendStats
+		  
+		End Sub
+	#tag EndEvent
+
+
 	#tag Property, Flags = &h0
 		ResultOk As Boolean = false
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		#tag Note
+			self.WasSendStatsChecked = 
+		#tag EndNote
+		Private WasSendStatsChecked As Boolean
 	#tag EndProperty
 
 
@@ -436,8 +451,8 @@ End
 	#tag EndConstant
 
 	#tag Constant, Name = kcbSendStats_Caption, Type = String, Dynamic = True, Default = \"Send anonymized usage statistics", Scope = Private
-		#Tag Instance, Platform = Any, Language = en, Definition  = \"Send anonymized usage statistics"
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Anonymisierte Nutzungsdaten senden"
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Send anonymized usage statistics (e.g. app/game started)"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Anonymisierte Nutzungsdaten senden (z.B. App/Spiel gestartet)"
 	#tag EndConstant
 
 	#tag Constant, Name = kLabel1_Text, Type = String, Dynamic = True, Default = \"Base folder for DOS games/apps", Scope = Private
@@ -501,7 +516,11 @@ End
 #tag Events btnOk
 	#tag Event
 		Sub Action()
-		  self.ResultOk = true
+		  If Self.WasSendStatsChecked And Not cbSendStats.Value Then
+		    App.SendStats("SendStats disabled by user", true)
+		  End
+		  
+		  Self.ResultOk = True
 		  Self.close
 		End Sub
 	#tag EndEvent

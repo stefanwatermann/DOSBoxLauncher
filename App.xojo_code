@@ -56,8 +56,8 @@ Inherits DesktopApplication
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub SendStats(data as string)
-		  If AppConfig.SendStats Then
+		Sub SendStats(data as string, sendAnyway as Boolean = false)
+		  If AppConfig.SendStats Or sendAnyway Then
 		    UsageInfoClient.PostUsageInfo(data, AppId, AppConfig.InstId)
 		  End
 		End Sub
