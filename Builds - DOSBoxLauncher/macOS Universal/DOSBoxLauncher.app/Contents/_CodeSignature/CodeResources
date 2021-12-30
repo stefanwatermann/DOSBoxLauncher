@@ -6,13 +6,13 @@
 	<dict>
 		<key>Resources/App.icns</key>
 		<data>
-		CNyRiGbkwe+ZzV2uo/aa2FAVH7w=
+		+IawDns8d0z1f1Muq2XL0SD0mP4=
 		</data>
 		<key>Resources/de.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MzKvyEWMT+r0mPUpoqip99z1Yig=
+			X3Rnd4vR9pVe+VABOmzt+Nbvy8g=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -25,7 +25,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xGlaCkq3v5nICy03rJZCMehlOQ4=
+			VE8ZqySDCnDU/XAOlCocxu0c6ag=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -139,6 +139,15 @@
 			<key>requirement</key>
 			<string>cdhash H"96e2865847ff7ef553c562da65a101b71ab81911" or cdhash H"fa41bd8d17c8aa55e374d439a0802ba4431069dc" or cdhash H"7af06d710bb49f204b8289a2f36fd0a7b460f1c9" or cdhash H"c84e6f0c6a008f8e384925ea9e4d7eb07bbd99fd"</string>
 		</dict>
+		<key>Frameworks/GUIKitCocoa.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			xSJiSq8E7g6qddEaVIxNLpA+13E=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"52b133064273455fc94b3c5c486c3ae6abd7b235" or cdhash H"c522624aaf04ee0eaa75d11a548c4d2e903ed771" or cdhash H"50391069abca7127a403830044a1e452daef06f3" or cdhash H"faeed1355a61027ecfd69d394ce212f4d649561d"</string>
+		</dict>
 		<key>Frameworks/InternetEncodings.dylib</key>
 		<dict>
 			<key>cdhash</key>
@@ -175,15 +184,6 @@
 			<key>requirement</key>
 			<string>cdhash H"6ae0fbb40f55789975ca2461ecc624b913eae685" or cdhash H"b5528120d488b9c75ce92afcdb8685a265aff875" or cdhash H"cbb62d556af8820b3c4108a0cf926e97a0a9c6b3" or cdhash H"ee4662f8da0e23463d75d73f7e6fbbe897c013ae"</string>
 		</dict>
-		<key>Frameworks/XML.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			sVtTd4iNUkKtgRVATie+YuBDjmg=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"2344589aa3ccc28fd2ebd58f4fe933ae11f49f4b" or cdhash H"b15b5377888d5242ad8115404e27be62e0438e68" or cdhash H"1d0d4e4066846819b1562bdde8981238f4a0bb4e" or cdhash H"e586ceec85b3848c3d5a4330ddbb55cf499482dc"</string>
-		</dict>
 		<key>Frameworks/XojoFramework.framework</key>
 		<dict>
 			<key>cdhash</key>
@@ -197,22 +197,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CNyRiGbkwe+ZzV2uo/aa2FAVH7w=
+			+IawDns8d0z1f1Muq2XL0SD0mP4=
 			</data>
 			<key>hash2</key>
 			<data>
-			8p5klAKs5iRIK0EQU08jrueRc2PNmue1Q9mucJ9URl0=
+			ldkqE0QXUfeCeIafAvkvcuj/mRdAoAa73bCSWpO/3sg=
 			</data>
 		</dict>
 		<key>Resources/de.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MzKvyEWMT+r0mPUpoqip99z1Yig=
+			X3Rnd4vR9pVe+VABOmzt+Nbvy8g=
 			</data>
 			<key>hash2</key>
 			<data>
-			TNVWUNSEQ9/Ov8DjgmqAmaPuvce10eiVB8J13b29da0=
+			5SVIK3pDt7bl10rfKbwXhFJ+/c3gvVdzNSuoBYyf7ZE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -232,11 +232,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xGlaCkq3v5nICy03rJZCMehlOQ4=
+			VE8ZqySDCnDU/XAOlCocxu0c6ag=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZWpvfkq2zQl1Xf5M0J/JSaPWnOg6mRsU/VWs+DQWjhE=
+			Ssi5AG7XZDMD+LIJfYxEoLkdZJ3IWXIZpY62hBEus0U=
 			</data>
 			<key>optional</key>
 			<true/>

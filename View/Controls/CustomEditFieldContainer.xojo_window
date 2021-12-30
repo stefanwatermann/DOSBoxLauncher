@@ -135,14 +135,14 @@ End
 		  Var i As Integer = 0
 		  Var start As Integer = -1
 		  
-		  For Each c As String In tb.Text.Characters
+		  For Each c As String In line.Characters
 		    
 		    If c = """" Then
 		      If start < 0 Then
 		        start = i
 		      Else
-		        tb.SelectionStart = start
-		        tb.SelectionLength = i - start + 1
+		        tb.SelectionStart = leftIndex + start
+		        tb.SelectionLength =  i - start + 1
 		        tb.SelectionTextColor = HighlightColor_String
 		        start = -1
 		      End
@@ -158,22 +158,18 @@ End
 		Private Sub HighlightSyntaxLine(tb as DesktopTextArea, styleCurrentLineOnly as Boolean = true)
 		  SaveCursorPos(tb)
 		  
-		  If Not Self.WasKeyPress Then
-		    tb.TextColor = Colors.TextForeground
-		  End
+		  #If TargetMacOS Then
+		    styleCurrentLineOnly = False
+		  #EndIf
 		  
 		  Var currentLineIndex As Integer = tb.LineNumber(tb.SelectionStart)
 		  
-		  Var lines() As String = tb.Text.Split(EndOfLine.CR)
+		  Var lines() As String = tb.Text.ReplaceLineEndings(EndOfLine).Split(EndOfLine)
 		  
 		  Var lineIndex As Integer = 0
 		  Var leftIndex As Integer = 0
 		  
 		  For Each line As String In lines
-		    
-		    //tb.SelectionTextColor = Colors.TextForeground
-		    //tb.SelectionBold = False
-		    //tb.SelectionItalic = False
 		    
 		    If lineIndex = currentLineIndex Or Not styleCurrentLineOnly Then
 		      // work on current line only
@@ -195,11 +191,11 @@ End
 		        HighlightStrings(tb, leftIndex, line)
 		        
 		      End
+		      
 		    End 
 		    
 		    // set leftIndex of next line
-		    leftIndex = leftIndex + line.Length + EndOfLine.CR.Length
-		    
+		    leftIndex = leftIndex + line.Length + EndOfLine.Native.Length
 		    lineIndex = lineIndex + 1
 		  Next
 		  
@@ -207,62 +203,19 @@ End
 		  
 		  RestoreCursorPos(tb)
 		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub HighlightSyntax_DELETEME(tb as DesktopTextArea)
-		  tb.TextColor = Colors.TextForeground
+		  // set default style
+		  tb.SelectionTextColor = Colors.TextForeground
+		  tb.SelectionBold = False
+		  tb.SelectionItalic = False
 		  
-		  // sections
-		  For Each section As String In Me.Sections
-		    Var start As Integer = tb.Text.IndexOf(section)
-		    If start >= 0 Then
-		      tb.SelectionStart = start
-		      tb.SelectionLength = section.Length
-		      tb.SelectionTextColor = &c00F900
-		    End
-		  Next
-		  
-		  // keywords
-		  For Each keyword As String In Me.Keywords
-		    Var start As Integer = tb.Text.IndexOf(keyword)
-		    Var eq As Integer = tb.Text.IndexOf(start, "=")
-		    If start >= 0 And eq < start +keyword.Length + 20 Then
-		      tb.SelectionStart = start
-		      tb.SelectionLength = keyword.Length
-		      tb.SelectionTextColor = &cD783FF
-		    End
-		  Next
-		  
-		  // strings
-		  Var i As Integer = 0
-		  Var start As Integer = -1
-		  
-		  For Each c As String In tb.Text.Characters
-		    
-		    If c = """" Then
-		      If start < 0 Then
-		        start = i
-		      Else
-		        tb.SelectionStart = start
-		        tb.SelectionLength = i - start + 1
-		        tb.SelectionTextColor = HighlightColor_String
-		        start = -1
-		      End
-		    End
-		    
-		    i = i + 1
-		    
-		  Next
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub InitKeywords()
-		  Me.Keywords = kSyntax_Keywords.Split(EndOfLine)
-		  Me.Sections = kSyntax_Sections.Split(EndOfLine)
-		  Me.Params = kSyntax_Params.Split(EndOfLine)
+		  Me.Keywords = kSyntax_Keywords.ReplaceLineEndings(EndOfLine).Split(EndOfLine)
+		  Me.Sections = kSyntax_Sections.ReplaceLineEndings(EndOfLine).Split(EndOfLine)
+		  Me.Params = kSyntax_Params.ReplaceLineEndings(EndOfLine).Split(EndOfLine)
 		  
 		End Sub
 	#tag EndMethod
@@ -430,13 +383,13 @@ End
 	#tag EndProperty
 
 
-	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"frameskip\r\naspect\r\nscaler\r\ncore\r\ncputype\r\ncycles\r\ncycleup\r\ncycledown\r\nmpu401\r\nmididevice\r\nmidiconfig\r\nfullscreen\r\nfulldouble\r\nfullresolution\r\nwindowresolution\r\noutput\r\nautolock\r\nsensitivity\r\nwaitonerror\r\npriority\r\nmapperfile\r\nusescancodes\r\nlanguage\r\nmemsize\r\nmachine\r\ncaptures\r\nserialX\r\nxms\r\nems\r\numb\r\nkeyboardlayout\r\nipx", Scope = Private
+	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"frameskip\naspect\nscaler\ncore\ncputype\ncycles\ncycleup\ncycledown\nmpu401\nmididevice\nmidiconfig\nfullscreen\nfulldouble\nfullresolution\nwindowresolution\noutput\nautolock\nsensitivity\nwaitonerror\npriority\nmapperfile\nusescancodes\nlanguage\nmemsize\nmachine\ncaptures\nserialX\nxms\nems\numb\nkeyboardlayout\nipx", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kSyntax_Params, Type = String, Dynamic = False, Default = \"", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kSyntax_Sections, Type = String, Dynamic = False, Default = \"[sdl]\r\n[dosbox]\r\n[render]\r\n[cpu]\r\n[mixer]\r\n[midi]\r\n[sblaster]\r\n[gus]\r\n[speaker]\r\n[joystick]\r\n[serial]\r\n[dos]\r\n[ipx]\r\n[autoexec]", Scope = Private
+	#tag Constant, Name = kSyntax_Sections, Type = String, Dynamic = False, Default = \"[sdl]\n[dosbox]\n[render]\n[cpu]\n[mixer]\n[midi]\n[sblaster]\n[gus]\n[speaker]\n[joystick]\n[serial]\n[dos]\n[ipx]\n[autoexec]", Scope = Private
 	#tag EndConstant
 
 

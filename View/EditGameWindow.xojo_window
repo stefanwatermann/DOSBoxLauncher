@@ -24,35 +24,6 @@ Begin DesktopWindow EditGameWindow
    Type            =   8
    Visible         =   False
    Width           =   538
-   Begin DesktopSeparator SeparatorTabEditMode
-      Active          =   False
-      AllowAutoDeactivate=   True
-      AllowTabStop    =   False
-      Enabled         =   True
-      Height          =   23
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   True
-      LockTop         =   True
-      PanelIndex      =   0
-      Scope           =   2
-      TabIndex        =   6
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   21
-      Transparent     =   False
-      Visible         =   True
-      Width           =   500
-      _mIndex         =   0
-      _mInitialParent =   ""
-      _mName          =   ""
-      _mPanelIndex    =   0
-   End
    Begin SimpleConfigContainer SimpleConfigContainer1
       AllowAutoDeactivate=   True
       AllowFocus      =   False
@@ -73,7 +44,7 @@ Begin DesktopWindow EditGameWindow
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      Scope           =   0
+      Scope           =   2
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
@@ -82,70 +53,6 @@ Begin DesktopWindow EditGameWindow
       Transparent     =   True
       Visible         =   True
       Width           =   500
-   End
-   Begin DesktopButton btnCancel
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   True
-      Caption         =   "#kbtnCancel_Caption"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   23
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   265
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      MacButtonStyle  =   0
-      Scope           =   2
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   475
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   100
-   End
-   Begin DesktopButton btnOk
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "OK"
-      Default         =   True
-      Enabled         =   False
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   23
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   173
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      MacButtonStyle  =   0
-      Scope           =   2
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   475
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
    End
    Begin ExpertConfigContainer ExpertConfigContainer1
       AllowAutoDeactivate=   True
@@ -167,7 +74,7 @@ Begin DesktopWindow EditGameWindow
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      Scope           =   0
+      Scope           =   2
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
@@ -177,28 +84,63 @@ Begin DesktopWindow EditGameWindow
       Visible         =   True
       Width           =   500
    End
-   BeginDesktopSegmentedButton DesktopSegmentedButton TabEditMode
+   Begin TabHeaderContainer TabHeaderContainer1
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   False
+      AllowTabs       =   True
+      Backdrop        =   0
+      BackgroundColor =   &cFFFFFF
+      Composited      =   False
       Enabled         =   True
-      Height          =   23
+      HasBackgroundColor=   False
+      Height          =   40
       Index           =   -2147483648
-      Left            =   189
+      InitialParent   =   ""
+      Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      Segments        =   "#ktabEditMode_PanelSimple\n\nTrue\r#ktabEditMode_PanelExpert\n\nFalse"
-      SelectionStyle  =   0
-      TabIndex        =   3
+      Scope           =   2
+      TabIndex        =   31
       TabPanelIndex   =   0
-      TabStop         =   False
+      TabStop         =   True
       Tooltip         =   ""
-      Top             =   21
-      Transparent     =   False
+      Top             =   7
+      Transparent     =   True
       Visible         =   True
-      Width           =   160
+      Width           =   498
+   End
+   Begin OkCancelContainer OkCancelContainer1
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   False
+      AllowTabs       =   True
+      Backdrop        =   0
+      BackgroundColor =   &cFFFFFF
+      Composited      =   False
+      Enabled         =   True
+      HasBackgroundColor=   False
+      Height          =   40
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Left            =   20
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   False
+      Scope           =   2
+      TabIndex        =   32
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   465
+      Transparent     =   True
+      Visible         =   True
+      Width           =   498
    End
 End
 #tag EndDesktopWindow
@@ -214,17 +156,11 @@ End
 		  ExpertConfigContainer1.Visible = Not SimpleConfigContainer1.Visible
 		  
 		  If CurrentDOSGame.ExpertMode Then
-		    tabEditMode.PanelIndex = 1
+		    TabHeaderContainer1.PanelIndex = 1
 		  Else
-		    tabEditMode.PanelIndex = 0
+		    TabHeaderContainer1.PanelIndex = 0
 		  End
 		  
-		End Sub
-	#tag EndEvent
-
-	#tag Event
-		Sub Resizing()
-		  tabEditMode.Left = (self.Width - tabEditMode.Width) / 2
 		End Sub
 	#tag EndEvent
 
@@ -303,11 +239,6 @@ End
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"als CD-ROM einbinden"
 	#tag EndConstant
 
-	#tag Constant, Name = kbtnCancel_Caption, Type = String, Dynamic = True, Default = \"Cancel", Scope = Private
-		#Tag Instance, Platform = Any, Language = en, Definition  = \"Cancel"
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Abbrechen"
-	#tag EndConstant
-
 	#tag Constant, Name = kEditGameWindow_Title, Type = String, Dynamic = True, Default = \"DOSBox configuration", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"DOSBox configuration"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"DOSBox Konfiguration"
@@ -356,16 +287,6 @@ End
 	#tag Constant, Name = kSelectStartFile_Title, Type = String, Dynamic = True, Default = \"Select start-file", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select start-file"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Startdatei w\xC3\xA4hlen"
-	#tag EndConstant
-
-	#tag Constant, Name = ktabEditMode_PanelExpert, Type = String, Dynamic = True, Default = \"Expert", Scope = Private
-		#Tag Instance, Platform = Any, Language = en, Definition  = \"Expert"
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Experte"
-	#tag EndConstant
-
-	#tag Constant, Name = ktabEditMode_PanelSimple, Type = String, Dynamic = True, Default = \"Simple", Scope = Private
-		#Tag Instance, Platform = Any, Language = en, Definition  = \"Simple"
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Einfach"
 	#tag EndConstant
 
 	#tag Constant, Name = lbExpertTitle_Text, Type = String, Dynamic = True, Default = \"Edit config-file manually.", Scope = Private
@@ -440,7 +361,7 @@ End
 	#tag Event
 		Sub CanEnableOkButton(enable as Boolean)
 		  System.DebugLog(Str(enable))
-		  btnOk.Enabled = enable
+		  OkCancelContainer1.OkEnabled = enable
 		End Sub
 	#tag EndEvent
 	#tag Event
@@ -449,21 +370,30 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events btnCancel
+#tag Events ExpertConfigContainer1
 	#tag Event
-		Sub Pressed()
-		  If Self.CanClose Then
-		    self.ResultOk = false
-		    Self.Close
-		  end
-		  
+		Sub CanEnableOkButton(enable as Boolean)
+		  OkCancelContainer1.OkEnabled = enable
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Opening()
+		  me.CurrentDOSGame = self.CurrentDOSGame
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events btnOk
+#tag Events TabHeaderContainer1
 	#tag Event
-		Sub Pressed()
-		  If tabEditMode.PanelIndex = 0 Then
+		Sub TabChanged(index as integer)
+		  SimpleConfigContainer1.Visible = index = 0
+		  ExpertConfigContainer1.Visible = index <> 0
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events OkCancelContainer1
+	#tag Event
+		Sub OkPressed()
+		  If TabHeaderContainer1.PanelIndex = 0 Then
 		    If Self.CurrentDOSGame.ExpertMode Then
 		      Var r As Integer
 		      r = MsgBox(kOkUseSimple, 33)
@@ -496,24 +426,12 @@ End
 		  Self.Close
 		End Sub
 	#tag EndEvent
-#tag EndEvents
-#tag Events ExpertConfigContainer1
 	#tag Event
-		Sub CanEnableOkButton(enable as Boolean)
-		  btnOk.Enabled = enable
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Opening()
-		  me.CurrentDOSGame = self.CurrentDOSGame
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events TabEditMode
-	#tag Event
-		Sub Pressed(segmentIndex as integer)
-		  SimpleConfigContainer1.Visible = segmentIndex = 0
-		  ExpertConfigContainer1.Visible = segmentIndex <> 0
+		Sub CancelPressed()
+		  If Self.CanClose Then
+		    Self.ResultOk = False
+		    Self.Close
+		  end
 		End Sub
 	#tag EndEvent
 #tag EndEvents
