@@ -24,7 +24,7 @@ Begin DesktopWindow EditGameWindow
    Type            =   8
    Visible         =   False
    Width           =   538
-   Begin DesktopSeparator Separator1
+   Begin DesktopSeparator SeparatorTabEditMode
       Active          =   False
       AllowAutoDeactivate=   True
       AllowTabStop    =   False
@@ -177,7 +177,7 @@ Begin DesktopWindow EditGameWindow
       Visible         =   True
       Width           =   500
    End
-   BeginDesktopSegmentedButton DesktopSegmentedButton tabEditMode
+   BeginDesktopSegmentedButton DesktopSegmentedButton TabEditMode
       Enabled         =   True
       Height          =   23
       Index           =   -2147483648
@@ -231,28 +231,15 @@ End
 
 	#tag Method, Flags = &h21
 		Private Function CanClose() As Boolean
-		  //If Self.IsDirty And btnOk.Enabled Then
-		  //
-		  //Var d As New MessageDialog 
-		  //d.IconType = MessageDialog.IconTypes.Caution
-		  //d.ActionButton.Caption = "OK"
-		  //d.CancelButton.Visible = True               
-		  //d.Message = "Änderungen verwerfen?"
-		  //d.Explanation = "OK klicken, um Änderungen zu verwerfen."
-		  //
-		  //Var b As MessageDialogButton = d.ShowModal 
-		  //Return b.IsDefault
-		  //
-		  //Else
 		  Return True
-		  //End
+		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub Constructor(game as DOSGame)
 		  Self.CurrentDOSGame = game
-		  Self.OrigGameFileName = game.SettingsFilename
+		  
 		  SimpleConfigContainer1.CurrentDOSGame = game
 		  ExpertConfigContainer1.CurrentDOSGame = game
 		  
@@ -289,14 +276,6 @@ End
 
 	#tag Property, Flags = &h0
 		CurrentDOSGame As DOSGame
-	#tag EndProperty
-
-	#tag Property, Flags = &h21
-		Private IsDirty As Boolean = false
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		OrigGameFileName As string
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -530,7 +509,7 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events tabEditMode
+#tag Events TabEditMode
 	#tag Event
 		Sub Pressed(segmentIndex as integer)
 		  SimpleConfigContainer1.Visible = segmentIndex = 0
@@ -782,13 +761,5 @@ End
 		InitialValue="false"
 		Type="Boolean"
 		EditorType=""
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="OrigGameFileName"
-		Visible=false
-		Group="Behavior"
-		InitialValue=""
-		Type="string"
-		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 #tag EndViewBehavior

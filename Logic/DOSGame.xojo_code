@@ -6,84 +6,6 @@ Protected Class DOSGame
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Shared Function ParseText(t as string) As DOSGame
-		  // TODO remove when TEMP_MigrateGame... has been removed
-		  
-		  Var game As DOSGame = New DOSGame
-		  
-		  For Each raw As String In t.Split(EndOfLine.Native)
-		    
-		    Var line As String = raw.Trim
-		    
-		    App.Log("...line: " + line)
-		    
-		    If line.Length > 0 And Not line.BeginsWith("#") Then
-		      
-		      Var elems() As String = line.Split("=")
-		      
-		      If elems.Count = 2 Then
-		        Var key As String = elems(0).Trim.Lowercase
-		        Var Val As String = elems(1).Trim
-		        
-		        If Val.Length > 0 Then
-		          Select Case key
-		            
-		          Case "scaler"
-		            game.Scaler = Val
-		            
-		          Case "fullscreen"
-		            game.Fullscreen = Boolean.FromString(Val)
-		            
-		          Case "resolution"
-		            game.Resolution = Val
-		            
-		          Case "machine"
-		            game.MachineType = Val
-		            
-		          Case "folder_c"
-		            game.FolderMountAsC = Val
-		            
-		          Case "mount_d_cdrom"
-		            game.MountDAsCdrom = Boolean.FromString(Val)
-		            
-		          Case "folder_d"
-		            game.FolderMountAsD = Val
-		            
-		          Case "startdrive"
-		            game.StartDrive = Val
-		            
-		          Case "startfile"
-		            game.StartFile = Val
-		            
-		          Case "name"
-		            game.Name = Val
-		            
-		          Case "cycles"
-		            game.CpuCycles = Val
-		            
-		          Case "laststartdt"
-		            game.LastStartDt = DateTime.FromString(Val)
-		            
-		          Case "autoexit"
-		            game.AutoExit = Boolean.FromString(Val)
-		            
-		          Case "expertmode"
-		            game.ExpertMode = Boolean.FromString(Val)
-		            
-		          End
-		          
-		        End
-		      End
-		      
-		    End
-		    
-		  Next
-		  
-		  Return game
-		End Function
-	#tag EndMethod
-
 
 	#tag Property, Flags = &h0
 		AutoExit As Boolean = False
@@ -227,47 +149,6 @@ Protected Class DOSGame
 		SecondsPlayed As Integer
 	#tag EndProperty
 
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  // TODO remove when TEMP_MigrateGame... has been removed
-			  Return Me.Name.CreateSafeFilename + kFileSettingsFileExtension
-			End Get
-		#tag EndGetter
-		SettingsFilename As String
-	#tag EndComputedProperty
-
-	#tag ComputedProperty, Flags = &h0
-		#tag Getter
-			Get
-			  Var lastdt As String
-			  If Me.LastStartDt <> Nil Then
-			    lastdt = Me.LastStartDt.SQLDateTime
-			  End
-			  
-			  Return kFileSettingsFileTemplate._
-			  Replace("#NAME#", Me.Name)._
-			  Replace("#FULLSCREEN#", Me.Fullscreen.ToString)._
-			  Replace("#RESOLUTION#", Me.Resolution)._
-			  Replace("#MACHINE#", Me.MachineType)._
-			  Replace("#SCALER#", Me.Scaler)._
-			  Replace("#CYCLES#", Me.CpuCycles)._
-			  Replace("#FOLDERC#", Me.FolderMountAsC)._
-			  Replace("#FOLDERD#", Me.FolderMountAsD)._
-			  Replace("#MOUNTDCDROM#", Str(Me.MountDAsCdrom))._
-			  Replace("#STARTDRIVE#", Me.StartDrive)._
-			  Replace("#STARTFILE#", Me.StartFile)._
-			  Replace("#LASTSTARTDT#", lastdt)._
-			  Replace("#AUTOEXIT#", Me.AutoExit.ToString)._
-			  Replace("#EXPERTMODE#", Me.ExpertMode.ToString)._
-			  ReplaceLineEndings(EndOfLine.Native)
-			  
-			  
-			End Get
-		#tag EndGetter
-		SettingsText As String
-	#tag EndComputedProperty
-
 	#tag Property, Flags = &h0
 		StartDrive As String = "C:"
 	#tag EndProperty
@@ -290,7 +171,7 @@ Protected Class DOSGame
 			  
 			  If total > 59 And hours = 0 And minutes = 1 Then Return kTotalTime_OneMinute
 			  
-			  If total > 59 And hours = 0 And minutes > 1 Then Return kTotalTime_Minutes.Format2(minutes) 
+			  If total > 59 And hours = 0 And minutes > 1 Then Return kTotalTime_Minutes.Format2(minutes)
 			  
 			  If total > 59 And hours = 1 Then Return kTotalTime_OneHourAnd.Format2(minutes)
 			  
@@ -307,12 +188,6 @@ Protected Class DOSGame
 	#tag EndConstant
 
 	#tag Constant, Name = kDOSBoxSettingsFileTemplate, Type = String, Dynamic = False, Default = \"[sdl]\nfullscreen\x3D#FULLSCREEN#\nfullresolution\x3D#RESOLUTION#\nwindowresolution\x3D#RESOLUTION#\n[cpu]\ncycles\x3D#CYCLES#\n[dosbox]\nmachine\x3D#MACHINE#\n[render]\nscaler\x3D#SCALER#\n[autoexec]\n#AUTOEXEC#", Scope = Private
-	#tag EndConstant
-
-	#tag Constant, Name = kFileSettingsFileExtension, Type = String, Dynamic = False, Default = \".dosgame", Scope = Public
-	#tag EndConstant
-
-	#tag Constant, Name = kFileSettingsFileTemplate, Type = String, Dynamic = False, Default = \"name\x3D#NAME#\nfullscreen\x3D#FULLSCREEN#\nresolution\x3D#RESOLUTION#\nmachine\x3D#MACHINE#\ncycles\x3D#CYCLES#\nscaler\x3D#SCALER#\nfolder_c\x3D#FOLDERC#\nfolder_d\x3D#FOLDERD#\nmount_d_cdrom\x3D#MOUNTDCDROM#\nstartdrive\x3D#STARTDRIVE#\nstartfile\x3D#STARTFILE#\nlaststartdt\x3D#LASTSTARTDT#\nautoexit\x3D#AUTOEXIT#\nexpertmode\x3D#EXPERTMODE#", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kLastStartDtNever, Type = String, Dynamic = True, Default = \"never", Scope = Public
@@ -386,14 +261,6 @@ Protected Class DOSGame
 			InitialValue="0"
 			Type="Integer"
 			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="SettingsFilename"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="String"
-			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="FolderMountAsC"
@@ -472,14 +339,6 @@ Protected Class DOSGame
 			Visible=false
 			Group="Behavior"
 			InitialValue="C:"
-			Type="String"
-			EditorType="MultiLineEditor"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="SettingsText"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
 			Type="String"
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty

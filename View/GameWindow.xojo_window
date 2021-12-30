@@ -205,7 +205,6 @@ Begin DesktopWindow GameWindow
       _mPanelIndex    =   0
    End
    Begin Timer Timer250ms
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Period          =   250
@@ -327,12 +326,6 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub CreateShortcut(game as DOSGame)
-		  GameShortcut.CreateMacShortcut(game)
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
 		Private Sub DeleteGame(game as DOSGame)
 		  Var d As New MessageDialog 
 		  d.IconType = MessageDialog.IconTypes.Question
@@ -383,17 +376,11 @@ End
 		  
 		  If editWindow.ResultOk Then
 		    SaveGameSettings(game)
-		    
-		    // TODO handle rename of game -> former file rename
-		    // introduce GUID 
-		    
-		    //If editWindow.OrigGameFileName.Lowercase <> game.Name.Lowercase Then
-		    //// game wurde umbenannt, alte config datei löschen
-		    //Self.GameFilesFolder.Child(editWindow.OrigGameFileName).Remove
-		    //End
 		  End
 		  
-		  editWindow = nil
+		  editWindow = Nil
+		  
+		  ReadGameFiles
 		End Sub
 	#tag EndMethod
 
@@ -427,9 +414,6 @@ End
 		  
 		  DataStore.Initialize(Self.GameFilesFolder)
 		  
-		  // TODO remove this if all files are migrated
-		  TEMP_MigrateGameSettingsFiles
-		  
 		  OutputPanelVisible(False)
 		  ReadGameFiles
 		  GameList.SelectedRowIndex = 0
@@ -439,6 +423,7 @@ End
 		  End
 		  
 		  #If TargetLinux Then
+		    // adjust window with because toolbar width on Linux is different to mac/win
 		    Self.Width = 430
 		  #EndIf
 		End Sub
@@ -482,6 +467,8 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ReadGameFiles()
+		  Var selected As Integer = GameList.SelectedRowIndex
+		  
 		  GameList.RemoveAllRows
 		  
 		  Var r As DataStore.DataStoreResult = DataStore.Get()
@@ -492,6 +479,10 @@ End
 		  Next
 		  
 		  SortGameList
+		  
+		  If selected >= 0 Then
+		    GameList.SelectedRowIndex = selected
+		  End
 		  
 		End Sub
 	#tag EndMethod
@@ -580,38 +571,6 @@ End
 		  
 		  GameList.Sort
 		  Gamelist.Refresh
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Sub TEMP_MigrateGameSettingsFiles()
-		  // TODO remove after all files have been mograted
-		  
-		  // read game files
-		  For Each f As FolderItem In Self.GameFilesFolder.Children
-		    If f.name.EndsWith(dosgame.kFileSettingsFileExtension) Then
-		      App.Log("ReadGameFiles: " + f.Name)
-		      
-		      Var data As String = File.ReadAllText(f)
-		      Var game As dosgame = DOSGame.ParseText(data)
-		      
-		      If game.ExpertMode Then
-		        game.DOSBoxSettingsTextExpert = file.ReadAllText(Self.GameFilesFolder.Child(game.DOSBoxSettingsFilename))
-		      End
-		      
-		      // add game to db
-		      Var r As DataStore.DataStoreResult = DataStore.Save(game)
-		      
-		      If r.Status = DataStore.DataStoreResult.DataStoreResultStatus.failed Then
-		        Raise New RuntimeException("Cannot save game to db: " + r.Message)
-		      End
-		      
-		      // delete game file
-		      If Self.GameFilesFolder.Child(game.SettingsFilename).Exists And Not Self.GameFilesFolder.Child(game.SettingsFilename).IsFolder Then
-		        Self.GameFilesFolder.Child(game.SettingsFilename).MoveToTrash()
-		      End
-		    End
-		  Next
 		End Sub
 	#tag EndMethod
 
@@ -857,10 +816,6 @@ End
 		    base.AddMenu(m)
 		  End
 		  
-		  //m =New MenuItem(kGameList_ContextMenu_CreateShortcut)
-		  //m.Name = "mnCreateShortcut"
-		  //base.AddMenu(m)
-		  
 		End Function
 	#tag EndEvent
 	#tag Event
@@ -886,9 +841,6 @@ End
 		    If f <> Nil And f.Exists And f.IsFolder Then
 		      f.Open
 		    End
-		    
-		  Case "mnCreateShortcut"
-		    CreateShortcut(game)
 		    
 		  End
 		End Function

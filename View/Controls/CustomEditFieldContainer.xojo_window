@@ -38,7 +38,7 @@ Begin DesktopContainer CustomEditFieldContainer
       FontSize        =   0.0
       FontUnit        =   0
       Format          =   ""
-      HasBorder       =   True
+      HasBorder       =   False
       HasHorizontalScrollbar=   True
       HasVerticalScrollbar=   True
       Height          =   298
@@ -95,7 +95,123 @@ End
 
 
 	#tag Method, Flags = &h21
-		Private Sub HighlightSyntax(tb as DesktopTextArea)
+		Private Sub HighlightComments(tb as DesktopTextArea, leftIndex as integer, line as string)
+		  tb.SelectionStart = leftIndex
+		  tb.SelectionLength = line.Length
+		  tb.SelectionTextColor = Self.HighlightColor_Comment
+		  tb.SelectionItalic = true
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub HighlightKeywords(tb as DesktopTextArea, leftIndex as integer, line as string)
+		  For Each keyword As String In Me.Keywords
+		    Var start As Integer = line.IndexOf(keyword)
+		    If start >= 0 Then
+		      tb.SelectionStart = start + leftIndex
+		      tb.SelectionLength = keyword.Length
+		      tb.SelectionTextColor = Self.HighlightColor_Keyword
+		    End
+		  Next
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub HighlightSections(tb as DesktopTextArea, leftIndex as integer, line as string)
+		  For Each section As String In Me.Sections
+		    Var start As Integer = line.IndexOf(section)
+		    If start >= 0 Then
+		      tb.SelectionStart = start + leftIndex
+		      tb.SelectionLength = section.Length
+		      tb.SelectionTextColor = Self.HighlightColor_Section
+		      tb.SelectionBold = true
+		    End
+		  Next
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub HighlightStrings(tb as DesktopTextArea, leftIndex as integer, line as string)
+		  Var i As Integer = 0
+		  Var start As Integer = -1
+		  
+		  For Each c As String In tb.Text.Characters
+		    
+		    If c = """" Then
+		      If start < 0 Then
+		        start = i
+		      Else
+		        tb.SelectionStart = start
+		        tb.SelectionLength = i - start + 1
+		        tb.SelectionTextColor = HighlightColor_String
+		        start = -1
+		      End
+		    End
+		    
+		    i = i + 1
+		    
+		  Next
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub HighlightSyntaxLine(tb as DesktopTextArea, styleCurrentLineOnly as Boolean = true)
+		  SaveCursorPos(tb)
+		  
+		  If Not Self.WasKeyPress Then
+		    tb.TextColor = Colors.TextForeground
+		  End
+		  
+		  Var currentLineIndex As Integer = tb.LineNumber(tb.SelectionStart)
+		  
+		  Var lines() As String = tb.Text.Split(EndOfLine.CR)
+		  
+		  Var lineIndex As Integer = 0
+		  Var leftIndex As Integer = 0
+		  
+		  For Each line As String In lines
+		    
+		    //tb.SelectionTextColor = Colors.TextForeground
+		    //tb.SelectionBold = False
+		    //tb.SelectionItalic = False
+		    
+		    If lineIndex = currentLineIndex Or Not styleCurrentLineOnly Then
+		      // work on current line only
+		      
+		      If line.Trim.BeginsWith("#") Then
+		        
+		        // comment
+		        HighlightComments(tb, leftIndex, line)
+		        
+		      Else
+		        
+		        // sections
+		        HighlightSections(tb, leftIndex, line)
+		        
+		        // keywords
+		        HighlightKeywords(tb, leftIndex, line)
+		        
+		        // strings
+		        HighlightStrings(tb, leftIndex, line)
+		        
+		      End
+		    End 
+		    
+		    // set leftIndex of next line
+		    leftIndex = leftIndex + line.Length + EndOfLine.CR.Length
+		    
+		    lineIndex = lineIndex + 1
+		  Next
+		  
+		  System.DebugLog("leftIndex=" + Str(leftIndex) + ", total=" + Str(tb.Text.Length))
+		  
+		  RestoreCursorPos(tb)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub HighlightSyntax_DELETEME(tb as DesktopTextArea)
 		  tb.TextColor = Colors.TextForeground
 		  
 		  // sections
@@ -151,8 +267,38 @@ End
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub setAutomaticQuoteSubstitutionEnabled(t as DesktopTextArea, value as Boolean)
+	#tag Method, Flags = &h21
+		Private Sub RemoveStyles(tb as desktopTextArea)
+		  SaveCursorPos(tb)
+		  
+		  // remove all styles when pasted from clicpboard
+		  // just a dirty hack :-(
+		  Var t As String = tb.Text
+		  tb.Text = t
+		  
+		  RestoreCursorPos(tb)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub RestoreCursorPos(tb as DesktopTextArea)
+		  // restores a previously saved cursor postion
+		  If Self.TempCursorPos >= 0 Then
+		    tb.SelectionStart = Self.TempCursorPos
+		    tb.SelectionLength = 0
+		  End
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub SaveCursorPos(tb as DesktopTextArea)
+		  // save current cursor position
+		  Self.TempCursorPos = tb.SelectionStart
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub setAutomaticQuoteSubstitutionEnabled(t as DesktopTextArea, value as Boolean)
 		  // https://forum.xojo.com/t/how-to-prevent-smart-quotes-from-being-entered-into-a-textarea/21111/6
 		  
 		  #If TargetCocoa Then
@@ -179,7 +325,7 @@ End
 		    tbExpertText.FontName = "Monaco"
 		  #ElseIf TargetLinux Then
 		    tbExpertText.FontName = "Monospace"
-		  #ElseIf TargetWindows
+		  #ElseIf TargetWindows Then
 		    tbExpertText.FontName = "Consolas"
 		  #Else
 		    tbExpertText.FontName = "Curier"
@@ -192,6 +338,49 @@ End
 		Event Initialized()
 	#tag EndHook
 
+	#tag Hook, Flags = &h0
+		Event TextHasChanged()
+	#tag EndHook
+
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  If Color.IsDarkMode Then
+			    Return &c80FF8000
+			  Else
+			    Return &c00800000
+			  End
+			End Get
+		#tag EndGetter
+		Private HighlightColor_Comment As Color
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  If Color.IsDarkMode Then
+			    Return &cD783FF
+			  Else
+			    Return &c80004000
+			  End
+			End Get
+		#tag EndGetter
+		Private HighlightColor_Keyword As Color
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h21
+		#tag Getter
+			Get
+			  If Color.IsDarkMode Then
+			    Return &cFF00FF00
+			  Else
+			    Return &c6A00D500
+			  End
+			End Get
+		#tag EndGetter
+		Private HighlightColor_Section As Color
+	#tag EndComputedProperty
 
 	#tag ComputedProperty, Flags = &h21
 		#tag Getter
@@ -218,6 +407,10 @@ End
 		Private Sections() As String
 	#tag EndProperty
 
+	#tag Property, Flags = &h21
+		Private TempCursorPos As Integer
+	#tag EndProperty
+
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
@@ -232,14 +425,18 @@ End
 		Text As String
 	#tag EndComputedProperty
 
+	#tag Property, Flags = &h21
+		Private WasKeyPress As Boolean
+	#tag EndProperty
 
-	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"frameskip\naspect\nscaler\ncore\ncputype\ncycles\ncycleup\ncycledown\nmpu401\nmididevice\nmidiconfig\nfullscreen\nfulldouble\nfullresolution\nwindowresolution\noutput\nautolock\nsensitivity\nwaitonerror\npriority\nmapperfile\nusescancodes\nlanguage\nmemsize\nmachine\ncaptures\nserialX\nxms\nems\numb\nkeyboardlayout\nipx", Scope = Private
+
+	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"frameskip\r\naspect\r\nscaler\r\ncore\r\ncputype\r\ncycles\r\ncycleup\r\ncycledown\r\nmpu401\r\nmididevice\r\nmidiconfig\r\nfullscreen\r\nfulldouble\r\nfullresolution\r\nwindowresolution\r\noutput\r\nautolock\r\nsensitivity\r\nwaitonerror\r\npriority\r\nmapperfile\r\nusescancodes\r\nlanguage\r\nmemsize\r\nmachine\r\ncaptures\r\nserialX\r\nxms\r\nems\r\numb\r\nkeyboardlayout\r\nipx", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kSyntax_Params, Type = String, Dynamic = False, Default = \"", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = kSyntax_Sections, Type = String, Dynamic = False, Default = \"[sdl]\n[dosbox]\n[render]\n[cpu]\n[mixer]\n[midi]\n[sblaster]\n[gus]\n[speaker]\n[joystick]\n[serial]\n[dos]\n[ipx]\n[autoexec]", Scope = Private
+	#tag Constant, Name = kSyntax_Sections, Type = String, Dynamic = False, Default = \"[sdl]\r\n[dosbox]\r\n[render]\r\n[cpu]\r\n[mixer]\r\n[midi]\r\n[sblaster]\r\n[gus]\r\n[speaker]\r\n[joystick]\r\n[serial]\r\n[dos]\r\n[ipx]\r\n[autoexec]", Scope = Private
 	#tag EndConstant
 
 
@@ -248,21 +445,37 @@ End
 #tag Events tbExpertText
 	#tag Event
 		Sub TextChanged()
-		  Var tempStart As Integer = Me.SelectionStart
+		  System.DebugLog("TextChanged")
 		  
-		  // remove all styles when pasted from clicpboard
-		  Var t As String = Me.Text
-		  Me.Text = t
+		  If Not WasKeyPress Then
+		    RemoveStyles(Me)
+		  End
 		  
-		  HighlightSyntax(Me)
+		  //HighlightSyntax(Me)
+		  HighlightSyntaxLine(Me, WasKeyPress)
 		  
-		  Me.SelectionStart = tempStart
-		  me.SelectionLength = 0
+		  RaiseEvent TextHasChanged
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub Opening()
-		  setAutomaticQuoteSubstitutionEnabled me, false
+		  setAutomaticQuoteSubstitutionEnabled Me, False
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Function KeyDown(key As String) As Boolean
+		  System.DebugLog("KeyDown")
+		  
+		  Self.WasKeyPress = True
+		  
+		  Return False
+		End Function
+	#tag EndEvent
+	#tag Event
+		Sub KeyUp(key As String)
+		  System.DebugLog("KeyUp")
+		  
+		  Self.WasKeyPress = False
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -67,7 +67,7 @@ Begin DesktopContainer SimpleConfigContainer
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   380
+      Left            =   384
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False

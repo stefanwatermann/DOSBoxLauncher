@@ -234,6 +234,13 @@ End
 		  
 		End Sub
 	#tag EndEvent
+	#tag Event
+		Sub TextHasChanged()
+		  Self.IsDirty = True
+		  Self.CurrentDOSGame.DOSBoxSettingsTextExpert = Me.Text
+		  EnableOkButton
+		End Sub
+	#tag EndEvent
 #tag EndEvents
 #tag Events Label1
 	#tag Event
