@@ -195,7 +195,7 @@ End
 		    End 
 		    
 		    // set leftIndex of next line
-		    leftIndex = leftIndex + line.Length + EndOfLine.Native.Length
+		    leftIndex = leftIndex + line.Length + EndOfLine.CR.Length
 		    lineIndex = lineIndex + 1
 		  Next
 		  
@@ -430,6 +430,17 @@ End
 		  
 		  Self.WasKeyPress = False
 		End Sub
+	#tag EndEvent
+	#tag Event
+		Function ConstructContextualMenu(base As DesktopMenuItem, x As Integer, y As Integer) As Boolean
+		  // TODO copy/cut/paste/selectall menu
+		  // TODO sections/keywords menu
+		End Function
+	#tag EndEvent
+	#tag Event
+		Function ContextualMenuItemSelected(selectedItem As DesktopMenuItem) As Boolean
+		  
+		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior

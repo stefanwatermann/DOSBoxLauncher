@@ -25,29 +25,6 @@ Begin DesktopContainer TabHeaderContainer
    Transparent     =   True
    Visible         =   True
    Width           =   300
-   BeginDesktopSegmentedButton DesktopSegmentedButton TabEditMode
-      Enabled         =   True
-      Height          =   23
-      Index           =   -2147483648
-      Left            =   70
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   2
-      Segments        =   "#ktabEditMode_PanelSimple\n\nTrue\r#ktabEditMode_PanelExpert\n\nFalse"
-      SelectionStyle  =   0
-      TabIndex        =   0
-      TabPanelIndex   =   0
-      TabStop         =   False
-      Tooltip         =   ""
-      Top             =   9
-      Transparent     =   False
-      Visible         =   True
-      Width           =   160
-   End
    Begin DesktopSeparator SeparatorLeft
       Active          =   False
       AllowAutoDeactivate=   True
@@ -106,12 +83,41 @@ Begin DesktopContainer TabHeaderContainer
       _mName          =   ""
       _mPanelIndex    =   0
    End
+   BeginDesktopSegmentedButton DesktopSegmentedButton TabEditMode
+      Enabled         =   True
+      Height          =   23
+      Index           =   -2147483648
+      Left            =   70
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   0
+      Scope           =   2
+      Segments        =   "#ktabEditMode_PanelSimple\n\nTrue\r#ktabEditMode_PanelExpert\n\nFalse"
+      SelectionStyle  =   0
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   False
+      Tooltip         =   ""
+      Top             =   9
+      Transparent     =   False
+      Visible         =   True
+      Width           =   160
+   End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
 		Sub Opening()
+		  ResizeControls
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Resized()
 		  ResizeControls
 		End Sub
 	#tag EndEvent
@@ -128,7 +134,8 @@ End
 		  TabEditMode.Left = (Self.Width - TabEditMode.Width) / 2
 		  SeparatorLeft.Width = TabEditMode.Left
 		  SeparatorRight.Left = TabEditMode.Left + TabEditMode.Width
-		  SeparatorRight.Width = self.Width - SeparatorRight.Left
+		  SeparatorRight.Width = Self.Width - SeparatorRight.Left + 1
+		  Self.Refresh
 		End Sub
 	#tag EndMethod
 

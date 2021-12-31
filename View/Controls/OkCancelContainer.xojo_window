@@ -98,6 +98,12 @@ End
 	#tag EndEvent
 
 	#tag Event
+		Sub Resized()
+		  ResizeControls
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub Resizing()
 		  ResizeControls()
 		  
@@ -110,8 +116,8 @@ End
 		  Var space As Integer = 10
 		  Var totalWidth As Integer = btnOk.Width + space + btnCancel.Width
 		  btnOk.Left = (Self.Width - totalWidth) / 2
-		  btnCancel.Left = btnOk.Left + btnOk.Width 
-		  
+		  btnCancel.Left = btnOk.Left + btnOk.Width + space
+		  self.Refresh
 		End Sub
 	#tag EndMethod
 

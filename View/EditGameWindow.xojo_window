@@ -103,6 +103,7 @@ Begin DesktopWindow EditGameWindow
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   31
       TabPanelIndex   =   0
@@ -132,6 +133,7 @@ Begin DesktopWindow EditGameWindow
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
+      OkEnabled       =   False
       Scope           =   2
       TabIndex        =   32
       TabPanelIndex   =   0
