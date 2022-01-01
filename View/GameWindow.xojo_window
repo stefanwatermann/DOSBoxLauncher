@@ -205,6 +205,7 @@ Begin DesktopWindow GameWindow
       _mPanelIndex    =   0
    End
    Begin Timer Timer250ms
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Period          =   250
@@ -424,7 +425,7 @@ End
 		  
 		  #If TargetLinux Then
 		    // adjust window with because toolbar width on Linux is different to mac/win
-		    Self.Width = 430
+		    Self.Width = 460
 		  #EndIf
 		End Sub
 	#tag EndMethod

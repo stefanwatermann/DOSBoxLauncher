@@ -102,7 +102,7 @@ Begin DesktopContainer SimpleConfigContainer
       FontUnit        =   0
       Format          =   ""
       HasBorder       =   True
-      Height          =   23
+      Height          =   24
       Hint            =   "#tbGameName_Hint"
       Index           =   -2147483648
       Italic          =   False
@@ -808,6 +808,36 @@ End
 #tag EndDesktopWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Opening()
+		  AdjustControls
+		  RaiseEvent Opening
+		End Sub
+	#tag EndEvent
+
+
+	#tag Method, Flags = &h21
+		Private Sub AdjustControls()
+		  #If TargetLinux Then
+		    For Each ctrl As DesktopControl In Self.Controls
+		      
+		      If ctrl IsA DesktopButton Then
+		        DesktopButton(ctrl).Height = 29
+		      End
+		      
+		      If ctrl IsA DesktopTextField Then
+		        DesktopTextField(ctrl).Height = 29
+		      End
+		      
+		      If ctrl IsA DesktopPopupMenu Then
+		        DesktopPopupMenu(ctrl).Height = 29
+		      End
+		      
+		    Next
+		  #EndIf
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Sub EnableOkButton()
 		  Var canEnable As Boolean = False
@@ -825,6 +855,10 @@ End
 
 	#tag Hook, Flags = &h0
 		Event CanEnableOkButton(enable as Boolean)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event Opening()
 	#tag EndHook
 
 

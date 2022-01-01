@@ -90,7 +90,7 @@ Protected Module DOSBox
 	#tag EndConstant
 
 	#tag Constant, Name = kDefault_DOSBox_Executable, Type = String, Dynamic = False, Default = \"", Scope = Private
-		#Tag Instance, Platform = Windows, Language = Default, Definition  = \"dosbox.exe"
+		#Tag Instance, Platform = Windows, Language = Default, Definition  = \"C:\\Program Files (x86)\\DOSBox-0.74\\dosbox.exe"
 		#Tag Instance, Platform = Linux, Language = Default, Definition  = \"dosbox"
 		#Tag Instance, Platform = Mac OS, Language = Default, Definition  = \"/Applications/dosbox.app"
 	#tag EndConstant
@@ -163,12 +163,12 @@ Protected Module DOSBox
 			EditorType="MultiLineEditor"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="mDOSBoxExecutable"
+			Name="DOSBoxExecutable"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
 			Type="string"
-			EditorType="MultiLineEditor"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Module
