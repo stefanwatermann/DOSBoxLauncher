@@ -1,7 +1,0 @@
-DOSBox version 0.74-3
-Copyright 2002-2019 DOSBox Team, published under GNU GPL.
----
-CONFIG:Loading primary settings from config file C:\Users\stefa\AppData\Local\DOSBox\dosbox-0.74-3.conf
-CONFIG:Loading additional settings from config file C:\Users\stefa\AppData\Roaming\DOSBoxLauncher\7524D21C-C7A6-4BC8-AA41-53F0D687A346.conf
-MIDI:Opened device:win32
-DOS keyboard layout loaded with main language code GR for layout gr
