@@ -304,7 +304,7 @@ Begin DesktopWindow OptionsWindow
       Value           =   False
       Visible         =   True
       VisualState     =   0
-      Width           =   350
+      Width           =   400
    End
    Begin Label lbDescription
       AllowAutoDeactivate=   True
