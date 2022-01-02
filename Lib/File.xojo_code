@@ -28,6 +28,12 @@
 
 	#tag Method, Flags = &h0
 		Sub MoveToTrash(extends f as FolderItem)
+		  #If TargetLinux Then
+		    // trash folder not supported on linux
+		    f.Remove
+		    return
+		  #EndIf
+		  
 		  Var trashItem As FolderItem = SpecialFolder.Trash.Child(f.Name)
 		  
 		  If trashItem <> Nil Then

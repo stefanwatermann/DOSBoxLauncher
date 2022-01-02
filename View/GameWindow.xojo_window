@@ -205,6 +205,7 @@ Begin DesktopWindow GameWindow
       _mPanelIndex    =   0
    End
    Begin Timer Timer250ms
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Period          =   250
@@ -418,14 +419,15 @@ End
 		  ReadGameFiles
 		  GameList.SelectedRowIndex = 0
 		  
-		  If Not ISDOSBoxAvailable Then
-		    ShowOptions
-		  End
-		  
 		  #If TargetLinux Then
 		    // adjust window with because toolbar width on Linux is different to mac/win
 		    Self.Width = 460
 		  #EndIf
+		  
+		  If Not ISDOSBoxAvailable Then
+		    app.DoEvents
+		    ShowOptions
+		  End
 		End Sub
 	#tag EndMethod
 
@@ -499,7 +501,10 @@ End
 		  "; ExpertMode: " + Str(game.ExpertMode) + _
 		  "; FullScreen: " + str(game.Fullscreen))
 		  
-		  Self.Minimize
+		  #If Not TargetLinux Then
+		    // minimize not working as expected on linux
+		    Self.Minimize
+		  #EndIf
 		  
 		  Self.CurrentGame = game
 		  
@@ -551,7 +556,6 @@ End
 		Private Sub ShowOptions()
 		  Var dlg As New OptionsWindow()
 		  dlg.ShowModal(Self)
-		  
 		  
 		  If dlg.ResultOk Then
 		    App.AppConfig.Save

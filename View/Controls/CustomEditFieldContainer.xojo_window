@@ -453,21 +453,19 @@ End
 	#tag EndEvent
 	#tag Event
 		Function ConstructContextualMenu(base As DesktopMenuItem, x As Integer, y As Integer) As Boolean
-		  #If TargetWindows Then
-		    base.AddMenu(New DesktopMenuItem(kEditMenu_Cut))
-		    base.AddMenu(New DesktopMenuItem(kEditMenu_Copy))
-		    base.AddMenu(New DesktopMenuItem(kEditMenu_Paste))
-		    base.AddMenu(New DesktopMenuItem(DesktopMenuItem.TextSeparator))
-		    base.AddMenu(New DesktopMenuItem(kEditMenu_SelectAll))
-		    
-		    base.MenuAt(0).Enabled = Me.SelectedText.Length > 0
-		    base.MenuAt(1).Enabled = Me.SelectedText.Length > 0
-		    
-		    Var clip As New Clipboard
-		    base.MenuAt(2).Enabled =clip.TextAvailable
-		    clip.Close
-		    
-		  #EndIf
+		  
+		  base.AddMenu(New DesktopMenuItem(kEditMenu_Cut))
+		  base.AddMenu(New DesktopMenuItem(kEditMenu_Copy))
+		  base.AddMenu(New DesktopMenuItem(kEditMenu_Paste))
+		  base.AddMenu(New DesktopMenuItem(DesktopMenuItem.TextSeparator))
+		  base.AddMenu(New DesktopMenuItem(kEditMenu_SelectAll))
+		  
+		  base.MenuAt(0).Enabled = Me.SelectedText.Length > 0
+		  base.MenuAt(1).Enabled = Me.SelectedText.Length > 0
+		  
+		  Var clip As New Clipboard
+		  base.MenuAt(2).Enabled =clip.TextAvailable
+		  clip.Close
 		  
 		  Return True
 		End Function
