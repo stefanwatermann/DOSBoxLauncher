@@ -205,7 +205,6 @@ Begin DesktopWindow GameWindow
       _mPanelIndex    =   0
    End
    Begin Timer Timer250ms
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Period          =   250
@@ -551,7 +550,8 @@ End
 	#tag Method, Flags = &h21
 		Private Sub ShowOptions()
 		  Var dlg As New OptionsWindow()
-		  dlg.ShowModal(self)
+		  dlg.ShowModal(Self)
+		  
 		  
 		  If dlg.ResultOk Then
 		    App.AppConfig.Save

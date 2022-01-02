@@ -108,10 +108,14 @@
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
+			  #If TargetLinux Then
+			    Return Color.FillColor
+			  #EndIf
+			  
 			  If DarkMode Then
 			    Return &c1D1D1D00
 			  Else
-			    Return color.White
+			    Return Color.White
 			  End
 			End Get
 		#tag EndGetter

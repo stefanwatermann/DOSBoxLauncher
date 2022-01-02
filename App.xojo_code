@@ -151,6 +151,11 @@ Inherits DesktopApplication
 		#Tag Instance, Platform = Linux, Language = Default, Definition  = \"&Delete"
 	#tag EndConstant
 
+	#tag Constant, Name = kFileMenu, Type = String, Dynamic = True, Default = \"&File", Scope = Public
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"&File"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"&Datei"
+	#tag EndConstant
+
 	#tag Constant, Name = kFileQuit, Type = String, Dynamic = True, Default = \"&Exit", Scope = Public
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"E&xit"
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Beenden"

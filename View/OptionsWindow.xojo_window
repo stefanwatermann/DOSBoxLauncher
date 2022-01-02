@@ -3,7 +3,7 @@ Begin DesktopWindow OptionsWindow
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF00
    Composite       =   False
-   DefaultLocation =   3
+   DefaultLocation =   1
    FullScreen      =   False
    HasBackgroundColor=   False
    HasCloseButton  =   True
@@ -429,7 +429,7 @@ End
 
 	#tag Property, Flags = &h21
 		#tag Note
-			self.WasSendStatsChecked = 
+			self.WasSendStatsChecked =
 		#tag EndNote
 		Private WasSendStatsChecked As Boolean
 	#tag EndProperty

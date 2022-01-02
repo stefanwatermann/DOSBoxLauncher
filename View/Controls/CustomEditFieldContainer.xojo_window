@@ -383,6 +383,26 @@ End
 	#tag EndProperty
 
 
+	#tag Constant, Name = kEditMenu_Copy, Type = String, Dynamic = True, Default = \"Copy", Scope = Private
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Copy"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Kopieren"
+	#tag EndConstant
+
+	#tag Constant, Name = kEditMenu_Cut, Type = String, Dynamic = True, Default = \"Cut", Scope = Private
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Cut"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Ausschneiden"
+	#tag EndConstant
+
+	#tag Constant, Name = kEditMenu_Paste, Type = String, Dynamic = True, Default = \"Paste", Scope = Private
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Paste"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Einf\xC3\xBCgen"
+	#tag EndConstant
+
+	#tag Constant, Name = kEditMenu_SelectAll, Type = String, Dynamic = True, Default = \"Select all", Scope = Private
+		#Tag Instance, Platform = Any, Language = en, Definition  = \"Select all"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Alles ausw\xC3\xA4hlen"
+	#tag EndConstant
+
 	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"frameskip\naspect\nscaler\ncore\ncputype\ncycles\ncycleup\ncycledown\nmpu401\nmididevice\nmidiconfig\nfullscreen\nfulldouble\nfullresolution\nwindowresolution\noutput\nautolock\nsensitivity\nwaitonerror\npriority\nmapperfile\nusescancodes\nlanguage\nmemsize\nmachine\ncaptures\nserialX\nxms\nems\numb\nkeyboardlayout\nipx", Scope = Private
 	#tag EndConstant
 
@@ -430,6 +450,49 @@ End
 		  
 		  Self.WasKeyPress = False
 		End Sub
+	#tag EndEvent
+	#tag Event
+		Function ConstructContextualMenu(base As DesktopMenuItem, x As Integer, y As Integer) As Boolean
+		  #If TargetWindows Then
+		    base.AddMenu(New DesktopMenuItem(kEditMenu_Cut))
+		    base.AddMenu(New DesktopMenuItem(kEditMenu_Copy))
+		    base.AddMenu(New DesktopMenuItem(kEditMenu_Paste))
+		    base.AddMenu(New DesktopMenuItem(DesktopMenuItem.TextSeparator))
+		    base.AddMenu(New DesktopMenuItem(kEditMenu_SelectAll))
+		    
+		    base.MenuAt(0).Enabled = Me.SelectedText.Length > 0
+		    base.MenuAt(1).Enabled = Me.SelectedText.Length > 0
+		    
+		    Var clip As New Clipboard
+		    base.MenuAt(2).Enabled =clip.TextAvailable
+		    clip.Close
+		    
+		  #EndIf
+		  
+		  Return True
+		End Function
+	#tag EndEvent
+	#tag Event
+		Function ContextualMenuItemSelected(selectedItem As DesktopMenuItem) As Boolean
+		  Select Case selectedItem.Text
+		    
+		  Case kEditMenu_Cut
+		    Me.Copy
+		    Me.SelectedText = ""
+		    
+		  Case kEditMenu_Copy
+		    Me.Copy
+		    
+		  Case kEditMenu_Paste
+		    Me.Paste
+		    
+		  Case kEditMenu_SelectAll
+		    Me.SelectAll
+		    
+		  End
+		  
+		  Return True
+		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
