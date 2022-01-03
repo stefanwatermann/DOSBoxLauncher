@@ -5,14 +5,15 @@
 DOSBoxLauncher configures and starts DOS applications (e.g. games) using the DOSBox app on the system. 
 DOSBox itself is not part of this app and must be installed separately (see https://www.dosbox.com). 
 
-A simple configuration with few parameters is in the foreground. DOSBoxLauncher is therefore less suitable for cataloging 
+Having a simple configuration with few parameters is in the focus. DOSBoxLauncher is therefore less suitable for cataloging 
 and managing complex collections of DOS applications.
 
-DOSBoxLaunchers interface supports English and German language and currently runs on MacOS and Windows. Linux support is in preparation.
+DOSBoxLaunchers interface supports English and German language and currently runs on MacOS, Windows and Linux.
 
-Download of compiled app, current version 1.1.8: 
+Download of compiled app, current version 1.2.0: 
 - [MacOS](/Builds/macOS/DOSBoxLauncher.app.zip)
 - [Windows](/Builds/Windows/DOSBoxLauncher.zip)
+- [Linux (64bit)](/Builds/Linux/DOSBoxLauncher_amd64_1.2.0-140.deb)
 
 ## License
 DOSBox Launcher is published under the [MIT License](/LICENSE) and can be used free of charge.
