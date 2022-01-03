@@ -2,9 +2,10 @@
 
 ![AppLogo](/Images/AppIcon_128.png)
 
-DOSBoxLauncher configures and starts DOS applications (e.g. games) using an already installed DOSBox app on the system. 
+DOSBoxLauncher configures and starts DOS applications (e.g. games) using the DOSBox app on the system. 
 DOSBox itself is not part of this app and must be installed separately (see https://www.dosbox.com). 
-A simple configuration with a few parameters is in the foreground. DOSBoxLauncher is therefore less suitable for cataloging 
+
+A simple configuration with few parameters is in the foreground. DOSBoxLauncher is therefore less suitable for cataloging 
 and managing complex collections of DOS applications.
 
 DOSBoxLaunchers interface supports English and German language and currently runs on MacOS and Windows. Linux support is in preparation.
