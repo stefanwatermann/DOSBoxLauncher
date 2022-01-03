@@ -8,9 +8,9 @@ DOSBox selbst ist **kein** Bestandteil dieser App und muss separat installiert w
 DOSBoxLaunchers Oberfläche unterstüzt englisch und deutsch und läuft aktuell auf MacOS, Windows und Linux. 
 
 Download der kompilierten App, aktuelle Version 1.2.0: 
-- [MacOS](/Builds/macOS/DOSBoxLauncher.app.zip)
-- [Windows](/Builds/Windows/DOSBoxLauncher.zip)
-- [Linux (64bit)](/Builds/Linux/DOSBoxLauncher_amd64_1.2.0-140.deb)
+- [MacOS](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.1.2/DOSBoxLauncher.app.zip)
+- [Windows](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.1.2/DOSBoxLauncher.zip)
+- [Linux (64bit)](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.1.2/DOSBoxLauncher_amd64_1.2.0-140.deb)
 
 ## Lizenz
 DOSBoxLauncher ist unter der [MIT Lizenz](/LICENSE) veröffentlich und kann kostenlos verwendet werden.
