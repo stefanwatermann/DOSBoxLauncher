@@ -12,8 +12,8 @@ DOSBoxLaunchers interface supports English and German language and currently run
 
 Download of compiled app, current version 1.2.0: 
 - [MacOS](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.1.2/DOSBoxLauncher.app.zip)
-- [Windows](/Builds/Windows/DOSBoxLauncher.zip)
-- [Linux (64bit)](/Builds/Linux/DOSBoxLauncher_amd64_1.2.0-140.deb)
+- [Windows](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.1.2/DOSBoxLauncher.zip)
+- [Linux (64bit)](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.1.2/DOSBoxLauncher_amd64_1.2.0-140.deb)
 
 ## License
 DOSBox Launcher is published under the [MIT License](/LICENSE) and can be used free of charge.
