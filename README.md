@@ -3,7 +3,7 @@
 ![AppLogo](/Images/AppIcon_128.png)
 
 DOSBoxLauncher configures and starts DOS applications (e.g. games) using the DOSBox app on your computer. 
-DOSBox itself is not part of this app and must be installed separately (see [www.dosdox.com](https://www.dosbox.com)). 
+DOSBox itself is not part of this app and must be installed separately (see [www.dosbox.com](https://www.dosbox.com)). 
 
 Having a simple configuration with few parameters is in the focus. DOSBoxLauncher is therefore less suitable for cataloging 
 and managing complex collections of DOS applications.
@@ -16,7 +16,7 @@ Download of compiled app, current version 1.2.0:
 - [Linux (64bit)](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.1.2/DOSBoxLauncher_amd64_1.2.0-140.deb)
 
 ## Usage
-1. Download and install DOSBox ([www.dosdox.com](https://www.dosbox.com)) if not already done. 
+1. Download and install DOSBox ([www.dosbox.com](https://www.dosbox.com)) if not already done. 
 2. Create a "DOS-Games" folder somewhere on your system and put all games (folders) you want to run here.
 3. Download and run DOSBoxLaucher.
 
@@ -37,4 +37,4 @@ In "Expert" mode, the DOSBox configuration file for the application can be edite
 DOSBox Launcher is published under the [MIT License](/LICENSE) and can be used free of charge.
 
 ## Development
-The project was created using the development environment [XOJO](https://www.xojo.com) (2021r2.1).
+The project was created using the development environment [XOJO](https://www.xojo.com).
