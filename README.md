@@ -2,7 +2,7 @@
 
 ![AppLogo](/Images/AppIcon_128.png)
 
-DOSBoxLauncher configures and starts DOS applications (e.g. games) using the DOSBox app on the system. 
+DOSBoxLauncher configures and starts DOS applications (e.g. games) using the DOSBox app on your computer. 
 DOSBox itself is not part of this app and must be installed separately (see https://www.dosbox.com). 
 
 Having a simple configuration with few parameters is in the focus. DOSBoxLauncher is therefore less suitable for cataloging 
@@ -15,18 +15,16 @@ Download of compiled app, current version 1.2.0:
 - [Windows](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.1.2/DOSBoxLauncher.zip)
 - [Linux (64bit)](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.1.2/DOSBoxLauncher_amd64_1.2.0-140.deb)
 
-## License
-DOSBox Launcher is published under the [MIT License](/LICENSE) and can be used free of charge.
-
-## Development
-The project was created using the development environment [XOJO](https://www.xojo.com) (2021r2.1).
-
 ## Usage
+1) Download and install DOSBox (https://www.dosbox.com) if not already done. 
+2) Create a "DOS-Games" folder somewher on your system and put all games (folders) you want to run here.
+3) Download and run DOSBoxLaucher.
+
 The main window shows a list of the configured DOS applications / games. A double click starts the respective game.
 
 ![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_EN.png)
 
-The configuration of the DOSBox options takes place either in "simple" or in "expert" mode.
+The configuration of the DOSBox options takes place either in "simple" or "expert" mode.
 The "simple" mode allows the quick configuration of essential DOSBox options by means of a simple dialog.
 
 ![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_1_EN.png)
@@ -34,3 +32,9 @@ The "simple" mode allows the quick configuration of essential DOSBox options by 
 In "Expert" mode, the DOSBox configuration file for the application can be edited directly. All DOSBox options and configuration variants can be used here. Full control over the DOS application is available.
 
 ![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_2_EN.png)
+
+## License
+DOSBox Launcher is published under the [MIT License](/LICENSE) and can be used free of charge.
+
+## Development
+The project was created using the development environment [XOJO](https://www.xojo.com) (2021r2.1).
