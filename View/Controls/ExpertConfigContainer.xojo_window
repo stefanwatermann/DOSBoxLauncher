@@ -164,6 +164,14 @@ End
 #tag EndDesktopWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Opening()
+		  LinuxHelper.AdjustControls(self)
+		  RaiseEvent Opening
+		End Sub
+	#tag EndEvent
+
+
 	#tag Method, Flags = &h21
 		Private Sub EnableOkButton()
 		  Var canEnable As Boolean = False
@@ -178,6 +186,10 @@ End
 
 	#tag Hook, Flags = &h0
 		Event CanEnableOkButton(enable as Boolean)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event Opening()
 	#tag EndHook
 
 

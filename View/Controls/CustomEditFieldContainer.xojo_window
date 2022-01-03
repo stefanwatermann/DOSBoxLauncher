@@ -415,7 +415,7 @@ End
 		#Tag Instance, Platform = Any, Language = de, Definition  = \"Alles ausw\xC3\xA4hlen"
 	#tag EndConstant
 
-	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"frameskip\naspect\nscaler\ncore\ncputype\ncycles\ncycleup\ncycledown\nmpu401\nmididevice\nmidiconfig\nfullscreen\nfulldouble\nfullresolution\nwindowresolution\noutput\nautolock\nsensitivity\nwaitonerror\npriority\nmapperfile\nusescancodes\nlanguage\nmemsize\nmachine\ncaptures\nserialX\nxms\nems\numb\nkeyboardlayout\nipx", Scope = Private
+	#tag Constant, Name = kSyntax_Keywords, Type = String, Dynamic = False, Default = \"frameskip\naspect\nscaler\ncore\ncputype\ncycles\ncycleup\ncycledown\nmpu401\nmididevice\nmidiconfig\nfullscreen\nfulldouble\nfullresolution\nwindowresolution\noutput\nautolock\nsensitivity\nwaitonerror\npriority\nmapperfile\nusescancodes\nlanguage\nmemsize\nmachine\ncaptures\nserialX\nxms\nems\numb\nkeyboardlayout\nipx\nnosound\nrate\nblocksize\nprebuffer\nserial1\nserial2\nserial3\nserial4\njoysticktype\ntimed\nautofire\nswap34\nbuttonwrap\npcspeaker\npcrate\ntandy\ntandyrate\ndisney\ngus\ngusrate\ngusbase\ngusirq\ngusdma\nultradir\nsbtype\nsbbase\nirq\ndma\nhdma\nsbmixer\noplmode\noplemu\noplrate", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kSyntax_Params, Type = String, Dynamic = False, Default = \"", Scope = Private
@@ -449,7 +449,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Function KeyDown(key As String) As Boolean
-		  System.DebugLog("KeyDown")
+		  System.DebugLog("KeyDown:" + key)
 		  
 		  Self.WasKeyPress = True
 		  

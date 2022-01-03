@@ -150,6 +150,7 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Opening()
+		  LinuxHelper.AdjustControls(Self)
 		  
 		  ExpertConfigContainer1.Left = SimpleConfigContainer1.Left
 		  ExpertConfigContainer1.Top = SimpleConfigContainer1.Top

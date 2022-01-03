@@ -201,7 +201,7 @@ Begin DesktopContainer SimpleConfigContainer
       Underline       =   False
       ValidationMask  =   ""
       Visible         =   True
-      Width           =   428
+      Width           =   425
    End
    Begin DesktopButton btnSelectFolderC
       AllowAutoDeactivate=   True
@@ -216,7 +216,7 @@ Begin DesktopContainer SimpleConfigContainer
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   451
+      Left            =   450
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False
@@ -232,7 +232,7 @@ Begin DesktopContainer SimpleConfigContainer
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   27
+      Width           =   40
    End
    Begin DesktopLabel lbMountD
       AllowAutoDeactivate=   True
@@ -335,7 +335,7 @@ Begin DesktopContainer SimpleConfigContainer
       Underline       =   False
       ValidationMask  =   ""
       Visible         =   True
-      Width           =   428
+      Width           =   425
    End
    Begin DesktopButton btnSelectFolderD
       AllowAutoDeactivate=   True
@@ -350,7 +350,7 @@ Begin DesktopContainer SimpleConfigContainer
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   451
+      Left            =   450
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False
@@ -366,7 +366,7 @@ Begin DesktopContainer SimpleConfigContainer
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   27
+      Width           =   40
    End
    Begin DesktopLabel lbStartFile
       AllowAutoDeactivate=   True
@@ -439,7 +439,7 @@ Begin DesktopContainer SimpleConfigContainer
       Underline       =   False
       ValidationMask  =   ""
       Visible         =   True
-      Width           =   428
+      Width           =   425
    End
    Begin DesktopButton btnSelectStartFile
       AllowAutoDeactivate=   True
@@ -454,7 +454,7 @@ Begin DesktopContainer SimpleConfigContainer
       Height          =   20
       Index           =   -2147483648
       Italic          =   False
-      Left            =   451
+      Left            =   450
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False
@@ -470,7 +470,7 @@ Begin DesktopContainer SimpleConfigContainer
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   28
+      Width           =   40
    End
    Begin DesktopLabel lbResolution
       AllowAutoDeactivate=   True
@@ -810,33 +810,11 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Opening()
-		  AdjustControls
+		  LinuxHelper.AdjustControls(self)
 		  RaiseEvent Opening
 		End Sub
 	#tag EndEvent
 
-
-	#tag Method, Flags = &h21
-		Private Sub AdjustControls()
-		  #If TargetLinux Then
-		    For Each ctrl As DesktopControl In Self.Controls
-		      
-		      If ctrl IsA DesktopButton Then
-		        DesktopButton(ctrl).Height = 29
-		      End
-		      
-		      If ctrl IsA DesktopTextField Then
-		        DesktopTextField(ctrl).Height = 29
-		      End
-		      
-		      If ctrl IsA DesktopPopupMenu Then
-		        DesktopPopupMenu(ctrl).Height = 29
-		      End
-		      
-		    Next
-		  #EndIf
-		End Sub
-	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub EnableOkButton()

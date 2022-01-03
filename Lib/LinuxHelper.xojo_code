@@ -1,6 +1,28 @@
 #tag Module
  Attributes ( Version = 1.0, Copyright = "2021 - watermann-it.de" ) Protected Module LinuxHelper
 	#tag Method, Flags = &h0
+		Sub AdjustControls(window as DesktopWindow)
+		  #If TargetLinux Then
+		    For Each ctrl As DesktopControl In window.Controls
+		      
+		      If ctrl IsA DesktopButton Then
+		        DesktopButton(ctrl).Height = 29
+		      End
+		      
+		      If ctrl IsA DesktopTextField Then
+		        DesktopTextField(ctrl).Height = 29
+		      End
+		      
+		      If ctrl IsA DesktopPopupMenu Then
+		        DesktopPopupMenu(ctrl).Height = 29
+		      End
+		      
+		    Next
+		  #EndIf
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub FixLargeToolbarButtons(t as DesktopToolbar)
 		  
 		  // To be called from the "Toolbar.Open" event-handler

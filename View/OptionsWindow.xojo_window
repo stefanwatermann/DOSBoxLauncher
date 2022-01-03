@@ -161,7 +161,7 @@ Begin DesktopWindow OptionsWindow
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   27
+      Width           =   40
    End
    Begin Label Label2
       AllowAutoDeactivate=   True
@@ -271,7 +271,7 @@ Begin DesktopWindow OptionsWindow
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   27
+      Width           =   40
    End
    Begin CheckBox cbSendStats
       AllowAutoDeactivate=   True
