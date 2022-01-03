@@ -21,7 +21,7 @@ DOSBox Launcher is published under the [MIT License](/LICENSE) and can be used f
 ## Development
 The project was created using the development environment [XOJO](https://www.xojo.com) (2021r2.1).
 
-## Useage
+## Usage
 The main window shows a list of the configured DOS applications / games. A double click starts the respective game.
 
 ![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_EN.png)
