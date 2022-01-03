@@ -5,11 +5,12 @@
 DOSBoxLauncher konfiguriert und startet DOS Anwendungen (z.B. Spiele) mittels einer auf dem System vorhandenen DOSBox App.
 DOSBox selbst ist **kein** Bestandteil dieser App und muss separat installiert werden (siehe https://www.dosbox.com). Es steht eine einfache Konfiguration mit wenigen Parametern im Vordergrund. DOSBoxLauncher eignet sich daher weniger für die Katalogisierung und Verwaltung komplexer Sammlungen von DOS Anwendungen. 
 
-DOSBoxLaunchers Oberfläche unterstüzt englisch und deutsch und läuft aktuell auf MacOS und Windows. Linux Support ist in Vorbereitung. 
+DOSBoxLaunchers Oberfläche unterstüzt englisch und deutsch und läuft aktuell auf MacOS, Windows und Linux. 
 
 Download der kompilierten App, aktuelle Version 1.1.8: 
 - [MacOS](/Builds/macOS/DOSBoxLauncher.app.zip)
 - [Windows](/Builds/Windows/DOSBoxLauncher.zip)
+- [Linux (64bit)](/Builds/Linux/DOSBoxLauncher_amd64_1.2.0-140.deb)
 
 ## Lizenz
 DOSBoxLauncher ist unter der [MIT Lizenz](/LICENSE) veröffentlich und kann kostenlos verwendet werden.
