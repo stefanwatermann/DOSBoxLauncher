@@ -16,9 +16,9 @@ Download of compiled app, current version 1.2.0:
 - [Linux (64bit)](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.1.2/DOSBoxLauncher_amd64_1.2.0-140.deb)
 
 ## Usage
-1) Download and install DOSBox (https://www.dosbox.com) if not already done. 
-2) Create a "DOS-Games" folder somewher on your system and put all games (folders) you want to run here.
-3) Download and run DOSBoxLaucher.
+1. Download and install DOSBox (https://www.dosbox.com) if not already done. 
+2. Create a "DOS-Games" folder somewher on your system and put all games (folders) you want to run here.
+3. Download and run DOSBoxLaucher.
 
 The main window shows a list of the configured DOS applications / games. A double click starts the respective game.
 
