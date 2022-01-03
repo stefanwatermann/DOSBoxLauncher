@@ -145,9 +145,25 @@ End
 	#tag EndHook
 
 
-	#tag Property, Flags = &h0
-		PanelIndex As Integer
+	#tag Property, Flags = &h21
+		Private mPanelIndex As Integer
 	#tag EndProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mPanelIndex
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mPanelIndex = value
+			  TabEditMode.SelectedSegmentIndex = value
+			  TabChanged(value)
+			End Set
+		#tag EndSetter
+		PanelIndex As Integer
+	#tag EndComputedProperty
 
 
 	#tag Constant, Name = ktabEditMode_PanelExpert, Type = String, Dynamic = True, Default = \"Expert", Scope = Private
@@ -166,7 +182,7 @@ End
 #tag Events TabEditMode
 	#tag Event
 		Sub Pressed(segmentIndex as integer)
-		  self.PanelIndex = segmentIndex
+		  Self.PanelIndex = segmentIndex
 		  TabChanged(segmentIndex)
 		End Sub
 	#tag EndEvent

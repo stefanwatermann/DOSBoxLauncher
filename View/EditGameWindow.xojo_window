@@ -187,19 +187,6 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub EnableOkButton()
-		  //If tabEditMode.SelectedPanelIndex = 1 Then
-		  //btnOk.Enabled = (tbGameNameExpert.Text.Length > 2) And _
-		  //(tbExpertText.Text.Length > 0)
-		  //Else
-		  //btnOk.Enabled = (tbGameName.Text.Length > 2) And _
-		  //(tbStartFile.Text.Length > 2) And _
-		  //(tbMountC.Text.Length > 2)
-		  //End
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
 		Private Function GetGameFolder() As FolderItem
 		  Var f As New FolderItem(App.AppConfig.DOSGamesRootFolder, FolderItem.PathModes.Native)
 		  
@@ -417,12 +404,12 @@ End
 		    End
 		  End
 		  
-		  If Self.CurrentDOSGame.ExpertMode Then
-		    Break
-		    // TODO Self.CurrentDOSGame.DOSBoxSettingsTextExpert = tbExpertText.Text
-		  Else
-		    Self.CurrentDOSGame.DOSBoxSettingsTextExpert = ""
-		  End
+		  //If Self.CurrentDOSGame.ExpertMode Then
+		  //Break
+		  //Self.CurrentDOSGame.DOSBoxSettingsTextExpert = tbExpertText.Text
+		  //Else
+		  //Self.CurrentDOSGame.DOSBoxSettingsTextExpert = ""
+		  //End
 		  
 		  Self.ResultOk = True
 		  Self.Close

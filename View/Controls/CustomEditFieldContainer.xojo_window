@@ -95,6 +95,19 @@ End
 
 
 	#tag Method, Flags = &h21
+		Private Sub HighlightClearStyle(tb as DesktopTextArea, leftIndex as integer = -1, line as string = "")
+		  If leftIndex >= 0 Then
+		    tb.SelectionStart = leftIndex
+		    tb.SelectionLength = line.Length
+		  End
+		  
+		  tb.SelectionTextColor = Colors.TextForeground
+		  tb.SelectionBold = False
+		  tb.SelectionItalic = False
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
 		Private Sub HighlightComments(tb as DesktopTextArea, leftIndex as integer, line as string)
 		  tb.SelectionStart = leftIndex
 		  tb.SelectionLength = line.Length
@@ -174,6 +187,8 @@ End
 		    If lineIndex = currentLineIndex Or Not styleCurrentLineOnly Then
 		      // work on current line only
 		      
+		      HighlightClearStyle(tb, leftIndex, line)
+		      
 		      If line.Trim.BeginsWith("#") Then
 		        
 		        // comment
@@ -204,10 +219,7 @@ End
 		  RestoreCursorPos(tb)
 		  
 		  // set default style
-		  tb.SelectionTextColor = Colors.TextForeground
-		  tb.SelectionBold = False
-		  tb.SelectionItalic = False
-		  
+		  HighlightClearStyle(tb)
 		End Sub
 	#tag EndMethod
 
