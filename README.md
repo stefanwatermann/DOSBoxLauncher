@@ -1,14 +1,14 @@
-# DOSBoxLauncher
+# DOSBox Launcher
 
 ![AppLogo](/Images/AppIcon_128.png)
 
-DOSBoxLauncher configures and starts DOS applications (e.g. games) using the DOSBox app on your computer. 
+DOSBox Launcher configures and starts DOS applications (e.g. games) using the DOSBox app on your computer. 
 DOSBox itself is not part of this app and must be installed separately (see [www.dosbox.com](https://www.dosbox.com)). 
 
-Having a simple configuration with few parameters is in the focus. DOSBoxLauncher is therefore less suitable for cataloging 
+Having a simple configuration with few parameters is in the focus. DOSBox Launcher is therefore less suitable for cataloging 
 and managing complex collections of DOS applications.
 
-DOSBoxLaunchers interface supports English and German language and currently runs on MacOS, Windows and Linux.
+DOSBox Launchers interface supports English and German language and currently runs on MacOS, Windows and Linux.
 
 Download of compiled app, current version 1.2.0: 
 - [MacOS](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.1.2/DOSBoxLauncher.app.zip)
@@ -18,7 +18,7 @@ Download of compiled app, current version 1.2.0:
 ## Usage
 1. Download and install DOSBox ([www.dosbox.com](https://www.dosbox.com)) if not already done. 
 2. Create a "DOS-Games" folder somewhere on your system and put all games (folders) you want to run here.
-3. Download and run DOSBoxLaucher.
+3. Download and run DOSBox Laucher.
 
 The main window shows a list of the configured DOS applications / games. A double click starts the respective game.
 
