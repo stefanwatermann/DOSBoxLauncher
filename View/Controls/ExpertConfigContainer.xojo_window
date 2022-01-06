@@ -166,8 +166,9 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Opening()
-		  LinuxHelper.AdjustControls(self)
+		  LinuxHelper.AdjustControls(Self)
 		  RaiseEvent Opening
+		  me.IsDirty = false
 		End Sub
 	#tag EndEvent
 
@@ -193,12 +194,45 @@ End
 	#tag EndHook
 
 
-	#tag Property, Flags = &h0
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mCurrentDOSGame
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  System.DebugLog("-----------------------")
+			  System.DebugLog("tbGameNameExpert.Text=" + tbGameNameExpert.Text)
+			  System.DebugLog("value.Name=" + value.Name)
+			  System.DebugLog("-----------------------")
+			  System.DebugLog("tbExpertText.Text=" + tbExpertText.Text)
+			  System.DebugLog("value.DOSBoxSettingsText=" + value.DOSBoxSettingsText)
+			  System.DebugLog("-----------------------")
+			  
+			  If mCurrentDOSGame <> Nil Then
+			    If tbGameNameExpert.Text <> value.Name Then
+			      tbGameNameExpert.Text = value.Name
+			    End
+			    
+			    If tbExpertText.Text <> value.DOSBoxSettingsText Then
+			      tbExpertText.Text = value.DOSBoxSettingsText
+			    End
+			  End
+			  
+			  mCurrentDOSGame = value
+			  IsDirty = false
+			End Set
+		#tag EndSetter
 		CurrentDOSGame As DOSGame
-	#tag EndProperty
+	#tag EndComputedProperty
 
 	#tag Property, Flags = &h0
 		IsDirty As Boolean = false
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mCurrentDOSGame As DOSGame
 	#tag EndProperty
 
 

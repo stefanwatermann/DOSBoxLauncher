@@ -356,7 +356,8 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Opening()
-		  me.CurrentDOSGame = self.CurrentDOSGame
+		  Me.CurrentDOSGame = Self.CurrentDOSGame
+		  me.GameFolder = new FolderItem(App.AppConfig.DOSGamesRootFolder, Folderitem.PathModes.Native)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -377,6 +378,10 @@ End
 		Sub TabChanged(index as integer)
 		  SimpleConfigContainer1.Visible = index = 0
 		  ExpertConfigContainer1.Visible = index <> 0
+		  
+		  If ExpertConfigContainer1.Visible And Not ExpertConfigContainer1.IsDirty and not self.CurrentDOSGame.ExpertMode Then
+		    ExpertConfigContainer1.CurrentDOSGame = SimpleConfigContainer1.CurrentDOSGame
+		  End
 		End Sub
 	#tag EndEvent
 #tag EndEvents

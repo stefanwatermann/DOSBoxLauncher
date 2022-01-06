@@ -64,6 +64,13 @@ Inherits DesktopApplication
 	#tag EndMethod
 
 
+	#tag Note, Name = ChangeHistrory
+		v1.2.1
+		------
+		- Configured Game basefolder respected when selecting folders in simple mode.
+		- Oneway sync from SimpleMode to ExpertMode.
+	#tag EndNote
+
 	#tag Note, Name = Copyright & Licence
 		Copyright (c) 2021, Stefan Watermann, Germany.
 		
