@@ -22,6 +22,8 @@ Download of compiled app, current version 1.2.0:
 
 The main window shows a list of the configured DOS applications / games. A double click starts the respective game.
 
+See <a href="DOSBoxLauncher/wiki">wiki pages</a> for more details.
+
 ![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_EN.png)
 
 The configuration of the DOSBox options takes place either in "simple" or "expert" mode.
