@@ -20,9 +20,9 @@ Download of compiled app, current version 1.2.0:
 2. Create a "DOS-Games" folder somewhere on your system and put all games (folders) you want to run here.
 3. Download and run DOSBox Laucher.
 
-The main window shows a list of the configured DOS applications / games. A double click starts the respective game.
+*See <a href="https://github.com/stefanwatermann/DOSBoxLauncher/wiki">wiki pages</a> for more details.*
 
-See <a href="https://github.com/stefanwatermann/DOSBoxLauncher/wiki">wiki pages</a> for more details.
+The main window shows a list of the configured DOS applications / games. A double click starts the respective game.
 
 ![DOSBoxLauncher Screenshot](/ScreenShots/DOSBoxLauncher_EN.png)
 
