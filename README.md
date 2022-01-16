@@ -2,7 +2,7 @@
 
 ![AppLogo](/Images/AppIcon_128.png)
 
-DOSBox Launcher is an easy to use DOSBox GUI and configures and starts DOS applications (e.g. games) using the DOSBox app on your computer. 
+DOSBox Launcher is an easy to use DOSBox GUI to configure and start DOS applications (e.g. games) using the DOSBox app on your computer. 
 DOSBox itself is not part of this app and must be installed separately (see [www.dosbox.com](https://www.dosbox.com)). 
 
 Having a simple configuration with few parameters is in the focus. DOSBox Launcher is therefore less suitable for cataloging 
