@@ -304,6 +304,8 @@ End
 		  editWindow = Nil
 		  
 		  ReadGameFiles
+		  
+		  SelectGame(game.Guid)
 		End Sub
 	#tag EndMethod
 
@@ -382,6 +384,8 @@ End
 		  editWindow = Nil
 		  
 		  ReadGameFiles
+		  
+		  SelectGame(game.Guid)
 		End Sub
 	#tag EndMethod
 
@@ -525,6 +529,7 @@ End
 		  
 		  ReadGameFiles
 		  
+		  SelectGame(game.Guid)
 		End Sub
 	#tag EndMethod
 
@@ -549,6 +554,22 @@ End
 		  If r.Status = DataStore.DataStoreResult.DataStoreResultStatus.failed Then
 		    Call MsgBox(r.Message, 16)
 		  End
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub SelectGame(guid as String)
+		  Var i As Integer = 0
+		  
+		  For Each row As DesktopListboxRow In GameList.Rows
+		    If row.Tag <> Nil Then
+		      Var game As Dosgame = DosGame(row.Tag)
+		      If game.Guid = guid Then
+		        GameList.SelectedRowIndex = i
+		      End
+		    End
+		    i = i + 1
+		  Next
 		End Sub
 	#tag EndMethod
 

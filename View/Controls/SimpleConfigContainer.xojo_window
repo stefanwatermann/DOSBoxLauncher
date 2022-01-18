@@ -830,6 +830,21 @@ End
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Function GetInitialFolder(folderpath as string) As Folderitem
+		  Var initialFolder As FolderItem = GameFolder
+		  
+		  If folderpath.Length > 0 Then
+		    Var f As New FolderItem(folderpath, FolderItem.PathModes.Native)
+		    If f <> Nil And f.IsFolder And f.Exists Then
+		      initialFolder = f
+		    End
+		  End
+		  
+		  Return initialFolder
+		End Function
+	#tag EndMethod
+
 
 	#tag Hook, Flags = &h0
 		Event CanEnableOkButton(enable as Boolean)
@@ -996,7 +1011,7 @@ End
 		  dlg.ActionButtonCaption = kSelectC_Action
 		  dlg.Title = kSelectC_Title
 		  dlg.PromptText = kSelectC_Title
-		  dlg.InitialFolder = GameFolder
+		  dlg.InitialFolder = GetInitialFolder(tbMountC.Text)
 		  
 		  Var f As FolderItem = dlg.ShowModal
 		  
@@ -1045,7 +1060,7 @@ End
 		  dlg.ActionButtonCaption = kSelectD_Title
 		  dlg.Title = kSelectD_Title
 		  dlg.PromptText = kSelectD_Title
-		  dlg.InitialFolder = GameFolder
+		  dlg.InitialFolder = GetInitialFolder(tbMountD.Text)
 		  
 		  Var f As FolderItem = dlg.ShowModal
 		  

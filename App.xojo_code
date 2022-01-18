@@ -65,6 +65,11 @@ Inherits DesktopApplication
 
 
 	#tag Note, Name = ChangeHistrory
+		v1.2.2
+		------
+		- select game folder respects already available folder
+		- last selected game restored when add/edit/run game
+		
 		v1.2.1
 		------
 		- Configured Game basefolder respected when selecting folders in simple mode.
@@ -96,9 +101,11 @@ Inherits DesktopApplication
 		EINER UNERLAUBTEN HANDLUNG ODER ANDERWEITIG, DIE SICH AUS, AUS ODER IN VERBINDUNG 
 		MIT DER SOFTWARE ODER DER NUTZUNG ODER ANDEREN GESCHÄFTEN MIT DER SOFTWARE ERGEBEN.
 		
-		----------------------------------------------
+		-------------------------------------------------------
 		
-		opyright (c) 2021, Stefan Watermann, Germany.
+		Copyright (c) 2021, Stefan Watermann, Germany.
+		
+		This software is published under the MIT license (https://de.wikipedia.org/wiki/MIT-Lizenz)
 		
 		Permission is hereby granted, free of charge, to any person obtaining a copy of 
 		this software and associated documentation files (the "Software"), to deal in the 
