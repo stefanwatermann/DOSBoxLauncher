@@ -1,5 +1,5 @@
 #tag Module
- Attributes ( Version = 1.0, Copyright = "watermann-it.de" ) Protected Module UsageInfoClient
+ Attributes ( Version = "1.1", Copyright = "watermann-it.de" ) Protected Module UsageInfoClient
 	#tag Method, Flags = &h0
 		Function GetPlatform() As string
 		  #If TargetMacOS Then
@@ -34,11 +34,20 @@
 		  Replace("{appid}", appId). _
 		  Replace("{instid}", instId). _
 		  Replace("{appversion}", AppVersion). _
+		  Replace("{locale}", Locale.Current.Identifier). _
 		  Replace("{os}", GetPlatform)
 		  
 		  PostJson2Service(kUrlPostUsage, data)
 		End Sub
 	#tag EndMethod
+
+
+	#tag Note, Name = Change-History
+		V1.1 - 2022-04-05
+		-----------------
+		 - Payload JSON enthält Locale String des Clients (z.B. "locale": "de-DE")
+		
+	#tag EndNote
 
 
 	#tag ComputedProperty, Flags = &h0
@@ -57,7 +66,7 @@
 	#tag EndComputedProperty
 
 
-	#tag Constant, Name = kPostUsageInfoTemplate, Type = String, Dynamic = False, Default = \"{ \n    \"appid\": \"{appid}\"\x2C\n    \"instid\": \"{instid}\"\x2C\n    \"appversion\": \"{appversion}\"\x2C\n    \"os\": \"{os}\"\x2C\n    \"data\": \"{data}\"\n}", Scope = Private
+	#tag Constant, Name = kPostUsageInfoTemplate, Type = String, Dynamic = False, Default = \"{ \n    \"appid\": \"{appid}\"\x2C\n    \"instid\": \"{instid}\"\x2C\n    \"appversion\": \"{appversion}\"\x2C\n    \"os\": \"{os}\"\x2C\n    \"locale\": \"{locale}\"\x2C\n    \"data\": \"{data}\"\n}", Scope = Private
 	#tag EndConstant
 
 	#tag Constant, Name = kUrlPostError, Type = String, Dynamic = True, Default = \"", Scope = Private

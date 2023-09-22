@@ -452,7 +452,7 @@ End
 
 	#tag Constant, Name = kcbSendStats_Caption, Type = String, Dynamic = True, Default = \"Send anonymized usage statistics", Scope = Private
 		#Tag Instance, Platform = Any, Language = en, Definition  = \"Send anonymized usage statistics (e.g. app/game started)"
-		#Tag Instance, Platform = Any, Language = de, Definition  = \"Anonymisierte Nutzungsdaten senden (z.B. App/Spiel gestartet)"
+		#Tag Instance, Platform = Any, Language = de, Definition  = \"Anonymisierte Nutzungsdaten senden (z.B. Spiel gestartet)"
 	#tag EndConstant
 
 	#tag Constant, Name = kLabel1_Text, Type = String, Dynamic = True, Default = \"Base folder for DOS games/apps", Scope = Private

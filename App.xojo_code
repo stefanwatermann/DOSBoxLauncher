@@ -65,6 +65,10 @@ Inherits DesktopApplication
 
 
 	#tag Note, Name = ChangeHistrory
+		v1.2.3 - 2022-04-06
+		-------------------
+		- Client Locale wird im UsageInfoClient ermittelt und mit Payload JSON gesendet.
+		
 		v1.2.2
 		------
 		- select game folder respects already available folder

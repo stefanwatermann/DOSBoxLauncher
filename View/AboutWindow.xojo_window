@@ -151,7 +151,7 @@ Begin DesktopWindow AboutWindow
       TabIndex        =   4
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Copyright (c) 2021, Stefan Watermann, Germany"
+      Text            =   "Copyright (c) 2022, Stefan Watermann, Germany"
       TextAlignment   =   0
       TextColor       =   &c9437FF00
       Tooltip         =   ""
