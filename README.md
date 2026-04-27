@@ -11,7 +11,7 @@ and managing complex collections of DOS applications.
 DOSBox Launchers interface supports English and German language and currently runs on MacOS, Windows and Linux.
 
 Download of compiled app, current version 1.2.2: 
-- [MacOS (Universal)](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.2.2/DOSBoxLauncher.Mac.app.zip)
+- [MacOS (Universal)](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.2.2/DOSBoxLauncher.dmg)
 - [Windows (32bit)](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.2.2/DOSBoxLauncher.Windows.zip)
 - [Linux (64bit)](https://github.com/stefanwatermann/DOSBoxLauncher/releases/download/v1.2.2/DOSBoxLauncher.Linux.zip)
 
