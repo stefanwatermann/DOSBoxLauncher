@@ -5,6 +5,7 @@
 				Begin CopyFilesBuildStep CopyDatabaseFileLin
 					AppliesTo = 0
 					Architecture = 0
+					Target = 0
 					Destination = 1
 					Subdirectory = 
 					FolderItem = Li4vRGF0YS9kb3Nib3hsYXVuY2hlci5kYg==
@@ -16,9 +17,14 @@
 				Begin CopyFilesBuildStep CopyDatabaseFileMac
 					AppliesTo = 0
 					Architecture = 0
+					Target = 0
 					Destination = 1
 					Subdirectory = 
 					FolderItem = Li4vRGF0YS9kb3Nib3hsYXVuY2hlci5kYg==
+				End
+				Begin SignProjectStep Sign
+				  DeveloperID=Developer ID Application: Stefan Watermann (E7U6PW8B88)
+				  macOSEntitlements={"App Sandbox":"False","Hardened Runtime":"True","Notarize":"True","UserEntitlements":""}
 				End
 			End
 			Begin BuildStepList Windows
@@ -27,6 +33,7 @@
 				Begin CopyFilesBuildStep CopyDatabaseFileWin
 					AppliesTo = 0
 					Architecture = 0
+					Target = 0
 					Destination = 1
 					Subdirectory = 
 					FolderItem = Li4vRGF0YS9kb3Nib3hsYXVuY2hlci5kYg==
